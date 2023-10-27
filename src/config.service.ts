@@ -1,0 +1,1 @@
+export const api_key = "AIzaSyDLJ4ntoCJ3VpwsKKCild3STIr9VetfAAg", search_engine_id = "94edd7f2627ac4f34";
