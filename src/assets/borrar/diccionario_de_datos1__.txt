@@ -1,0 +1,308 @@
+Departamento de la noticia  ;Categoria ;Subcategoria ;Tema 
+Nacional;Vulnerabilidad ;Energia;Matriz energetica
+Nacional;Causas;Cambio_Clim?tico;" Fenomenos clim?ticos extremos 
+"
+Santander;Causas;Cambio_Clim?tico;" Fenomenos clim?ticos extremos 
+"
+Nacional ;Vulnerabilidad ;Energia;Matriz energetica
+Nacional ;Vulnerabilidad ;SAM;"Impacto sector productivo  - margen de utilidad
+"
+Nacional ;Respuesta;Nacional;Actores institucionales 
+Nacional ;Contexto ;Presente ;"Zonas de mayor impacto
+"
+Norte de santander;Contexto ;Presente ;"Zonas de mayor impacto
+"
+Nacional;Contexto ;Presente ;Tipos de afectaciones 
+Nari?o;Contexto ;Presente ;Tipos de afectaciones 
+Nacional;Causas;Cambio_Clim?tico;" Fenomenos clim?ticos extremos 
+"
+Nacional;Respuesta;Nacional;Marcos institucionales 
+La Guajira;Respuesta;Regional;Marcos institucionales 
+Nacional;Contexto ;Energia;Tipos de afectaciones 
+Nacional;Causas;Cambio_Clim?tico;" Fenomenos clim?ticos extremos 
+"
+Cundinamarca;Causas;Cambio_Clim?tico;" Fenomenos clim?ticos extremos 
+"
+Nacional;Contexto ;Presente ;Tipos de afectaciones 
+Nacional;Respuesta;Cambio_Clim?tico;" Fenomenos clim?ticos extremos 
+"
+Nacional;Respuesta;Cambio_Clim?tico;" Fenomenos clim?ticos extremos 
+"
+Nari?o;Contexto ;Antecedentes ;Impactos ambientales 
+Nari?o;Contexto ;Antecedentes ;Impactos ambientales 
+Nari?o;Contexto ;Antecedentes ;Impactos ambientales 
+Nari?o;Contexto ;Antecedentes ;"Impactos sociales 
+"
+Nari?o;Respuesta;Regional;Actores institucionales 
+Amazonas y Putumayo;Vulnerabilidad ;Salud ;"Vectores 
+"
+Nari?o y Putumayo;Contexto ;Antecedentes ;Impactos ambientales 
+Nari?o;Respuesta;Regional;Actores institucionales 
+Nari?o;Contexto ;Antecedentes ;Impactos ambientales 
+Nacional;Contexto ;Presente ;"Zonas de mayor impacto
+"
+Nacional;Contexto ;Caracterizacion ; Fenomeno para Colombia
+Nacional;Respuesta;Nacional;Actores institucionales 
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
