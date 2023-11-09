@@ -76,7 +76,7 @@ export class ConvertToExcelService {
   }
 
   replaceAll(string, search, replace) {
-    console.log("replaceAll string", string);
+    //console.log("replaceAll string", string);
     return string ? string.split(search).join(replace) : '';
   }
 }

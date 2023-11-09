@@ -49,6 +49,16 @@ Help.
 Nest is [MIT licensed](LICENSE).
 
 # para descargar templates para la carga del diccionario de datos
-http://localhost:3000/generate-founts/templates//diccionario_de_datos.csv
+http://localhost:3000/generate-founts/templates/diccionario_de_datos.csv
 
-# 
+ 
+## Metas
+
+# Do
+
+# Doing
+
+
+# Does
+
+

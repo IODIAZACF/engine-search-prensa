@@ -1,5 +1,5 @@
-export const api_key = "AIzaSyDLJ4ntoCJ3VpwsKKCild3STIr9VetfAAg",
-    search_engine_id = "94edd7f2627ac4f34",
+export const api_key = "AIzaSyA44y94VjVjElwK7teXi5NyAicKl9q6QB8",//AIzaSyAOPpAVamWIr86uHbtv-ppXnttcjdRlLFw//AIzaSyDLJ4ntoCJ3VpwsKKCild3STIr9VetfAAg
+    search_engine_id = "478fca230f2c14977",
     dummy = [
         {
             "kind": "customsearch#result",
@@ -335,885 +335,1866 @@ export const api_key = "AIzaSyDLJ4ntoCJ3VpwsKKCild3STIr9VetfAAg",
     ],
     jsonDictionary = [
         {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNacional;Vulnerabilidad ;Energia;Matriz energetica"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNacional;Causas;Cambio_Clim?tico; Fenomenos clim?ticos extremos \n"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nSantander;Causas;Cambio_Clim?tico; Fenomenos clim?ticos extremos \n"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNacional ;Vulnerabilidad ;Energia;Matriz energetica"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNacional ;Vulnerabilidad ;SAM;Impacto sector productivo  - margen de utilidad\n"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNacional ;Respuesta;Nacional;Actores institucionales "
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNacional ;Contexto ;Presente ;Zonas de mayor impacto\n"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNorte de santander;Contexto ;Presente ;Zonas de mayor impacto\n"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNacional;Contexto ;Presente ;Tipos de afectaciones "
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNari?o;Contexto ;Presente ;Tipos de afectaciones "
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNacional;Causas;Cambio_Clim?tico; Fenomenos clim?ticos extremos \n"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNacional;Respuesta;Nacional;Marcos institucionales "
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nLa Guajira;Respuesta;Regional;Marcos institucionales "
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNacional;Contexto ;Energia;Tipos de afectaciones "
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNacional;Causas;Cambio_Clim?tico; Fenomenos clim?ticos extremos \n"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nCundinamarca;Causas;Cambio_Clim?tico; Fenomenos clim?ticos extremos \n"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNacional;Contexto ;Presente ;Tipos de afectaciones "
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNacional;Respuesta;Cambio_Clim?tico; Fenomenos clim?ticos extremos \n"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNacional;Respuesta;Cambio_Clim?tico; Fenomenos clim?ticos extremos \n"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNari?o;Contexto ;Antecedentes ;Impactos ambientales "
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNari?o;Contexto ;Antecedentes ;Impactos ambientales "
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNari?o;Contexto ;Antecedentes ;Impactos ambientales "
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNari?o;Contexto ;Antecedentes ;Impactos sociales \n"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNari?o;Respuesta;Regional;Actores institucionales "
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nAmazonas y Putumayo;Vulnerabilidad ;Salud ;Vectores \n"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNari?o y Putumayo;Contexto ;Antecedentes ;Impactos ambientales "
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNari?o;Respuesta;Regional;Actores institucionales "
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNari?o;Contexto ;Antecedentes ;Impactos ambientales "
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNacional;Contexto ;Presente ;Zonas de mayor impacto\n"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNacional;Contexto ;Caracterizacion ; Fenomeno para Colombia"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\nNacional;Respuesta;Nacional;Actores institucionales "
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
-        },
-        {
-            "Departamento de la noticia  ;Categoria ;Subcategoria ;Tema ": "\n;;;"
+            "Categoría": "Vulnerabilidad",
+            "Subcategorias": "Caracterización fenómeno",
+            "Temas": "1. Fenomeno general",
+            "Palabra clave": "fenómeno del niño",
+            "Diccionario Principal": "Record de temperatura",
+            "Diccionario Ligado": "Intenso /fortalecimiento",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "2. Fenomeno para Colombia",
+            "Palabra clave": "Oscilación del sur",
+            "Diccionario Principal": "alteración / altera",
+            "Diccionario Ligado": "preocupación",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "3. Características actuales",
+            "Palabra clave": "Del niño",
+            "Diccionario Principal": "riesgo",
+            "Diccionario Ligado": "agudo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "El niño",
+            "Diccionario Principal": "caluroso",
+            "Diccionario Ligado": "extremo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "ENSO",
+            "Diccionario Principal": "cambios",
+            "Diccionario Ligado": "aumento / aumentaría",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "fenómeno meteorológico",
+            "Diccionario Principal": "efectos /efecto",
+            "Diccionario Ligado": "profundos",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "patrón climático",
+            "Diccionario Principal": "desafío",
+            "Diccionario Ligado": "Disminución / reducción",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "tormenta tropicales",
+            "Diccionario Principal": "verano",
+            "Diccionario Ligado": "grave",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "lluvias torrenciales",
+            "Diccionario Principal": "Helada",
+            "Diccionario Ligado": "emergencia",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "inundaciones",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "Crisis",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "sequías extremas",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "sufrir",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "incendios forestales",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "inusual /anómalo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "condiciones meteorológicas",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "alerta",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Aumento de la temperatura del aire",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "prolongarse",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "altas temperaturas",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "debil",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Fenomenos climáticos extremos",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "moderado",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "amenaza",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "complejo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "Exacerbadas",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "desastre",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "Presente",
+            "Temas": "Zonas de mayor impacto",
+            "Palabra clave": "fenómeno del niño",
+            "Diccionario Principal": "territorio de mayor impacto",
+            "Diccionario Ligado": "empobrecido",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "Población con mayor impacto",
+            "Palabra clave": "Oscilación del sur",
+            "Diccionario Principal": "Población afectada",
+            "Diccionario Ligado": "empobrecidas",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "Tipos de afectaciones",
+            "Palabra clave": "Del niño",
+            "Diccionario Principal": "comunidad afectada",
+            "Diccionario Ligado": "deterioro",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "Escenarios",
+            "Palabra clave": "El niño",
+            "Diccionario Principal": "personas afectadas",
+            "Diccionario Ligado": "sufren",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "ENSO",
+            "Diccionario Principal": "calamidad / calamidades",
+            "Diccionario Ligado": "sufrimiento",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "fenómeno meteorológico",
+            "Diccionario Principal": "Zonas de mayor impacto",
+            "Diccionario Ligado": "gravedad / agrava / agudiza",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "patrón climático",
+            "Diccionario Principal": "Población con mayor impacto",
+            "Diccionario Ligado": "Expulsiónes",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "tormenta tropicales",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "desastre",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "lluvias torrenciales",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "vulnerables",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "inundaciones",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "vulnerabilidad /vulnerabilidades",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "sequías extremas",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "pobreza",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "incendios forestales",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "afectación",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "condiciones meteorológicas",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "empeorado",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Aumento de la temperatura del aire",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "emergencia",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "altas temperaturas",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "crisis",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Fenomenos climáticos extremos",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "amenaza",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "problemática",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "necesidades",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "dispersión",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "dificultades",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "contingencia",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "Agua",
+            "Temas": "1. Disponibilidad de recursos",
+            "Palabra clave": "Sequía",
+            "Diccionario Principal": "Desabastecimiento",
+            "Diccionario Ligado": "Díficil / Disminución",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "2. Acceso",
+            "Palabra clave": "Precipitaciones",
+            "Diccionario Principal": "Racionamiento /ahorro",
+            "Diccionario Ligado": "aumentaría / Aumento /masivo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "3. Cantidad",
+            "Palabra clave": "Déficid hídrico",
+            "Diccionario Principal": "almacenamiento",
+            "Diccionario Ligado": "reducción /reducidas",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "4. Calidad",
+            "Palabra clave": "Lluvia /tormenta /acúmulos",
+            "Diccionario Principal": "aprovisionamiento",
+            "Diccionario Ligado": "mayor / menor",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "4. Género",
+            "Palabra clave": "Innundación",
+            "Diccionario Principal": "promedio",
+            "Diccionario Ligado": "grave / agudo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Humedad",
+            "Diccionario Principal": "suministro",
+            "Diccionario Ligado": "bajo /alto",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "sed",
+            "Diccionario Principal": "disponibilidad",
+            "Diccionario Ligado": "intensa / extrema",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "volumen",
+            "Diccionario Ligado": "moderada /mermado",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "estancamiento",
+            "Diccionario Ligado": "severa / leve",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "Agua",
+            "Diccionario Ligado": "magnitud",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "Acueductos",
+            "Diccionario Ligado": "emergencia",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "Caudal /Caudales",
+            "Diccionario Ligado": "debajo del promedio / encima del promedio",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "embalses",
+            "Diccionario Ligado": "severo / severa",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "Fuente hídrica",
+            "Diccionario Ligado": "significativamente",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "inusual",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "gravedad",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "irregularidad",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "inadecuado",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "secan",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "carencia",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "desviación / variación",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "Recurso energético",
+            "Temas": "Fuentes",
+            "Palabra clave": "Apagones",
+            "Diccionario Principal": "generación",
+            "Diccionario Ligado": "Díficil / Disminución",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "Acceso",
+            "Palabra clave": "Cortes de luz",
+            "Diccionario Principal": "funcionamiento",
+            "Diccionario Ligado": "aumentar / Aumento /masivo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "Costos",
+            "Palabra clave": "Pobreza energética",
+            "Diccionario Principal": "Desabastecimiento",
+            "Diccionario Ligado": "reducción /reducidas",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "Disponibilidad",
+            "Palabra clave": "",
+            "Diccionario Principal": "Racionamiento /ahorro",
+            "Diccionario Ligado": "mayor / menor",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "almacenamiento",
+            "Diccionario Ligado": "grave / agudo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "aprovisionamiento",
+            "Diccionario Ligado": "bajo /alto",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "promedio",
+            "Diccionario Ligado": "intensa / extrema",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "desviación",
+            "Diccionario Ligado": "moderada /mermado",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "variación",
+            "Diccionario Ligado": "severa / leve",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "carencia",
+            "Diccionario Ligado": "magnitud",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "suministro",
+            "Diccionario Ligado": "emergencia",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "disponibilidad",
+            "Diccionario Ligado": "debajo del promedio / encima del promedio",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "Energía",
+            "Diccionario Ligado": "severo / severa",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "significativamente",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "inusual",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "gravedad",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "irregularidad",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "inadecuado",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "caído",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "Seguridad alimentaria",
+            "Temas": "1. Impacto sector productivo",
+            "Palabra clave": "fenómeno del niño",
+            "Diccionario Principal": "Alimentos",
+            "Diccionario Ligado": "Adverso",
+            "field7": "Productividad"
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "2. Precios de alimentos",
+            "Palabra clave": "Oscilación del sur",
+            "Diccionario Principal": "actividad agrícola",
+            "Diccionario Ligado": "pérdidas /perdió",
+            "field7": "Rendimientos"
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "3. Disponibilidad de alimentos -",
+            "Palabra clave": "Del niño",
+            "Diccionario Principal": "Pecuaria",
+            "Diccionario Ligado": "caro/costoso / encarecimiento",
+            "field7": "Perturbaciones"
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "4. Dificultades en el transporte",
+            "Palabra clave": "El niño",
+            "Diccionario Principal": "Insumos",
+            "Diccionario Ligado": "alza",
+            "field7": "producción"
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "5.Género",
+            "Palabra clave": "ENSO",
+            "Diccionario Principal": "Fertilizantes",
+            "Diccionario Ligado": "parcial",
+            "field7": "Precio"
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "fenómeno meteorológico",
+            "Diccionario Principal": "carburantes",
+            "Diccionario Ligado": "Incremento",
+            "field7": "Cosechas"
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "patrón climático",
+            "Diccionario Principal": "Dieta",
+            "Diccionario Ligado": "Disminución / Aumento",
+            "field7": "exportaciones"
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "tormenta tropicales",
+            "Diccionario Principal": "Pesca",
+            "Diccionario Ligado": "escasez",
+            "field7": "valor"
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "lluvias torrenciales",
+            "Diccionario Principal": "Ingresos",
+            "Diccionario Ligado": "reducción /reducir",
+            "field7": "afectaciones"
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "inundaciones",
+            "Diccionario Principal": "cultivos",
+            "Diccionario Ligado": "menos",
+            "field7": "jornales agrícolas"
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "sequías extremas",
+            "Diccionario Principal": "consumo",
+            "Diccionario Ligado": "alteración",
+            "field7": "costo"
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "incendios forestales",
+            "Diccionario Principal": "inflación",
+            "Diccionario Ligado": "menor/ mayor",
+            "field7": "cantidad"
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "condiciones meteorológicas",
+            "Diccionario Principal": "mercado",
+            "Diccionario Ligado": "restricciones",
+            "field7": "reservas"
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Aumento de la temperatura del aire",
+            "Diccionario Principal": "canasta básica",
+            "Diccionario Ligado": "máximo /mínimo",
+            "field7": "dependencia"
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "altas temperaturas",
+            "Diccionario Principal": "siembra/cosecha",
+            "Diccionario Ligado": "grave / agudo",
+            "field7": "sustento"
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Fenomenos climáticos extremos",
+            "Diccionario Principal": "semillas",
+            "Diccionario Ligado": "magnitud",
+            "field7": "subsistencia"
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "diversidad dietaria",
+            "Diccionario Ligado": "emergencia",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "micronutrientes",
+            "Diccionario Ligado": "mermado",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "alimentos variados",
+            "Diccionario Ligado": "inusual",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "Déficid calórico",
+            "Diccionario Ligado": "alto /alta",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "precario / falta",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "elevado /bajo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "encima /dejabo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "suficiente / insuficiente",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "inadecuado/adecuado",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "amenaza",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "pudre /daña",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "Salud",
+            "Temas": "Vectores",
+            "Palabra clave": "Chinkungunya",
+            "Diccionario Principal": "plaga",
+            "Diccionario Ligado": "Riesgo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "IRA/EDA",
+            "Palabra clave": "Dengue",
+            "Diccionario Principal": "epidemia",
+            "Diccionario Ligado": "aumento",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "Género",
+            "Palabra clave": "Malaria",
+            "Diccionario Principal": "vírica",
+            "Diccionario Ligado": "incremento",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "zika",
+            "Diccionario Principal": "virus",
+            "Diccionario Ligado": "incrementaría",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "enfermedades diarreicas infecciones respiratorias",
+            "Diccionario Principal": "picadura",
+            "Diccionario Ligado": "incidencia",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Enfermedades tropicales",
+            "Diccionario Principal": "transmitida",
+            "Diccionario Ligado": "grave",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Calor",
+            "Diccionario Principal": "transmisión",
+            "Diccionario Ligado": "agudo/aguda",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Deshidratación / sed",
+            "Diccionario Principal": "brote",
+            "Diccionario Ligado": "inusual",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Golpe de calor",
+            "Diccionario Principal": "proliferación",
+            "Diccionario Ligado": "amenaza",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "escorpiones",
+            "Diccionario Principal": "prevalencia",
+            "Diccionario Ligado": "muerte / muertes / defunciones",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "accidente ofídico",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "colapsar",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "inadecuado",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "incapacidad",
+            "field7": ""
+        },
+        {
+            "Categoría": "Causa",
+            "Subcategorias": "Nacional",
+            "Temas": "producción de información",
+            "Palabra clave": "fenómeno del niño",
+            "Diccionario Principal": "Articulación",
+            "Diccionario Ligado": "Ausencia /subregistro /vacios",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "Marcos institucionales",
+            "Palabra clave": "Oscilación del sur",
+            "Diccionario Principal": "Comunicación",
+            "Diccionario Ligado": "Fortalezas",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "Actores institucionales",
+            "Palabra clave": "Del niño",
+            "Diccionario Principal": "Nivel nacional",
+            "Diccionario Ligado": "Suficiente",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "El niño",
+            "Diccionario Principal": "Nivel territorial",
+            "Diccionario Ligado": "Necesaria",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "ENSO",
+            "Diccionario Principal": "Gobierno nacional",
+            "Diccionario Ligado": "Retos",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "fenómeno meteorológico",
+            "Diccionario Principal": "Respuesta",
+            "Diccionario Ligado": "Problemas",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "patrón climático",
+            "Diccionario Principal": "Atención",
+            "Diccionario Ligado": "Problematicas",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "tormenta tropicales",
+            "Diccionario Principal": "Plan de gestión",
+            "Diccionario Ligado": "Obstaculos",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "lluvias torrenciales",
+            "Diccionario Principal": "Protocolos",
+            "Diccionario Ligado": "Obstaculo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "inundaciones",
+            "Diccionario Principal": "Unidad para la gestión del Riesgo",
+            "Diccionario Ligado": "Insuficiente",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "sequías extremas",
+            "Diccionario Principal": "Recursos",
+            "Diccionario Ligado": "Complejo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "incendios forestales",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "Articulado",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "condiciones meteorológicas",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "Desarticulado",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Aumento de la temperatura del aire",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "Importante",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "altas temperaturas",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Fenomenos climáticos extremos",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "Regional",
+            "Temas": "producción de información",
+            "Palabra clave": "fenómeno del niño",
+            "Diccionario Principal": "Articulación",
+            "Diccionario Ligado": "Ausencia /subregistro /vacios",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "Marcos institucionales",
+            "Palabra clave": "Oscilación del sur",
+            "Diccionario Principal": "Comunicación",
+            "Diccionario Ligado": "Fortalezas",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "Actores institucionales",
+            "Palabra clave": "Del niño",
+            "Diccionario Principal": "Nivel nacional",
+            "Diccionario Ligado": "Suficiente",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "El niño",
+            "Diccionario Principal": "Nivel territorial",
+            "Diccionario Ligado": "Necesaria",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "ENSO",
+            "Diccionario Principal": "Departamento/ Departamentos",
+            "Diccionario Ligado": "Retos",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "fenómeno meteorológico",
+            "Diccionario Principal": "Municipio / Municipios",
+            "Diccionario Ligado": "Problemas",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "patrón climático",
+            "Diccionario Principal": "Gobierno nacional",
+            "Diccionario Ligado": "Problematicas",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "tormenta tropicales",
+            "Diccionario Principal": "Respuesta",
+            "Diccionario Ligado": "Obstaculos",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "lluvias torrenciales",
+            "Diccionario Principal": "Atención",
+            "Diccionario Ligado": "Obstaculo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "inundaciones",
+            "Diccionario Principal": "Plan de gestión",
+            "Diccionario Ligado": "Insuficiente",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "sequías extremas",
+            "Diccionario Principal": "Protocolos",
+            "Diccionario Ligado": "Complejo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "incendios forestales",
+            "Diccionario Principal": "Unidad para la gestión del Riesgo",
+            "Diccionario Ligado": "Articulado",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "condiciones meteorológicas",
+            "Diccionario Principal": "Recursos",
+            "Diccionario Ligado": "Desarticulado",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Aumento de la temperatura del aire",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "Importante",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "altas temperaturas",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Fenomenos climáticos extremos",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "ACH",
+            "Temas": "Intervenciones actuales que impactan FN",
+            "Palabra clave": "fenómeno del niño",
+            "Diccionario Principal": "Preparación",
+            "Diccionario Ligado": "Ausencia /subregistro /vacios",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "Retos",
+            "Palabra clave": "Oscilación del sur",
+            "Diccionario Principal": "Respuesta",
+            "Diccionario Ligado": "Fortalezas",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Del niño",
+            "Diccionario Principal": "programático",
+            "Diccionario Ligado": "Suficiente",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "El niño",
+            "Diccionario Principal": "asistencia",
+            "Diccionario Ligado": "Necesaria",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "ENSO",
+            "Diccionario Principal": "Contribuir",
+            "Diccionario Ligado": "Retos",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "fenómeno meteorológico",
+            "Diccionario Principal": "activar",
+            "Diccionario Ligado": "Problemas",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "patrón climático",
+            "Diccionario Principal": "activación",
+            "Diccionario Ligado": "Problematicas",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "tormenta tropicales",
+            "Diccionario Principal": "aportando",
+            "Diccionario Ligado": "Obstaculos",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "lluvias torrenciales",
+            "Diccionario Principal": "proponer",
+            "Diccionario Ligado": "Obstaculo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "inundaciones",
+            "Diccionario Principal": "acciones",
+            "Diccionario Ligado": "Insuficiente",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "sequías extremas",
+            "Diccionario Principal": "retos",
+            "Diccionario Ligado": "Complejo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "incendios forestales",
+            "Diccionario Principal": "intervención",
+            "Diccionario Ligado": "Articulado",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "condiciones meteorológicas",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "Desarticulado",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Aumento de la temperatura del aire",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "Importante",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "altas temperaturas",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Fenomenos climáticos extremos",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "sequ?as extremas",
+            "Diccionario Principal": "Recursos",
+            "Diccionario Ligado": "Complejo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "incendios forestales",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "Articulado",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "condiciones meteorol�gicas",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "Desarticulado",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Aumento de la temperatura del aire",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "Importante",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "altas temperaturas",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Fenomenos clim?ticos extremos",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "Regional",
+            "Temas": "producci�n de informaci�n",
+            "Palabra clave": "fen�meno del ni?o",
+            "Diccionario Principal": "Articulaci�n",
+            "Diccionario Ligado": "Ausencia /subregistro /vacios",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "Marcos institucionales",
+            "Palabra clave": "Oscilaci�n del sur",
+            "Diccionario Principal": "Comunicaci�n",
+            "Diccionario Ligado": "Fortalezas",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "Actores institucionales",
+            "Palabra clave": "Del ni?o",
+            "Diccionario Principal": "Nivel nacional",
+            "Diccionario Ligado": "Suficiente",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "El ni?o",
+            "Diccionario Principal": "Nivel territorial",
+            "Diccionario Ligado": "Necesaria",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "ENSO",
+            "Diccionario Principal": "Departamento/ Departamentos",
+            "Diccionario Ligado": "Retos",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "fen�meno meteorol�gico",
+            "Diccionario Principal": "Municipio / Municipios",
+            "Diccionario Ligado": "Problemas",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "patr�n clim?tico",
+            "Diccionario Principal": "Gobierno nacional",
+            "Diccionario Ligado": "Problematicas",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "tormenta tropicales",
+            "Diccionario Principal": "Respuesta",
+            "Diccionario Ligado": "Obstaculos",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "lluvias torrenciales",
+            "Diccionario Principal": "Atenci�n",
+            "Diccionario Ligado": "Obstaculo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "inundaciones",
+            "Diccionario Principal": "Plan de gesti�n",
+            "Diccionario Ligado": "Insuficiente",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "sequ?as extremas",
+            "Diccionario Principal": "Protocolos",
+            "Diccionario Ligado": "Complejo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "incendios forestales",
+            "Diccionario Principal": "Unidad para la gesti�n del Riesgo",
+            "Diccionario Ligado": "Articulado",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "condiciones meteorol�gicas",
+            "Diccionario Principal": "Recursos",
+            "Diccionario Ligado": "Desarticulado",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Aumento de la temperatura del aire",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "Importante",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "altas temperaturas",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Fenomenos clim?ticos extremos",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "ACH",
+            "Temas": "Intervenciones actuales que impactan FN",
+            "Palabra clave": "fen�meno del ni?o",
+            "Diccionario Principal": "Preparaci�n",
+            "Diccionario Ligado": "Ausencia /subregistro /vacios",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "Retos",
+            "Palabra clave": "Oscilaci�n del sur",
+            "Diccionario Principal": "Respuesta",
+            "Diccionario Ligado": "Fortalezas",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Del ni?o",
+            "Diccionario Principal": "program?tico",
+            "Diccionario Ligado": "Suficiente",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "El ni?o",
+            "Diccionario Principal": "asistencia",
+            "Diccionario Ligado": "Necesaria",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "ENSO",
+            "Diccionario Principal": "Contribuir",
+            "Diccionario Ligado": "Retos",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "fen�meno meteorol�gico",
+            "Diccionario Principal": "activar",
+            "Diccionario Ligado": "Problemas",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "patr�n clim?tico",
+            "Diccionario Principal": "activaci�n",
+            "Diccionario Ligado": "Problematicas",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "tormenta tropicales",
+            "Diccionario Principal": "aportando",
+            "Diccionario Ligado": "Obstaculos",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "lluvias torrenciales",
+            "Diccionario Principal": "proponer",
+            "Diccionario Ligado": "Obstaculo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "inundaciones",
+            "Diccionario Principal": "acciones",
+            "Diccionario Ligado": "Insuficiente",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "sequ?as extremas",
+            "Diccionario Principal": "retos",
+            "Diccionario Ligado": "Complejo",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "incendios forestales",
+            "Diccionario Principal": "intervenci�n",
+            "Diccionario Ligado": "Articulado",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "condiciones meteorol�gicas",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "Desarticulado",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Aumento de la temperatura del aire",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "Importante",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "altas temperaturas",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "",
+            "field7": ""
+        },
+        {
+            "Categoría": "",
+            "Subcategorias": "",
+            "Temas": "",
+            "Palabra clave": "Fenomenos clim?ticos extremos",
+            "Diccionario Principal": "",
+            "Diccionario Ligado": "",
+            "field7": ""
         }
     ];

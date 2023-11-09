@@ -7,13 +7,10 @@
 			"path": "../Users/iodiaz/OneDrive - Fundacion Accion contra el Hambre/Documentos/documentations & investigations"
 		},
 		{
-			"path": "../Users/iodiaz/OneDrive - Fundacion Accion contra el Hambre/Escritorio/src"
-		},
-		{
 			"path": "../frontend"
 		},
 		{
-			"path": "../api-rest-nestjs-tools"
+			"path": "../API-REST"
 		}
 	],
 	"settings": {}
