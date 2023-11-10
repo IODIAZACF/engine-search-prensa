@@ -32,6 +32,8 @@
     "csvtojson": "^2.0.10",
     "excel4node": "^1.8.2",
     "html-to-text": "^9.0.5",
+    "htmlparser2": "^9.0.0",
+    "jsdom": "^22.1.0",
     "json-2-csv": "^5.0.1",
     "nodemon": "^3.0.1",
     "reflect-metadata": "^0.1.13",

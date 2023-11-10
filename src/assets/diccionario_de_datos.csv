@@ -1,208 +1,208 @@
-Categoría ;Subcategorias;Temas;Palabra clave;Diccionario Principal;Diccionario Ligado;
-Vulnerabilidad ;Caracterización fenómeno;1. Fenomeno general;fenómeno del niño;Record de temperatura;Intenso /fortalecimiento;
-;;2. Fenomeno para Colombia;Oscilación del sur;alteración / altera;preocupación;
-;; 3. Características actuales;Del niño;riesgo;agudo;
-;;;El niño;caluroso;extremo;
-;;;ENSO;cambios;aumento / aumentaría;
-;;;fenómeno meteorológico;efectos /efecto;profundos;
-;;;patrón climático;desafío;Disminución / reducción;
-;;;tormenta tropicales;verano;grave;
-;;;lluvias torrenciales;Helada;emergencia;
-;;;inundaciones;;Crisis;
-;;;sequías extremas;;sufrir;
-;;;incendios forestales;;inusual /anómalo;
-;;;condiciones meteorológicas;;alerta;
-;;;Aumento de la temperatura del aire;;prolongarse;
-;;;altas temperaturas;;debil;
-;;;Fenomenos climáticos extremos;;moderado;
-;;;;;amenaza;
-;;;;;complejo;
-;;;;;Exacerbadas;
-;;;;;desastre;
-;Presente;Zonas de mayor impacto;fenómeno del niño;territorio de mayor impacto;empobrecido;
-;;Población con mayor impacto;Oscilación del sur;Población afectada;empobrecidas;
-;;Tipos de afectaciones;Del niño;comunidad afectada;deterioro;
-;;Escenarios;El niño;personas afectadas;sufren;
-;;;ENSO;calamidad / calamidades;sufrimiento;
-;;;fenómeno meteorológico;Zonas de mayor impacto;gravedad / agrava / agudiza;
-;;;patrón climático;Población con mayor impacto;Expulsiónes;
-;;;tormenta tropicales;;desastre;
-;;;lluvias torrenciales;;vulnerables;
-;;;inundaciones;;vulnerabilidad /vulnerabilidades;
-;;;sequías extremas;;pobreza;
-;;;incendios forestales;;afectación;
-;;;condiciones meteorológicas;;empeorado;
-;;;Aumento de la temperatura del aire;;emergencia;
-;;;altas temperaturas;;crisis;
-;;;Fenomenos climáticos extremos;;amenaza;
-;;;;;problemática;
-;;;;;necesidades;
-;;;;;dispersión;
-;;;;;dificultades;
-;;;;;contingencia;
-;Agua;1. Disponibilidad de recursos;Sequía;Desabastecimiento;Díficil / Disminución;
-;;2. Acceso;Precipitaciones;Racionamiento /ahorro;aumentaría / Aumento /masivo;
-;;3. Cantidad;Déficid hídrico;almacenamiento;reducción /reducidas;
-;;4. Calidad;Lluvia /tormenta /acúmulos;aprovisionamiento;mayor / menor;
-;;4. Género;Innundación;promedio;grave / agudo;
-;;;Humedad;suministro;bajo /alto;
-;;;sed;disponibilidad;intensa / extrema;
-;;;;volumen;moderada /mermado;
-;;;;estancamiento;severa / leve;
-;;;;Agua;magnitud;
-;;;;Acueductos;emergencia;
-;;;;Caudal /Caudales;debajo del promedio / encima del promedio;
-;;;;embalses;severo / severa;
-;;;;Fuente hídrica;significativamente;
-;;;;;inusual;
-;;;;;gravedad;
-;;;;;irregularidad;
-;;;;;inadecuado;
-;;;;;secan;
-;;;;;carencia;
-;;;;;desviación / variación;
-;Recurso energético;Fuentes;Apagones;generación;Díficil / Disminución;
-;;Acceso;Cortes de luz;funcionamiento;aumentar / Aumento /masivo;
-;;Costos;Pobreza energética;Desabastecimiento;reducción /reducidas;
-;;Disponibilidad;;Racionamiento /ahorro;mayor / menor;
-;;;;almacenamiento;grave / agudo;
-;;;;aprovisionamiento;bajo /alto;
-;;;;promedio;intensa / extrema;
-;;;;desviación;moderada /mermado;
-;;;;variación;severa / leve;
-;;;;carencia;magnitud;
-;;;;suministro;emergencia;
-;;;;disponibilidad;debajo del promedio / encima del promedio;
-;;;;Energía;severo / severa;
-;;;;;significativamente;
-;;;;;inusual;
-;;;;;gravedad;
-;;;;;irregularidad;
-;;;;;inadecuado;
-;;;;;caído;
-;Seguridad alimentaria;1. Impacto sector productivo ;fenómeno del niño;Alimentos;Adverso;Productividad
-;;2. Precios de alimentos;Oscilación del sur;actividad agrícola;pérdidas /perdió;Rendimientos
-;;3. Disponibilidad de alimentos -;Del niño;Pecuaria;caro/costoso / encarecimiento;Perturbaciones
-;;4. Dificultades en el transporte;El niño;Insumos;alza;producción
-;;5.Género;ENSO;Fertilizantes;parcial;Precio
-;;;fenómeno meteorológico;carburantes;Incremento;Cosechas
-;;;patrón climático;Dieta;Disminución / Aumento;exportaciones
-;;;tormenta tropicales;Pesca;escasez;valor
-;;;lluvias torrenciales;Ingresos;reducción /reducir;afectaciones
-;;;inundaciones;cultivos;menos;jornales agrícolas
-;;;sequías extremas;consumo;alteración;costo
-;;;incendios forestales;inflación;menor/ mayor;cantidad
-;;;condiciones meteorológicas;mercado;restricciones;reservas
-;;;Aumento de la temperatura del aire;canasta básica;máximo /mínimo;dependencia
-;;;altas temperaturas;siembra/cosecha;grave / agudo;sustento
-;;;Fenomenos climáticos extremos;semillas;magnitud;subsistencia
-;;;;diversidad dietaria;emergencia;
-;;;;micronutrientes;mermado;
-;;;;alimentos variados;inusual;
-;;;;Déficid calórico;alto /alta;
-;;;;;precario / falta;
-;;;;;elevado /bajo;
-;;;;;encima /dejabo;
-;;;;;suficiente / insuficiente;
-;;;;;inadecuado/adecuado;
-;;;;;amenaza;
-;;;;;pudre /daña;
-;Salud;Vectores;Chinkungunya;plaga;Riesgo;
-;;IRA/EDA;Dengue;epidemia;aumento;
-;;Género;Malaria;vírica;incremento;
-;;;zika;virus;incrementaría;
-;;;enfermedades diarreicas infecciones respiratorias;picadura;incidencia;
-;;;Enfermedades tropicales;transmitida;grave;
-;;;Calor;transmisión;agudo/aguda;
-;;;Deshidratación / sed;brote;inusual;
-;;;Golpe de calor;proliferación;amenaza;
-;;;escorpiones;prevalencia;muerte / muertes / defunciones;
-;;;accidente ofídico;;colapsar;
-;;;;;inadecuado;
-;;;;;incapacidad;
-Causa;Nacional;producción de información;fenómeno del niño;Articulación;Ausencia /subregistro /vacios;
-;;Marcos institucionales;Oscilación del sur;Comunicación;Fortalezas;
-;;Actores institucionales;Del niño;Nivel nacional;Suficiente;
-;;;El niño;Nivel territorial;Necesaria;
-;;;ENSO;Gobierno nacional;Retos;
-;;;fenómeno meteorológico;Respuesta;Problemas;
-;;;patrón climático;Atención;Problematicas;
-;;;tormenta tropicales;Plan de gestión;Obstaculos;
-;;;lluvias torrenciales;Protocolos;Obstaculo;
-;;;inundaciones;Unidad para la gestión del Riesgo;Insuficiente;
-;;;sequías extremas;Recursos;Complejo;
-;;;incendios forestales;;Articulado;
-;;;condiciones meteorológicas;;Desarticulado;
-;;;Aumento de la temperatura del aire;;Importante;
-;;;altas temperaturas;;;
-;;;Fenomenos climáticos extremos;;;
-;Regional;producción de información;fenómeno del niño;Articulación;Ausencia /subregistro /vacios;
-;;Marcos institucionales;Oscilación del sur;Comunicación;Fortalezas;
-;;Actores institucionales;Del niño;Nivel nacional;Suficiente;
-;;;El niño;Nivel territorial;Necesaria;
-;;;ENSO;Departamento/ Departamentos;Retos;
-;;;fenómeno meteorológico;Municipio / Municipios;Problemas;
-;;;patrón climático;Gobierno nacional;Problematicas;
-;;;tormenta tropicales;Respuesta;Obstaculos;
-;;;lluvias torrenciales;Atención;Obstaculo;
-;;;inundaciones;Plan de gestión;Insuficiente;
-;;;sequías extremas;Protocolos;Complejo;
-;;;incendios forestales;Unidad para la gestión del Riesgo;Articulado;
-;;;condiciones meteorológicas;Recursos;Desarticulado;
-;;;Aumento de la temperatura del aire;;Importante;
-;;;altas temperaturas;;;
-;;;Fenomenos climáticos extremos;;;
-;ACH;Intervenciones actuales que impactan FN;fenómeno del niño;Preparación;Ausencia /subregistro /vacios;
-;;Retos;Oscilación del sur;Respuesta;Fortalezas;
-;;;Del niño;programático;Suficiente;
-;;;El niño;asistencia;Necesaria;
-;;;ENSO;Contribuir;Retos;
-;;;fenómeno meteorológico;activar;Problemas;
-;;;patrón climático;activación;Problematicas;
-;;;tormenta tropicales;aportando;Obstaculos;
-;;;lluvias torrenciales;proponer;Obstaculo;
-;;;inundaciones;acciones;Insuficiente;
-;;;sequías extremas;retos;Complejo;
-;;;incendios forestales;intervención;Articulado;
-;;;condiciones meteorológicas;;Desarticulado;
-;;;Aumento de la temperatura del aire;;Importante;
-;;;altas temperaturas;;;
-;;;Fenomenos climáticos extremos;;;
-;;;sequ?as extremas;Recursos;Complejo;
-;;;incendios forestales;;Articulado;
-;;;condiciones meteorol�gicas;;Desarticulado;
-;;;Aumento de la temperatura del aire;;Importante;
-;;;altas temperaturas;;;
-;;;Fenomenos clim?ticos extremos;;;
-;Regional;producci�n de informaci�n;fen�meno del ni?o;Articulaci�n;Ausencia /subregistro /vacios;
-;;Marcos institucionales;Oscilaci�n del sur;Comunicaci�n;Fortalezas;
-;;Actores institucionales;Del ni?o;Nivel nacional;Suficiente;
-;;;El ni?o;Nivel territorial;Necesaria;
-;;;ENSO;Departamento/ Departamentos;Retos;
-;;;fen�meno meteorol�gico;Municipio / Municipios;Problemas;
-;;;patr�n clim?tico;Gobierno nacional;Problematicas;
-;;;tormenta tropicales;Respuesta;Obstaculos;
-;;;lluvias torrenciales;Atenci�n;Obstaculo;
-;;;inundaciones;Plan de gesti�n;Insuficiente;
-;;;sequ?as extremas;Protocolos;Complejo;
-;;;incendios forestales;Unidad para la gesti�n del Riesgo;Articulado;
-;;;condiciones meteorol�gicas;Recursos;Desarticulado;
-;;;Aumento de la temperatura del aire;;Importante;
-;;;altas temperaturas;;;
-;;;Fenomenos clim?ticos extremos;;;
-;ACH;Intervenciones actuales que impactan FN;fen�meno del ni?o;Preparaci�n;Ausencia /subregistro /vacios;
-;;Retos;Oscilaci�n del sur;Respuesta;Fortalezas;
-;;;Del ni?o;program?tico;Suficiente;
-;;;El ni?o;asistencia;Necesaria;
-;;;ENSO;Contribuir;Retos;
-;;;fen�meno meteorol�gico;activar;Problemas;
-;;;patr�n clim?tico;activaci�n;Problematicas;
-;;;tormenta tropicales;aportando;Obstaculos;
-;;;lluvias torrenciales;proponer;Obstaculo;
-;;;inundaciones;acciones;Insuficiente;
-;;;sequ?as extremas;retos;Complejo;
-;;;incendios forestales;intervenci�n;Articulado;
-;;;condiciones meteorol�gicas;;Desarticulado;
-;;;Aumento de la temperatura del aire;;Importante;
-;;;altas temperaturas;;;
-;;;Fenomenos clim?ticos extremos;;;
+Categoría ;Subcategorias;Temas;Palabra clave;Diccionario Principal;Diccionario Ligado
+Vulnerabilidad ;Caracterización fenómeno;1. Fenomeno general;fenómeno del niño;Record de temperatura;Intenso /fortalecimiento
+;;2. Fenomeno para Colombia;Oscilación del sur;alteración / altera;preocupación
+;; 3. Características actuales;Del niño;riesgo;agudo
+;;;El niño;caluroso;extremo
+;;;ENSO;cambios;aumento / aumentaría
+;;;fenómeno meteorológico;efectos /efecto;profundos
+;;;patrón climático;desafío;Disminución / reducción
+;;;tormenta tropicales;verano;grave
+;;;lluvias torrenciales;Helada;emergencia
+;;;inundaciones;;Crisis
+;;;sequías extremas;;sufrir
+;;;incendios forestales;;inusual /anómalo
+;;;condiciones meteorológicas;;alerta
+;;;Aumento de la temperatura del aire;;prolongarse
+;;;altas temperaturas;;debil
+;;;Fenomenos climáticos extremos;;moderado
+;;;;;amenaza
+;;;;;complejo
+;;;;;Exacerbadas
+;;;;;desastre
+;Presente;Zonas de mayor impacto;fenómeno del niño;territorio de mayor impacto;empobrecido
+;;Población con mayor impacto;Oscilación del sur;Población afectada;empobrecidas
+;;Tipos de afectaciones;Del niño;comunidad afectada;deterioro
+;;Escenarios;El niño;personas afectadas;sufren
+;;;ENSO;calamidad / calamidades;sufrimiento
+;;;fenómeno meteorológico;Zonas de mayor impacto;gravedad / agrava / agudiza
+;;;patrón climático;Población con mayor impacto;Expulsiónes
+;;;tormenta tropicales;;desastre
+;;;lluvias torrenciales;;vulnerables
+;;;inundaciones;;vulnerabilidad /vulnerabilidades
+;;;sequías extremas;;pobreza
+;;;incendios forestales;;afectación
+;;;condiciones meteorológicas;;empeorado
+;;;Aumento de la temperatura del aire;;emergencia
+;;;altas temperaturas;;crisis
+;;;Fenomenos climáticos extremos;;amenaza
+;;;;;problemática
+;;;;;necesidades
+;;;;;dispersión
+;;;;;dificultades
+;;;;;contingencia
+;Agua;1. Disponibilidad de recursos;Sequía;Desabastecimiento;Díficil / Disminución
+;;2. Acceso;Precipitaciones;Racionamiento /ahorro;aumentaría / Aumento /masivo
+;;3. Cantidad;Déficid hídrico;almacenamiento;reducción /reducidas
+;;4. Calidad;Lluvia /tormenta /acúmulos;aprovisionamiento;mayor / menor
+;;4. Género;Innundación;promedio;grave / agudo
+;;;Humedad;suministro;bajo /alto
+;;;sed;disponibilidad;intensa / extrema
+;;;;volumen;moderada /mermado
+;;;;estancamiento;severa / leve
+;;;;Agua;magnitud
+;;;;Acueductos;emergencia
+;;;;Caudal /Caudales;debajo del promedio / encima del promedio
+;;;;embalses;severo / severa
+;;;;Fuente hídrica;significativamente
+;;;;;inusual
+;;;;;gravedad
+;;;;;irregularidad
+;;;;;inadecuado
+;;;;;secan
+;;;;;carencia
+;;;;;desviación / variación
+;Recurso energético;Fuentes;Apagones;generación;Díficil / Disminución
+;;Acceso;Cortes de luz;funcionamiento;aumentar / Aumento /masivo
+;;Costos;Pobreza energética;Desabastecimiento;reducción /reducidas
+;;Disponibilidad;;Racionamiento /ahorro;mayor / menor
+;;;;almacenamiento;grave / agudo
+;;;;aprovisionamiento;bajo /alto
+;;;;promedio;intensa / extrema
+;;;;desviación;moderada /mermado
+;;;;variación;severa / leve
+;;;;carencia;magnitud
+;;;;suministro;emergencia
+;;;;disponibilidad;debajo del promedio / encima del promedio
+;;;;Energía;severo / severa
+;;;;;significativamente
+;;;;;inusual
+;;;;;gravedad
+;;;;;irregularidad
+;;;;;inadecuado
+;;;;;caído
+;Seguridad alimentaria;1. Impacto sector productivo ;fenómeno del niño;Alimentos;Adverso
+;;2. Precios de alimentos;Oscilación del sur;actividad agrícola;pérdidas /perdió
+;;3. Disponibilidad de alimentos -;Del niño;Pecuaria;caro/costoso / encarecimiento
+;;4. Dificultades en el transporte;El niño;Insumos;alza
+;;5.Género;ENSO;Fertilizantes;parcial
+;;;fenómeno meteorológico;carburantes;Incremento
+;;;patrón climático;Dieta;Disminución / Aumento
+;;;tormenta tropicales;Pesca;escasez
+;;;lluvias torrenciales;Ingresos;reducción /reducir
+;;;inundaciones;cultivos;menos
+;;;sequías extremas;consumo;alteración
+;;;incendios forestales;inflación;menor/ mayor
+;;;condiciones meteorológicas;mercado;restricciones
+;;;Aumento de la temperatura del aire;canasta básica;máximo /mínimo
+;;;altas temperaturas;siembra/cosecha;grave / agudo
+;;;Fenomenos climáticos extremos;semillas;magnitud
+;;;;diversidad dietaria;emergencia
+;;;;micronutrientes;mermado
+;;;;alimentos variados;inusual
+;;;;Déficid calórico;alto /alta
+;;;;;precario / falta
+;;;;;elevado /bajo
+;;;;;encima /dejabo
+;;;;;suficiente / insuficiente
+;;;;;inadecuado/adecuado
+;;;;;amenaza
+;;;;;pudre /daña
+;Salud;Vectores;Chinkungunya;plaga;Riesgo
+;;IRA/EDA;Dengue;epidemia;aumento
+;;Género;Malaria;vírica;incremento
+;;;zika;virus;incrementaría
+;;;enfermedades diarreicas infecciones respiratorias;picadura;incidencia
+;;;Enfermedades tropicales;transmitida;grave
+;;;Calor;transmisión;agudo/aguda
+;;;Deshidratación / sed;brote;inusual
+;;;Golpe de calor;proliferación;amenaza
+;;;escorpiones;prevalencia;muerte / muertes / defunciones
+;;;accidente ofídico;;colapsar
+;;;;;inadecuado
+;;;;;incapacidad
+Causa;Nacional;producción de información;fenómeno del niño;Articulación;Ausencia /subregistro /vacios
+;;Marcos institucionales;Oscilación del sur;Comunicación;Fortalezas
+;;Actores institucionales;Del niño;Nivel nacional;Suficiente
+;;;El niño;Nivel territorial;Necesaria
+;;;ENSO;Gobierno nacional;Retos
+;;;fenómeno meteorológico;Respuesta;Problemas
+;;;patrón climático;Atención;Problematicas
+;;;tormenta tropicales;Plan de gestión;Obstaculos
+;;;lluvias torrenciales;Protocolos;Obstaculo
+;;;inundaciones;Unidad para la gestión del Riesgo;Insuficiente
+;;;sequías extremas;Recursos;Complejo
+;;;incendios forestales;;Articulado
+;;;condiciones meteorológicas;;Desarticulado
+;;;Aumento de la temperatura del aire;;Importante
+;;;altas temperaturas;;
+;;;Fenomenos climáticos extremos;;
+;Regional;producción de información;fenómeno del niño;Articulación;Ausencia /subregistro /vacios
+;;Marcos institucionales;Oscilación del sur;Comunicación;Fortalezas
+;;Actores institucionales;Del niño;Nivel nacional;Suficiente
+;;;El niño;Nivel territorial;Necesaria
+;;;ENSO;Departamento/ Departamentos;Retos
+;;;fenómeno meteorológico;Municipio / Municipios;Problemas
+;;;patrón climático;Gobierno nacional;Problematicas
+;;;tormenta tropicales;Respuesta;Obstaculos
+;;;lluvias torrenciales;Atención;Obstaculo
+;;;inundaciones;Plan de gestión;Insuficiente
+;;;sequías extremas;Protocolos;Complejo
+;;;incendios forestales;Unidad para la gestión del Riesgo;Articulado
+;;;condiciones meteorológicas;Recursos;Desarticulado
+;;;Aumento de la temperatura del aire;;Importante
+;;;altas temperaturas;;
+;;;Fenomenos climáticos extremos;;
+;ACH;Intervenciones actuales que impactan FN;fenómeno del niño;Preparación;Ausencia /subregistro /vacios
+;;Retos;Oscilación del sur;Respuesta;Fortalezas
+;;;Del niño;programático;Suficiente
+;;;El niño;asistencia;Necesaria
+;;;ENSO;Contribuir;Retos
+;;;fenómeno meteorológico;activar;Problemas
+;;;patrón climático;activación;Problematicas
+;;;tormenta tropicales;aportando;Obstaculos
+;;;lluvias torrenciales;proponer;Obstaculo
+;;;inundaciones;acciones;Insuficiente
+;;;sequías extremas;retos;Complejo
+;;;incendios forestales;intervención;Articulado
+;;;condiciones meteorológicas;;Desarticulado
+;;;Aumento de la temperatura del aire;;Importante
+;;;altas temperaturas;;
+;;;Fenomenos climáticos extremos;;
+;;;sequ?as extremas;Recursos;Complejo
+;;;incendios forestales;;Articulado
+;;;condiciones meteorol�gicas;;Desarticulado
+;;;Aumento de la temperatura del aire;;Importante
+;;;altas temperaturas;;
+;;;Fenomenos clim?ticos extremos;;
+;Regional;producci�n de informaci�n;fen�meno del ni?o;Articulaci�n;Ausencia /subregistro /vacios
+;;Marcos institucionales;Oscilaci�n del sur;Comunicaci�n;Fortalezas
+;;Actores institucionales;Del ni?o;Nivel nacional;Suficiente
+;;;El ni?o;Nivel territorial;Necesaria
+;;;ENSO;Departamento/ Departamentos;Retos
+;;;fen�meno meteorol�gico;Municipio / Municipios;Problemas
+;;;patr�n clim?tico;Gobierno nacional;Problematicas
+;;;tormenta tropicales;Respuesta;Obstaculos
+;;;lluvias torrenciales;Atenci�n;Obstaculo
+;;;inundaciones;Plan de gesti�n;Insuficiente
+;;;sequ?as extremas;Protocolos;Complejo
+;;;incendios forestales;Unidad para la gesti�n del Riesgo;Articulado
+;;;condiciones meteorol�gicas;Recursos;Desarticulado
+;;;Aumento de la temperatura del aire;;Importante
+;;;altas temperaturas;;
+;;;Fenomenos clim?ticos extremos;;
+;ACH;Intervenciones actuales que impactan FN;fen�meno del ni?o;Preparaci�n;Ausencia /subregistro /vacios
+;;Retos;Oscilaci�n del sur;Respuesta;Fortalezas
+;;;Del ni?o;program?tico;Suficiente
+;;;El ni?o;asistencia;Necesaria
+;;;ENSO;Contribuir;Retos
+;;;fen�meno meteorol�gico;activar;Problemas
+;;;patr�n clim?tico;activaci�n;Problematicas
+;;;tormenta tropicales;aportando;Obstaculos
+;;;lluvias torrenciales;proponer;Obstaculo
+;;;inundaciones;acciones;Insuficiente
+;;;sequ?as extremas;retos;Complejo
+;;;incendios forestales;intervenci�n;Articulado
+;;;condiciones meteorol�gicas;;Desarticulado
+;;;Aumento de la temperatura del aire;;Importante
+;;;altas temperaturas;;
+;;;Fenomenos clim?ticos extremos;;

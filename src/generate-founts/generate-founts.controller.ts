@@ -26,8 +26,8 @@ import { json2csv } from 'json-2-csv';
 import { createReadStream } from 'fs';
 import { join } from 'path';
 import { DownloadServiceService } from '../services/download-service/download-service.service'
-
 import express, { Request, Response } from "express";
+import * as htmlparser2 from "htmlparser2";
 
 @Controller('generate-founts')
 export class GenerateFountsController {
@@ -48,11 +48,7 @@ export class GenerateFountsController {
     @Body() createGenerateFountDto: CreateGenerateFountDto,
     @UploadedFile() file: Express.Multer.File,
     @Res({ passthrough: true }) res: Response
-  )/* : Promise<StreamableFile> */ {
-
-    /* const data:any = await this.getContentWeb("https://kf.acf-e.org/");
-    console.log("data", data.data)
-    return data.data; */
+  ): Promise<StreamableFile>  {
 
     let json = [];
     //convert or create excel con la informacion de resultado y formato en las demas hojas de calculo
@@ -105,14 +101,15 @@ export class GenerateFountsController {
     if (createGenerateFountDto['city'])
       query += " + " + createGenerateFountDto['city'];
 
+    let query_params = query;
+
     let config: any = {
       params: {
         //start: 1,
-        safe: "active",
         num,
         dateRestrict,//2021-01-01:2021-12-31
         cr,
-        "q": query,
+        "q": "",
         "key": api_key,
         "cx": search_engine_id
       }
@@ -129,14 +126,28 @@ export class GenerateFountsController {
 
     //defino el item del archivo excel a json con sus diccionarios de datos asociados
     let dataPaginated = [];
-    let diccionarios_principal: any[] = [];
-    let diccionarios_ligado: any[] = [];
+    let diccionarios_principal: any={};
+    let diccionarios_ligado: any={};
     let subcategoria;
 
-    for (let index = 0; index < json.length; index++) {
+    /* for (let index = 0; index < json.length; index++) {
       var element = json[index];
 
       subcategoria = element["Subcategorias"] ? element["Subcategorias"] : subcategoria;
+
+      if (element["Subcategorias"]) {
+        //inicializacion del arreglo de diccionario principal
+        if (typeof diccionarios_principal[element["Subcategorias"]] == 'undefined') {
+          diccionarios_principal[element["Subcategorias"]] = [];
+        }
+      }
+
+      if (element["Subcategorias"]) {
+        //inicializacion del arreglo de diccionario ligado
+        if (typeof diccionarios_ligado[element["Subcategorias"]] == 'undefined') {
+          diccionarios_ligado[element["Subcategorias"]] = [];
+        }
+      }
 
       //DEFINO LOS DICCIONARIOS DE DATOS PRINCIPAL
       element.id_diccionario_principal = subcategoria;
@@ -145,10 +156,6 @@ export class GenerateFountsController {
         let dictionary_principal_words = element['Diccionario Principal'].split('/');
 
         for (let m = 0; m < dictionary_principal_words.length; m++) {
-          //inicializacion del arreglo de diccionario principal
-          if (typeof diccionarios_principal[subcategoria] == 'undefined') {
-            diccionarios_principal[subcategoria] = [];
-          }
           const word = dictionary_principal_words[m];
           diccionarios_principal[subcategoria].push(word);
         }
@@ -160,11 +167,7 @@ export class GenerateFountsController {
 
       if (element['Diccionario Ligado']) {
         let dictionary_ligado_words = element['Diccionario Ligado'].split('/');
-
-        //inicializacion del arreglo de diccionario ligado
-        if (typeof diccionarios_ligado[subcategoria] == 'undefined') {
-          diccionarios_ligado[subcategoria] = [];
-        }
+        console.log("dictionary_ligado_words", dictionary_ligado_words[0]);
 
         for (let n = 0; n < dictionary_ligado_words.length; n++) {
           const word2 = dictionary_ligado_words[n];
@@ -174,24 +177,29 @@ export class GenerateFountsController {
       }
 
       if (element["Palabra clave"] && element["Palabra clave"] !== "") {
-        config.params.q = element["Palabra clave"] + config.params.q;
+        config.params.q = element["Palabra clave"] + query_params;
 
         //DEFINO LAS BUSQUEDAS
         //validar si esta palabra clave ya fue buscada
         let indexItemCurrent = dataPaginated.findIndex(el => el && el['Palabra clave'] == element["Palabra clave"]);
 
-        console.log("dataPaginated[0]", dataPaginated[index] ? dataPaginated[index]['Palabra clave'] : 'NO');
+        console.log("dataPaginated[0]", dataPaginated[index - 1] ? dataPaginated[index - 1]['Palabra clave'] : 'NO');
         console.log("element[Palabra clave]", element["Palabra clave"]);
-        console.log("indexItemCurrent", indexItemCurrent)
+        console.log("indexItemCurrent", indexItemCurrent);
+
+        let itemCurrent = null;
 
         if (indexItemCurrent !== -1) {
-          let itemCurrent = dataPaginated[indexItemCurrent];
+          itemCurrent = dataPaginated[indexItemCurrent];
 
           if (itemCurrent.searchs && itemCurrent.searchs?.length > 0) {
 
             element.searchs = itemCurrent.searchs;
 
             dataPaginated.push(element);
+
+            console.log("itemCurrent.searchs.length", itemCurrent?.searchs ? itemCurrent.searchs.length : itemCurrent);
+            console.log("element.searchs.length", element.searchs.length);
 
           } else {
 
@@ -200,23 +208,20 @@ export class GenerateFountsController {
 
             //config.params.start = z
 
-            const { data } = await firstValueFrom(
-              this.httpService.get<any>('https://www.googleapis.com/customsearch/v1', config).pipe(
-                catchError((error: AxiosError) => {
-                  this.logger.error(error.response.data);
-                  throw 'An error happened!';
-                }),
-              ),
-            );
+            const { data }: any = await this.getContentWeb('https://www.googleapis.com/customsearch/v1', '', config)
 
-            element.searchs = data.items;
+            if (data?.items && data.items?.length) {
 
-            //remover
-            //element.searchs = dummy;
-            //remover
+              element.searchs = data.items;
+              dataPaginated.push(element);
+              console.log("itemCurrent.searchs.length", itemCurrent?.searchs ? itemCurrent.searchs.length : itemCurrent);
+              console.log("element.searchs.length", element.searchs.length);
+            } else {
 
-            dataPaginated.push(element);
-
+              console.log(" config.params.q", config.params.q);
+              console.log("itemCurrent.searchs.length", itemCurrent?.searchs ? itemCurrent.searchs.length : itemCurrent);
+              console.log("element.searchs.length", element.searchs?.length);
+            }
           }
         } else {
 
@@ -225,29 +230,33 @@ export class GenerateFountsController {
 
           //config.params.start = z
 
-          const { data } = await firstValueFrom(
-            this.httpService.get<any>('https://www.googleapis.com/customsearch/v1', config).pipe(
-              catchError((error: AxiosError) => {
-                this.logger.error(error.response.data);
-                throw 'An error happened!';
-              }),
-            ),
-          );
+          const { data }: any = await this.getContentWeb('https://www.googleapis.com/customsearch/v1', '', config)
 
-          element.searchs = data.items;
+          if (data?.items && data.items?.length) {
 
-          //remover
-          //element.searchs = dummy;
-          //remover
+            element.searchs = data.items;
+            dataPaginated.push(element);
+            console.log("itemCurrent.searchs.length", itemCurrent?.searchs ? itemCurrent.searchs.length : itemCurrent);
+            console.log("element.searchs.length", element.searchs.length);
+          } else {
 
-          dataPaginated.push(element);
+            console.log(" config.params.q", config.params.q);
+            console.log("itemCurrent.searchs.length", itemCurrent?.searchs ? itemCurrent.searchs.length : itemCurrent);
+            console.log("element.searchs.length", element.searchs?.length);
+          }
 
         }
-
       }
-    }
+    } */
 
     let contentsAux = [];
+
+    //poner aqui data dummy
+    //remover
+    dataPaginated = dummy.dataPaginated;
+    diccionarios_principal = dummy.diccionarios_principal;
+    diccionarios_ligado = dummy.diccionarios_ligado;
+    //remover
 
     //procesar los datos para que podamos mostrar mas contenido extrayendo todo el texto de la web
     // Web Scraping
@@ -268,17 +277,13 @@ export class GenerateFountsController {
 
         } else {
 
-
-          const responseContent: any = await this.getContentWeb("https://kf.acf-e.org/");
+          const responseContent: any = await this.getContentWeb(element.link, element.snippet, null);
 
           let data = responseContent.data;
 
-          let content = "";
-          const { htmlToText } = require('html-to-text');
+          let content: string | any = "";
 
-          content = await htmlToText(data, {
-            wordwrap: 130
-          });
+          content = await this.getTextFromHtml(data);
 
           //mejorar el string quitando muchos espacio al princiapio y al final
           content = content.trim();
@@ -296,8 +301,16 @@ export class GenerateFountsController {
     console.log("dataPaginated", dataPaginated.length);
 
     //luego validar el content contenga el json y definir
-    let dataPaginatedCreated = await this.generateFountsService.createElementsMath(dataPaginated, diccionarios_principal, diccionarios_ligado);
-    console.log("dataPaginatedCreated", dataPaginatedCreated.length);
+    let dataPaginatedCreated = await this.generateFountsService.createElementsMath(
+      dataPaginated,
+      diccionarios_principal,
+      diccionarios_ligado
+    );
+
+    if (!dataPaginatedCreated?.length || dataPaginatedCreated.length == 0) {
+      return null;
+    }
+
     //crear el axcel
     var xl = require('excel4node');
 
@@ -400,148 +413,13 @@ export class GenerateFountsController {
   async findAll(
     @Body() createGenerateFountDto: CreateGenerateFountDto,
     @UploadedFile() file: Express.Multer.File,
-  ) {/* : Promise<any> */
+  ) /* : Promise<any> */ {
 
-    let query = "",
-      cr = createGenerateFountDto['cr'],
-      dateRestrict = createGenerateFountDto['dateRestrict'],
-      highRange = createGenerateFountDto['highRange'],
-      num = createGenerateFountDto['num'],
-      lowRange = createGenerateFountDto['lowRange'],
-      start = createGenerateFountDto['start'];
+    let htmlString = ` `;
 
+    let outerHTML = await this.getTextFromHtml(htmlString);
 
-    if (createGenerateFountDto['noticia'])
-      query += " + " + " news ";
-    else
-      query += " + " + " investigation ";
-
-    if (createGenerateFountDto['city'])
-      query += " + " + createGenerateFountDto['city'];
-
-    let config = {
-      params: {
-        start,
-        num,
-        lowRange,
-        highRange,
-        dateRestrict,//2021-01-01:2021-12-31
-        cr,
-        "q": query,
-        "key": api_key,
-        "cx": search_engine_id
-      }
-    }
-    //hacer una consulta para obtener la buisqueda solicitada
-
-    let dataPaginated = []
-
-    //obtener los 100 datos de 10 en 10 pero los 100
-    /* let z = 1;
-    while (true) {
-      z += 10;
-
-      config.params.start = z
-      
-      const { data } = await firstValueFrom(
-        this.httpService.get<any>('https://www.googleapis.com/customsearch/v1', config).pipe(
-          catchError((error: AxiosError) => {
-            this.logger.error(error.response.data);
-            throw 'An error happened!';
-          }),
-        ),
-      );
-
-      dataPaginated = dataPaginated.concat(data.items);
-
-      if (z > 90) {
-        break;
-      }
-    } */
-
-    //remover
-    dataPaginated = dummy
-
-    //procesar los datos para que podamos mostrar mas contenido extrayendo todo el texto de la web
-    // Web Scraping
-    for (let index = 0; index < dataPaginated.length; index++) {
-      const element = dataPaginated[index];
-
-      const { data }: any = //await firstValueFrom(
-        await this.httpService.get<any>(element.link).toPromise()//,
-      //);
-      let content = "";
-      const { htmlToText } = require('html-to-text');
-
-      content = await htmlToText(data, {
-        wordwrap: 130
-      });
-
-      //mejorar el string quitando muchos espacio al princiapio y al final
-      content = content.trim();
-
-      //mejorando el string quitando espacio muy repetido
-
-      dataPaginated[index].content = content;
-
-    }
-
-    let json = [];
-    //convert or create excel con la informacion de resultado y formato en las demas hojas de calculo
-    //usar un excel con las claves o procesar la tabla para extraer
-    if (file && file.buffer) {
-
-      //validar que el excel cumpla el formato
-      let csv = file.buffer;
-      let csvstring: string = csv.toString();
-
-      if ((csvstring.match(/;/g) || []).length > 10) {
-        csvstring = await this.convertToExcelService.replaceAll(csvstring, ';', ',');
-
-      }
-
-      //poner aqui el servicios para convertitr el excel en un json y poder hacer un analisis con 
-      //json = await this.convertToExcelService.convertCsvToJson(csv);
-
-      const csvtojson = require("csvtojson");
-
-      const jsonArray = await csvtojson().fromString(csvstring)
-        .subscribe((json) => {
-          //console.log("jsonss", json)
-          return new Promise((resolve, reject) => {
-            resolve(json)
-          })
-        })
-
-      json = jsonArray;
-
-    } else {
-
-      json = jsonDictionary;
-
-    }
-
-    //luego validar el content contenga el json y definir las categorias
-    let dataPaginatedCreated = await this.generateFountsService.createElementsMath(dataPaginated, [], []);
-
-    return dataPaginatedCreated;
-    /* let config = {
-      params: {
-        "q": "Fenomeno del niño",
-        "key": api_key,
-        "cx": search_engine_id
-      }
-    }
-
-    const { data } = await firstValueFrom(
-      this.httpService.get<any>('https://www.googleapis.com/customsearch/v1', config).pipe(
-        catchError((error: AxiosError) => {
-          this.logger.error(error.response.data);
-          throw 'An error happened!';
-        }),
-      ),
-    );
-    return data; */
+    return outerHTML;
   }
 
   @Get('/templates/diccionario_de_datos.csv')
@@ -565,12 +443,55 @@ export class GenerateFountsController {
     return this.generateFountsService.remove(+id);
   }
 
-  getContentWeb(link) {
+  getContentWeb(link, snippet, config) {
     return new Promise(async (resolve, reject) => {
-      await this.httpService.get<any>(link)
-        .subscribe((response) => {
-          resolve(response)
-        });
+      try {
+
+        let data = await firstValueFrom(
+          this.httpService.get<any>(link, config)
+            .pipe(
+              catchError((error: any) => {
+                console.log("link fallido ", link)
+                if (error.response?.data)
+                  this.logger.error(error.response.data);
+                //throw 'An error happened!';
+                return snippet;
+              }),
+            ));
+        resolve(data)
+      } catch (error) {
+        console.log("error")
+        console.log(error);
+        resolve(snippet)
+      }
     });
+  }
+
+  getTextFromHtml(htmlString) {
+
+    return new Promise(async (resolve, reject) => {
+
+      try {
+
+        /* const { htmlToText } = require('html-to-text');
+
+        let content = await htmlToText(htmlString, {
+          wordwrap: 130
+        }); */
+        let textContent = "";
+        const jsdom = require("jsdom");
+        const dom = new jsdom.JSDOM(htmlString);
+
+        textContent = dom.window.document.querySelector("body").textContent;
+
+        resolve(textContent);
+        /* let outerHTML = htmlparser2.DomUtils.getOuterHTML(htmlparser2.parseDOM(htmlString));
+        resolve(outerHTML) */
+      } catch (error) {
+        console.log("error al convertir html to text ", error)
+        resolve(htmlString)
+      }
+    })
+
   }
 }
