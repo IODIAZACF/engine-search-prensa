@@ -5,6 +5,7 @@ import { Observable, firstValueFrom, catchError } from 'rxjs';
 import { HttpService } from '@nestjs/axios';
 import { url_provider_locationscolombia } from '../config.service';
 import { LocationsCo } from '../interfaces/locations-co/locations-co.interface'
+import { Console } from 'console';
 
 @Injectable()
 export class GenerateFountsService {
@@ -65,7 +66,7 @@ export class GenerateFountsService {
 
     //inicializar contadores y contar
     //mathed
-    for (let index = 0; index < elements.length; index++) {
+    for (let index = 0; index < 2; index++) {
 
       let element = elements[index];
 
@@ -104,19 +105,11 @@ export class GenerateFountsService {
 
         let contenido = element.searchs[j].content;
 
-        //init contadores
-        if (j == 0) {
-          element.diccionario_principal_mathed_value = 0;
-          element.diccionario_principal_mathed_words = [];
-
-          element.diccionario_ligado_mathed_value = 0;
-          element.diccionario_ligado_mathed_words = [];
-
-        }
-
         //optimizacion de palabras
         let data_content_minus = contenido.toLowerCase();
         let data_content = await this.removeAccents(data_content_minus);
+
+        let matrizPrincipalLigado: any[] = [];
 
         //REALIZANDO MATH CON EL DICCIONARIO PRINCIPAL
         for (let k = 0; k < diccionarios_principal.length; k++) {
@@ -124,38 +117,57 @@ export class GenerateFountsService {
 
           //optimizacion de palabras
           diccionario_principal = diccionario_principal.toLowerCase()
-          diccionario_principal = await this.removeAccents(diccionario_principal);
+          diccionario_principal = await this.removeAccents(diccionario_principal/* this.removeSpaces() */);
 
-          this.buscarDosPalabras(data_content, diccionario_principal, "palabra2 diccionario ligado")
+          //realizo la combinatorio de los diccionarios
+          for (let m = 0; m < diccionarios_ligado.length; m++) {
 
-          //luego poner el diccionario ligado como palabra 2 e invertir lo mejor
-          // es crear una matriz en el orden que salga con el diccionario ligado
-          // y despues invertir y volver a buscar
-          //cuando halla coincidencias poner element[palabra1+palabra2] = 10
+            let diccionario_ligado: string = diccionarios_ligado[m];
 
+            //optimizacion de palabras
+            diccionario_ligado = diccionario_ligado.toLowerCase()
+            diccionario_ligado = await this.removeAccents(diccionario_ligado/* this.removeSpaces() */);
 
-          if (diccionario_principal && diccionario_principal !== '' && data_content.includes(diccionario_principal)) {
-            element.diccionario_principal_mathed_value++;
-            element.diccionario_principal_mathed_words.push(diccionario_principal);
+            /* console.log("diccionario_ligado diccionario_ligado: ", diccionario_principal + ' - ' + diccionario_ligado);
+            console.log("k m: ", k + ' - ' + m); */
+
+            if (diccionario_principal !== undefined && diccionario_ligado !== undefined && diccionario_principal !== '' && diccionario_ligado !== '') {
+
+              matrizPrincipalLigado.push([diccionario_principal, diccionario_ligado]);
+              matrizPrincipalLigado.push([diccionario_ligado, diccionario_principal]);
+
+            }
 
           }
 
         }
 
-        //REALIZANDO MATH CON EL DICCIONARIO LIGADO
-        for (let m = 0; m < diccionarios_ligado.length; m++) {
-          let diccionario_ligado: string = diccionarios_ligado[m];
+        //BUSQUEDA EN MATRIZ DE COMBINACION DE DICCONARIO PRINCIPAL CON LIGADO 
+        //BUSQUEDA EN MATRIZ INVERSA DE COMBINACION DE DICCONARIO LIGADO CON PRINCIPAL
 
-          //optimizacion de palabras
-          diccionario_ligado = diccionario_ligado.toLowerCase()
-          diccionario_ligado = await this.removeAccents(diccionario_ligado);
+        console.log("matrizPrincipalLigado Palabra clave", element['Palabra clave']);
+        console.log("matrizPrincipalLigado tamaño", matrizPrincipalLigado.length);
+        console.log("matrizPrincipalLigado 0", matrizPrincipalLigado[0]);
 
-          if (diccionario_ligado && diccionario_ligado !== '' && data_content.includes(diccionario_ligado)) {
-            element.diccionario_ligado_mathed_value++;
-            element.diccionario_ligado_mathed_words.push(diccionario_ligado);
+        if (index > 1 && elements.length > 1) {
+          console.log("estado de proceso", (index / (elements.length - 1)) * 100);
+        }
+
+        for (let p = 0; p < matrizPrincipalLigado.length; p++) {
+          const pairWords = matrizPrincipalLigado[p];
+
+          if (pairWords.length == 2) {
+            //init contadores
+            let countMathes = this.buscarDosPalabras(data_content, pairWords[0], pairWords[1]);
+
+            if (countMathes > 0) {
+
+              element[pairWords[0] + '+' + pairWords[1]] = element[pairWords[0] + '+' + pairWords[1]] ? element[pairWords[0] + '+' + pairWords[1]] : 0;
+              element[pairWords[0] + '+' + pairWords[1]] += countMathes;
+
+            }
 
           }
-
         }
 
         //REALIZANDO MATH CON LOS PAISES
@@ -181,7 +193,7 @@ export class GenerateFountsService {
           */
           if (data_content.includes(location.region)) {
             console.log("SI ubo math de locacion")
-            if(element[location.region]){
+            if (element[location.region]) {
               element[location.region].cant++;
             } else {
               element[location.region].cant = 1;
@@ -190,16 +202,16 @@ export class GenerateFountsService {
 
           if (data_content.includes(location.departamento)) {
             console.log("SI ubo math de locacion")
-            if(element[location.departamento]){
+            if (element[location.departamento]) {
               element[location.departamento].cant++;
             } else {
               element[location.departamento].cant = 1;
             }
           }
-          
+
           if (data_content.includes(location.municipio)) {
             console.log("SI ubo math de locacion")
-            if(element[location.municipio]){
+            if (element[location.municipio]) {
               element[location.municipio].cant++;
             } else {
               element[location.municipio].cant = 1;
@@ -213,6 +225,8 @@ export class GenerateFountsService {
       elementsMathed.push(element);
 
     }
+
+    console.log("elementsMathed[0]", elementsMathed[0]);
 
     //eliminar los searches
     for (let x = 0; x < elementsMathed.length; x++) {
@@ -233,7 +247,22 @@ export class GenerateFountsService {
         });
       }
 
-      element.searchs = new_searchs
+      element.searchs = new_searchs;
+
+      //llenar con cero los elementos donde la oalabra no cubrs
+      let keys = Object.keys(element);
+      let values = Object.values(element);
+
+      for (let index = 0; index < keys.length; index++) {
+        const key = keys[index];
+        const value = values[index];
+        
+        if(key && value == undefined){
+          element[key] = 0;
+        }
+        
+      }
+
     }
 
     return elementsMathed;
@@ -241,6 +270,10 @@ export class GenerateFountsService {
 
   removeAccents(str: string) {
     return str ? str.normalize('NFD').replace(/[\u0300-\u036f]/g, '') : str;
+  }
+
+  removeSpaces(str: string) {
+    return str ? str.replaceAll(' ', '') : str;
   }
 
   getContentWeb(link, snippet, config) {
@@ -269,25 +302,25 @@ export class GenerateFountsService {
   buscarDosPalabras(texto, palabra1, palabra2) {
     const palabras = texto.split(" ");
     let coincidencias = 0;
-  
+
     for (let i = 0; i < palabras.length - 1; i++) {
       if (palabras[i] === palabra1 && palabras[i + 1] === palabra2) {
         coincidencias++;
       }
-        
+
       if (palabras[i] === palabra1 && palabras[i + 2] === palabra2) {
         coincidencias++;
       }
-        
+
       if (palabras[i] === palabra1 && palabras[i + 3] === palabra2) {
         coincidencias++;
       }
-        
+
       if (palabras[i] === palabra1 && palabras[i + 4] === palabra2) {
         coincidencias++;
       }
     }
-  
+
     return coincidencias;
   }
 }
