@@ -48,7 +48,7 @@ export class GenerateFountsController {
     @Body() createGenerateFountDto: CreateGenerateFountDto,
     @UploadedFile() file: Express.Multer.File,
     @Res({ passthrough: true }) res: Response
-  ): Promise<StreamableFile>  {
+  )/* : Promise<StreamableFile> */  {
 
     let json = [];
     //convert or create excel con la informacion de resultado y formato en las demas hojas de calculo
@@ -301,7 +301,7 @@ export class GenerateFountsController {
     console.log("dataPaginated", dataPaginated.length);
 
     //luego validar el content contenga el json y definir
-    let dataPaginatedCreated = await this.generateFountsService.createElementsMath(
+    let dataPaginatedCreated:any = await this.generateFountsService.createElementsMath(
       dataPaginated,
       diccionarios_principal,
       diccionarios_ligado
@@ -317,7 +317,7 @@ export class GenerateFountsController {
     const wb = new xl.Workbook();
     const ws = wb.addWorksheet('Matriz');
 
-    const headingColumnNames = Object.keys(dataPaginatedCreated[0])
+    const headingColumnNames:any = dataPaginatedCreated[0]
 
     let headingColumnIndex = 1;
     headingColumnNames.forEach(heading => {

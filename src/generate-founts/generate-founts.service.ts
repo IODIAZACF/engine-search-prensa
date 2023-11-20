@@ -61,12 +61,13 @@ export class GenerateFountsService {
 
     let locations: any = this.getContentWeb(url_provider_locationscolombia, {}, null);
 
+    let headerWorks: string[] = [];
     //hace la compraracion de los element con el contenido para que si hace math estos locaciones se defian
     //por noticia es decir cuantas noticias en esa localidad hablan de esa noticia es decir tema o palabra clave
 
     //inicializar contadores y contar
     //mathed
-    for (let index = 0; index < 2; index++) {
+    for (let index = 0; index < elements.length; index++) {
 
       let element = elements[index];
 
@@ -153,6 +154,7 @@ export class GenerateFountsService {
           console.log("estado de proceso", (index / (elements.length - 1)) * 100);
         }
 
+
         for (let p = 0; p < matrizPrincipalLigado.length; p++) {
           const pairWords = matrizPrincipalLigado[p];
 
@@ -164,6 +166,8 @@ export class GenerateFountsService {
 
               element[pairWords[0] + '+' + pairWords[1]] = element[pairWords[0] + '+' + pairWords[1]] ? element[pairWords[0] + '+' + pairWords[1]] : 0;
               element[pairWords[0] + '+' + pairWords[1]] += countMathes;
+
+              headerWorks.push(pairWords[0] + '+' + pairWords[1]);
 
             }
 
@@ -227,6 +231,7 @@ export class GenerateFountsService {
     }
 
     console.log("elementsMathed[0]", elementsMathed[0]);
+    console.log("headerWorks[0]", headerWorks[0]);
 
     //eliminar los searches
     for (let x = 0; x < elementsMathed.length; x++) {
@@ -250,17 +255,19 @@ export class GenerateFountsService {
       element.searchs = new_searchs;
 
       //llenar con cero los elementos donde la oalabra no cubrs
+      //la idea es llenar de cero lo demas valores pero por objeto no hay vlor por header o 
+      //en llso objetos hay mas datos
       let keys = Object.keys(element);
-      let values = Object.values(element);
 
-      for (let index = 0; index < keys.length; index++) {
-        const key = keys[index];
-        const value = values[index];
-        
-        if(key && value == undefined){
-          element[key] = 0;
+      for (let a = 0; a < headerWorks.length; a++) {
+
+        const work:string = headerWorks[a];
+        let indexWord = keys.indexOf(work);
+
+        if(indexWord == -1){
+          element[work] = 0;
         }
-        
+
       }
 
     }
