@@ -10,9 +10,6 @@
 			"path": "../frontend"
 		},
 		{
-			"path": "../API-REST"
-		},
-		{
 			"path": "../Users/iodiaz/OneDrive - Fundacion Accion contra el Hambre/Documentos/correos"
 		},
 		{
@@ -20,6 +17,9 @@
 		},
 		{
 			"path": "../ACH/backend/ach-mire"
+		},
+		{
+			"path": "../ACH/backend/API-REST"
 		}
 	],
 	"settings": {}

@@ -160,11 +160,15 @@ export class GenerateFountsService {
 
           if (pairWords.length == 2) {
             //init contadores
-            let countMathes = this.buscarDosPalabras(data_content, pairWords[0], pairWords[1]);
+            let countMathes = this.buscarDosPalabras(data_content + "suficiente atencion", pairWords[0], pairWords[1]);
 
             if (countMathes > 0) {
 
-              element[pairWords[0] + '+' + pairWords[1]] = element[pairWords[0] + '+' + pairWords[1]] ? element[pairWords[0] + '+' + pairWords[1]] : 0;
+              if(!element[pairWords[0] + '+' + pairWords[1]]){
+                element[pairWords[0] + '+' + pairWords[1]] = 0;
+
+              }
+
               element[pairWords[0] + '+' + pairWords[1]] += countMathes;
 
               headerWorks.push(pairWords[0] + '+' + pairWords[1]);
@@ -237,6 +241,22 @@ export class GenerateFountsService {
     for (let x = 0; x < elementsMathed.length; x++) {
       const element = elementsMathed[x];
 
+      //llenar con cero los elementos donde la oalabra no cubrs
+      //la idea es llenar de cero lo demas valores pero por objeto no hay vlor por header o 
+      //en llso objetos hay mas datos
+      let keys = Object.keys(element);
+
+      for (let a = 0; a < headerWorks.length; a++) {
+
+        const work: string = headerWorks[a];
+        let indexWord = keys.indexOf(work);
+
+        if (indexWord == -1) {
+          element[work] = 0;
+        }
+
+      }
+
       let old_searchs = element.searchs;
       let new_searchs = [];
 
@@ -254,21 +274,7 @@ export class GenerateFountsService {
 
       element.searchs = new_searchs;
 
-      //llenar con cero los elementos donde la oalabra no cubrs
-      //la idea es llenar de cero lo demas valores pero por objeto no hay vlor por header o 
-      //en llso objetos hay mas datos
-      let keys = Object.keys(element);
 
-      for (let a = 0; a < headerWorks.length; a++) {
-
-        const work:string = headerWorks[a];
-        let indexWord = keys.indexOf(work);
-
-        if(indexWord == -1){
-          element[work] = 0;
-        }
-
-      }
 
     }
 

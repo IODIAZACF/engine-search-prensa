@@ -317,7 +317,7 @@ export class GenerateFountsController {
     const wb = new xl.Workbook();
     const ws = wb.addWorksheet('Matriz');
 
-    const headingColumnNames:any = dataPaginatedCreated[0]
+    const headingColumnNames:any = Object.keys(dataPaginatedCreated[0])
 
     let headingColumnIndex = 1;
     headingColumnNames.forEach(heading => {
