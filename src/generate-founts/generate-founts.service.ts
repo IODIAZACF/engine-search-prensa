@@ -102,46 +102,44 @@ export class GenerateFountsService {
         continue;
       } */
 
-      for (let j = 0; j < element.searchs.length; j++) {
+      let matrizPrincipalLigado: any[] = [];
 
-        let contenido = element.searchs[j].content;
+      //REALIZANDO MATH CON EL DICCIONARIO PRINCIPAL
+      for (const diccionario_principal_original of diccionarios_principal) {
 
         //optimizacion de palabras
-        let data_content_minus = contenido.toLowerCase();
-        let data_content = await this.removeAccents(data_content_minus);
+        let diccionario_principal:string = diccionario_principal_original.toLowerCase()
+        diccionario_principal = this.removeAccents(diccionario_principal/* this.removeSpaces() */);
 
-        let matrizPrincipalLigado: any[] = [];
-
-        //REALIZANDO MATH CON EL DICCIONARIO PRINCIPAL
-        for (let k = 0; k < diccionarios_principal.length; k++) {
-          let diccionario_principal: string = diccionarios_principal[k];
+        //realizo la combinatorio de los diccionarios
+        for (const diccionario_ligado_original of diccionarios_ligado) {
 
           //optimizacion de palabras
-          diccionario_principal = diccionario_principal.toLowerCase()
-          diccionario_principal = await this.removeAccents(diccionario_principal/* this.removeSpaces() */);
+          let diccionario_ligado: string = diccionario_ligado_original.toLowerCase()
+          diccionario_ligado = this.removeAccents(diccionario_ligado/* this.removeSpaces() */);
 
-          //realizo la combinatorio de los diccionarios
-          for (let m = 0; m < diccionarios_ligado.length; m++) {
+          /* console.log("diccionario_ligado diccionario_ligado: ", diccionario_principal + ' - ' + diccionario_ligado);
+          console.log("k m: ", k + ' - ' + m); */
 
-            let diccionario_ligado: string = diccionarios_ligado[m];
+          if (diccionario_principal !== undefined && diccionario_ligado !== undefined && diccionario_principal !== '' && diccionario_ligado !== '') {
 
-            //optimizacion de palabras
-            diccionario_ligado = diccionario_ligado.toLowerCase()
-            diccionario_ligado = await this.removeAccents(diccionario_ligado/* this.removeSpaces() */);
-
-            /* console.log("diccionario_ligado diccionario_ligado: ", diccionario_principal + ' - ' + diccionario_ligado);
-            console.log("k m: ", k + ' - ' + m); */
-
-            if (diccionario_principal !== undefined && diccionario_ligado !== undefined && diccionario_principal !== '' && diccionario_ligado !== '') {
-
-              matrizPrincipalLigado.push([diccionario_principal, diccionario_ligado]);
-              matrizPrincipalLigado.push([diccionario_ligado, diccionario_principal]);
-
-            }
+            matrizPrincipalLigado.push([diccionario_principal, diccionario_ligado]);
+            matrizPrincipalLigado.push([diccionario_ligado, diccionario_principal]);
 
           }
 
         }
+
+      }
+
+      let new_searchs = [];
+
+      for (const search of element.searchs) {
+        let contenido = search.content;
+
+        //optimizacion de palabras
+        let data_content_minus = contenido.toLowerCase();
+        let data_content = this.removeAccents(data_content_minus);
 
         //BUSQUEDA EN MATRIZ DE COMBINACION DE DICCONARIO PRINCIPAL CON LIGADO 
         //BUSQUEDA EN MATRIZ INVERSA DE COMBINACION DE DICCONARIO LIGADO CON PRINCIPAL
@@ -155,8 +153,7 @@ export class GenerateFountsService {
         }
 
 
-        for (let p = 0; p < matrizPrincipalLigado.length; p++) {
-          const pairWords = matrizPrincipalLigado[p];
+        for (const pairWords of matrizPrincipalLigado) {
 
           if (pairWords.length == 2) {
             //init contadores
@@ -164,14 +161,15 @@ export class GenerateFountsService {
 
             if (countMathes > 0) {
 
-              if(!element[pairWords[0] + '+' + pairWords[1]]){
-                element[pairWords[0] + '+' + pairWords[1]] = 0;
+              const pairwordsmath = pairWords[0] + '+' + pairWords[1];
 
+              if(!element[pairwordsmath]){
+                element[pairwordsmath] = 0;
               }
 
-              element[pairWords[0] + '+' + pairWords[1]] += countMathes;
+              element[pairwordsmath]++;
 
-              headerWorks.push(pairWords[0] + '+' + pairWords[1]);
+              headerWorks.push(pairwordsmath);
 
             }
 
@@ -179,18 +177,17 @@ export class GenerateFountsService {
         }
 
         //REALIZANDO MATH CON LOS PAISES
-        for (let n = 0; n < locations.length; n++) {
-          let location: LocationsCo = locations[n];
+        for (const location of locations) {
 
           //optimizacion de palabras
           location.region = location.region.toLowerCase();
-          location.region = await this.removeAccents(location.region);
+          location.region = this.removeAccents(location.region);
 
           location.departamento = location.departamento.toLowerCase();
-          location.departamento = await this.removeAccents(location.departamento);
+          location.departamento = this.removeAccents(location.departamento);
 
           location.municipio = location.municipio.toLowerCase();
-          location.municipio = await this.removeAccents(location.municipio);
+          location.municipio = this.removeAccents(location.municipio);
 
           /*    
             * se agrega a un arreglo con ese objeto 
@@ -228,55 +225,39 @@ export class GenerateFountsService {
 
         }
 
-      }
-
-      elementsMathed.push(element);
-
-    }
-
-    console.log("elementsMathed[0]", elementsMathed[0]);
-    console.log("headerWorks[0]", headerWorks[0]);
-
-    //eliminar los searches
-    for (let x = 0; x < elementsMathed.length; x++) {
-      const element = elementsMathed[x];
-
-      //llenar con cero los elementos donde la oalabra no cubrs
-      //la idea es llenar de cero lo demas valores pero por objeto no hay vlor por header o 
-      //en llso objetos hay mas datos
-      let keys = Object.keys(element);
-
-      for (let a = 0; a < headerWorks.length; a++) {
-
-        const work: string = headerWorks[a];
-        let indexWord = keys.indexOf(work);
-
-        if (indexWord == -1) {
-          element[work] = 0;
-        }
-
-      }
-
-      let old_searchs = element.searchs;
-      let new_searchs = [];
-
-      delete element.searchs;
-
-      for (let y = 0; y < old_searchs.length; y++) {
-        const search = old_searchs[y];
-
         new_searchs.push({
           title: search.title,
           displayLink: search.displayLink,
           formattedUrl: search.formattedUrl
         });
+
       }
 
       element.searchs = new_searchs;
 
-
+      elementsMathed.push(element);
 
     }
+
+    //es mejor despuesde de para que se cuenten los registros correspondientes
+    for (let n = 0; n < elementsMathed.length; n++) {
+      let elementCustomWord = elementsMathed[n];
+      let keys = Object.keys(elementCustomWord);
+
+      for (const word of headerWorks) {
+
+        let indexWord = keys.indexOf(word);
+
+        if(indexWord == -1){
+          elementsMathed[word] = 0;
+        }
+
+      }
+      
+    }
+
+    console.log("elementsMathed[0]", elementsMathed[0]);
+    console.log("headerWorks[0]", headerWorks[0]); 
 
     return elementsMathed;
   }
