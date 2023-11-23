@@ -59,7 +59,7 @@ export class GenerateFountsService {
 
     let elementsMathed = [];
 
-    let locations: any = this.getContentWeb(url_provider_locationscolombia, {}, null);
+    let locations: any = await this.getContentWeb(url_provider_locationscolombia, {}, null);
 
     let headerWorks: string[] = [];
     //hace la compraracion de los element con el contenido para que si hace math estos locaciones se defian
@@ -108,7 +108,7 @@ export class GenerateFountsService {
       for (const diccionario_principal_original of diccionarios_principal) {
 
         //optimizacion de palabras
-        let diccionario_principal:string = diccionario_principal_original.toLowerCase()
+        let diccionario_principal: string = diccionario_principal_original.toLowerCase()
         diccionario_principal = this.removeAccents(diccionario_principal/* this.removeSpaces() */);
 
         //realizo la combinatorio de los diccionarios
@@ -163,7 +163,7 @@ export class GenerateFountsService {
 
               const pairwordsmath = pairWords[0] + '+' + pairWords[1];
 
-              if(!element[pairwordsmath]){
+              if (!element[pairwordsmath]) {
                 element[pairwordsmath] = 0;
               }
 
@@ -177,7 +177,7 @@ export class GenerateFountsService {
         }
 
         //REALIZANDO MATH CON LOS PAISES
-        for (const location of locations) {
+        for (const location of locations.data) {
 
           //optimizacion de palabras
           location.region = location.region.toLowerCase();
@@ -198,29 +198,32 @@ export class GenerateFountsService {
           */
           if (data_content.includes(location.region)) {
             console.log("SI ubo math de locacion")
-            if (element[location.region]) {
-              element[location.region].cant++;
-            } else {
-              element[location.region].cant = 1;
+
+            if (!element[location.region]) {
+              element[location.region] = 0;
             }
+            element[location.region]++;
           }
 
           if (data_content.includes(location.departamento)) {
             console.log("SI ubo math de locacion")
-            if (element[location.departamento]) {
-              element[location.departamento].cant++;
-            } else {
-              element[location.departamento].cant = 1;
+
+            if (!element[location.departamento]) {
+              element[location.departamento] = 0;
             }
+
+            element[location.departamento]++;
+
           }
 
           if (data_content.includes(location.municipio)) {
             console.log("SI ubo math de locacion")
-            if (element[location.municipio]) {
-              element[location.municipio].cant++;
-            } else {
-              element[location.municipio].cant = 1;
+            
+            if (!element[location.municipio]) {
+              element[location.municipio] = 0;
             }
+
+            element[location.municipio]++;
           }
 
         }
@@ -248,16 +251,16 @@ export class GenerateFountsService {
 
         let indexWord = keys.indexOf(word);
 
-        if(indexWord == -1){
+        if (indexWord == -1) {
           elementsMathed[word] = 0;
         }
 
       }
-      
+
     }
 
     console.log("elementsMathed[0]", elementsMathed[0]);
-    console.log("headerWorks[0]", headerWorks[0]); 
+    console.log("headerWorks[0]", headerWorks[0]);
 
     return elementsMathed;
   }

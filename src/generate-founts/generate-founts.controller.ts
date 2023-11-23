@@ -18,7 +18,7 @@ import { UpdateGenerateFountDto } from './dto/update-generate-fount.dto';
 import { HttpService } from '@nestjs/axios';
 import { AxiosResponse, AxiosError } from 'axios';
 import { Observable, firstValueFrom, catchError } from 'rxjs';
-import { api_key, search_engine_id, dummy, jsonDictionary } from '../config.service';
+import { api_key, search_engine_id, dummy, jsonDictionary, url_provider_locationscolombia} from '../config.service';
 import { MyLogger } from '../LoggerService';
 import { Logger, Injectable, StreamableFile, Res } from '@nestjs/common';
 import { ConvertToExcelService } from '../services/convert-to-excel/convert-to-excel.service';
@@ -254,8 +254,8 @@ export class GenerateFountsController {
     //poner aqui data dummy
     //remover
     dataPaginated = dummy.dataPaginated;
-    diccionarios_principal = dummy.diccionarios_principal;
-    diccionarios_ligado = dummy.diccionarios_ligado;
+    diccionarios_principal = dummy.diccionarios_principal_light;
+    diccionarios_ligado = dummy.diccionarios_ligado_light;
     //remover
 
     //procesar los datos para que podamos mostrar mas contenido extrayendo todo el texto de la web
@@ -417,9 +417,68 @@ export class GenerateFountsController {
 
     let htmlString = ` `;
 
-    let outerHTML = await this.getTextFromHtml(htmlString);
+    //let outerHTML = await this.getTextFromHtml(htmlString);
 
-    return outerHTML;
+    //return outerHTML;
+
+    /* let locations: any = await this.getContentWeb(url_provider_locationscolombia, {}, null);
+
+    console.log("locations", locations.data.length);
+
+    return locations; */
+
+    let dataPaginated = [
+      {
+          "Categoría": "Vulnerabilidad",
+          "Subcategorias": "Caracterización fenómeno",
+          "Temas": "1. Fenomeno general",
+          "Palabra clave": "fenómeno del niño",
+          "Diccionario Principal": "Record de temperatura",
+          "Diccionario Ligado": "Intenso /fortalecimiento",
+          "field7": "",
+          "id_diccionario_principal": "Caracterización fenómeno",
+          "id_diccionario_ligado": "Caracterización fenómeno",
+          "searchs": [
+              {
+                  "kind": "customsearch#result",
+                  "title": "Frio, granizada y, ahora, el fenómeno del Niño: estos son los ...",
+                  "htmlTitle": "Frio, granizada y, ahora, el <b>fenómeno del Niño</b>: estos son los ...",
+                  "link": "https://www.infobae.com/colombia/2023/09/23/frio-granizada-y-ahora-el-fenomeno-del-nino-estos-son-los-cambios-climaticos-que-ha-sufrido-bogota-en-esta-semana/",
+                  "displayLink": "www.infobae.com",
+                  "content": "efectos profundos Sep 23, 2023 ... Ahora puede seguirnos en nuestro WhatsApp Channel y en Google News. ... Este clima atípico en Bogotá se produce en un contexto más amplio en ...",
+                  "htmlSnippet": "Sep 23, 2023 <b>...</b> Ahora puede seguirnos en nuestro WhatsApp Channel y en Google <b>News</b>. ... Este clima atípico en <b>Bogotá</b> se produce en un contexto más amplio en&nbsp;...",
+                  "cacheId": "bxotvT74lXIJ",
+                  "formattedUrl": "https://www.infobae.com/.../frio-granizada-y-ahora-el-fenomeno-del-nino-...",
+                  "htmlFormattedUrl": "https://www.infobae.com/.../frio-granizada-y-ahora-el-fenomeno-<b>del</b>-nino-...",
+              },
+              {
+                  "kind": "customsearch#result",
+                  "title": "Navidad a media luz en Colombia por temor a apagones | AP News",
+                  "htmlTitle": "Navidad a media luz en <b>Colombia</b> por temor a apagones | AP <b>News</b>",
+                  "link": "https://apnews.com/article/3d685b8c26384a79bf3493fbf664794c",
+                  "displayLink": "apnews.com",
+                  "content": "efectos de crisis Dec 24, 2015 ... BOGOTA, Colombia (AP) — Una brutal sequía provocada por el fenómeno de El Niño cobró una inesperada víctima en esta época festiva de fin de ...",
+                  "htmlSnippet": "Dec 24, 2015 <b>...</b> <b>BOGOTA</b>, <b>Colombia</b> (AP) — Una brutal sequía provocada por el <b>fenómeno</b> de El <b>Niño</b> cobró una inesperada víctima en esta época festiva de fin de&nbsp;...",
+                  "cacheId": "tn0ACcD_4YMJ",
+                  "formattedUrl": "https://apnews.com/article/3d685b8c26384a79bf3493fbf664794c",
+                  "htmlFormattedUrl": "https://ap<b>news</b>.com/article/3d685b8c26384a79bf3493fbf664794c",
+              }
+          ]
+      }
+    ];
+
+    let diccionarios_principal = dummy.diccionarios_principal_light;
+    let diccionarios_ligado = dummy.diccionarios_ligado_light;
+
+    let dataPaginatedCreated:any = await this.generateFountsService.createElementsMath(
+      dataPaginated,
+      diccionarios_principal,
+      diccionarios_ligado
+    );
+    console.log("dataPaginatedCreated", dataPaginatedCreated);
+
+
+    return dataPaginatedCreated;
   }
 
   @Get('/templates/diccionario_de_datos.csv')

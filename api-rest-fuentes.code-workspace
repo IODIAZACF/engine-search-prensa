@@ -20,6 +20,9 @@
 		},
 		{
 			"path": "../ACH/backend/API-REST"
+		},
+		{
+			"path": "../ACH/frontend-consorciomire"
 		}
 	],
 	"settings": {}
