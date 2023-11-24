@@ -140,6 +140,7 @@ export class GenerateFountsService {
         //optimizacion de palabras
         let data_content_minus = contenido.toLowerCase();
         let data_content = this.removeAccents(data_content_minus);
+        //poner aqui remover signos de puntuacion
 
         //BUSQUEDA EN MATRIZ DE COMBINACION DE DICCONARIO PRINCIPAL CON LIGADO 
         //BUSQUEDA EN MATRIZ INVERSA DE COMBINACION DE DICCONARIO LIGADO CON PRINCIPAL
@@ -157,7 +158,7 @@ export class GenerateFountsService {
 
           if (pairWords.length == 2) {
             //init contadores
-            let countMathes = this.buscarDosPalabras(data_content + "suficiente atencion", pairWords[0], pairWords[1]);
+            let countMathes = this.buscarDosPalabras(data_content, pairWords[0], pairWords[1]);
 
             if (countMathes > 0) {
 
@@ -185,10 +186,13 @@ export class GenerateFountsService {
 
           location.departamento = location.departamento.toLowerCase();
           location.departamento = this.removeAccents(location.departamento);
+          //error con bogota d.c
+          location.departamento = location.departamento.replace(" d.c.", "")
 
           location.municipio = location.municipio.toLowerCase();
           location.municipio = this.removeAccents(location.municipio);
-
+          //error con bogota d.c
+          location.municipio = location.municipio.replace(" d.c.", "");
           /*    
             * se agrega a un arreglo con ese objeto 
             * y la cantidad de veces con las que vuelva a hacer math 
@@ -218,7 +222,7 @@ export class GenerateFountsService {
 
           if (data_content.includes(location.municipio)) {
             console.log("SI ubo math de locacion")
-            
+
             if (!element[location.municipio]) {
               element[location.municipio] = 0;
             }
@@ -237,6 +241,7 @@ export class GenerateFountsService {
       }
 
       element.searchs = new_searchs;
+      element.matrizPrincipalLigado = matrizPrincipalLigado;
 
       elementsMathed.push(element);
 
@@ -295,26 +300,142 @@ export class GenerateFountsService {
       }
     });
   }
-
   buscarDosPalabras(texto, palabra1, palabra2) {
+    texto = this.removeSpaces(texto);
+
+    palabra1 = this.removeSpaces(palabra1);
+    palabra2 = this.removeSpaces(palabra2);
+
+    let index = texto.indexOf(palabra1);
+    let coincidencias = 0;
+    let cantMaxWordsMiddles = 4;
+
+    if (index > 0) {
+      if (palabra1 == "altera")
+        console.log("PALABRA1", palabra1)
+
+      //for (let indexMax = 0; indexMax < cantMaxWordsMiddles; indexMax++) {
+
+      let subtexto = texto.substr(index, texto.length - 1);
+
+      console.log("subtexto", subtexto)
+
+      let index2 = subtexto.indexOf(palabra2);
+      console.log("palabra2", palabra2)
+      console.log("index2", index2)
+
+      if (index2 == 0) {
+        coincidencias++;
+      }
+
+      //}
+    }
+
+    return coincidencias;
+  }
+
+  buscarDosPalabras_(texto, palabra1, palabra2) {
+
     const palabras = texto.split(" ");
     let coincidencias = 0;
 
+    let arrayPalabra1 = palabra1.split(" ");
+    let arrayPalabra2 = palabra2.split(" ");
+
+    //quitar espacios si la palabra es solo una
+    if (arrayPalabra1.length == 2) {
+      palabra1 = this.removeSpaces(palabra1);
+    }
+
+    //quitar espacios si la palabra es solo una
+    if (arrayPalabra2.length == 2) {
+      palabra2 = this.removeSpaces(palabra2);
+    }
+
+    console.log("existe el par", texto.includes(palabra1) && texto.includes(palabra2));
+
     for (let i = 0; i < palabras.length - 1; i++) {
-      if (palabras[i] === palabra1 && palabras[i + 1] === palabra2) {
-        coincidencias++;
+
+      let currentWord = palabras[i];
+      let nextOneWord = palabras[i + 1];
+      let nextTwoWord = palabras[i + 2];
+      let nextThreeWord = palabras[i + 3];
+      let nextFourWord = palabras[i + 4];
+
+      //eliminar puntos comas acentos a la palabra
+      /* console.log("currentWord", currentWord)
+      console.log("nextOneWord", nextOneWord) */
+
+      if (palabra1.includes("altera") && palabra2.includes("exacerbadas")) {
+
+        if (currentWord.includes(palabra1) || nextOneWord.includes(palabra2)) {
+
+          console.log("palabra1 " + palabra1 + " palabra2 ", palabra2)
+          console.log("PALABRAS CURRENT      :", currentWord)
+          console.log("PALABRAS nextOneWord      :", nextOneWord)
+          console.log("--------------------------------------------")
+          console.log("currentWord.includes(palabra1)", currentWord.includes(palabra1))
+          console.log("nextOneWord.includes(palabra2)", nextOneWord.includes(palabra2))
+          console.log("--------------------------------------------")
+        }
+
       }
 
-      if (palabras[i] === palabra1 && palabras[i + 2] === palabra2) {
-        coincidencias++;
-      }
+      // sin son mas de una palabra que se va  ahacer math
 
-      if (palabras[i] === palabra1 && palabras[i + 3] === palabra2) {
-        coincidencias++;
-      }
+      if (arrayPalabra1 > 2 || arrayPalabra2 > 2) {
 
-      if (palabras[i] === palabra1 && palabras[i + 4] === palabra2) {
-        coincidencias++;
+        let contAcertWord1 = 0;
+        //palabraa palabrab palabrac
+        if (currentWord.includes(arrayPalabra1[0])) {
+          contAcertWord1++
+
+          for (let indexword = 1; indexword < arrayPalabra1.length; indexword++) {
+            const word1 = arrayPalabra1[indexword];
+
+            if (word1 == currentWord[i + indexword]) {
+              contAcertWord1++
+            }
+
+          }
+
+          if (arrayPalabra1.length == contAcertWord1) {
+
+            coincidencias++;
+          }
+        }
+
+
+        if (currentWord.includes(palabra1) && nextTwoWord.includes(palabra2)) {
+          coincidencias++;
+        }
+
+        if (currentWord.includes(palabra1) && nextThreeWord.includes(palabra2)) {
+          coincidencias++;
+        }
+
+        if (currentWord.includes(palabra1) && nextFourWord.includes(palabra2)) {
+          coincidencias++;
+        }
+
+      } else {
+
+        if (currentWord.includes(palabra1) && nextOneWord.includes(palabra2)) {
+          coincidencias++;
+        }
+
+        if (currentWord.includes(palabra1) && nextTwoWord.includes(palabra2)) {
+          coincidencias++;
+        }
+
+        if (currentWord.includes(palabra1) && nextThreeWord.includes(palabra2)) {
+          coincidencias++;
+        }
+
+        if (currentWord.includes(palabra1) && nextFourWord.includes(palabra2)) {
+          coincidencias++;
+        }
+
       }
     }
 
