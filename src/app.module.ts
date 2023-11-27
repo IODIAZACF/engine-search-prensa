@@ -9,6 +9,6 @@ import { DownloadServiceService } from './services/download-service/download-ser
 @Module({
   imports: [GenerateFountsModule],
   controllers: [AppController],
-  providers: [AppService, ContentExtractService, ConvertToExcelService, DownloadServiceService],
+  providers: [AppService, ContentExtractService, ConvertToExcelService, DownloadServiceService]
 })
 export class AppModule {}

@@ -4,8 +4,8 @@ import { UpdateGenerateFountDto } from './dto/update-generate-fount.dto';
 import { Observable, firstValueFrom, catchError } from 'rxjs';
 import { HttpService } from '@nestjs/axios';
 import { url_provider_locationscolombia } from '../config.service';
+import { HelperService } from '../services/helper/helper.service';
 import { LocationsCo } from '../interfaces/locations-co/locations-co.interface'
-import { Console } from 'console';
 
 @Injectable()
 export class GenerateFountsService {
@@ -14,6 +14,7 @@ export class GenerateFountsService {
 
   constructor(
     private readonly httpService: HttpService,
+    public helper: HelperService
 
   ) { }
 
@@ -62,6 +63,11 @@ export class GenerateFountsService {
     let locations: any = await this.getContentWeb(url_provider_locationscolombia, {}, null);
 
     let headerWorks: string[] = [];
+    let headerLocations: string[] = [];
+
+    let locationsRegion = this.helper.groupBy(locations.data, 'region');
+    let locationsDepartamento = this.helper.groupBy(locations.data, 'departamento');
+
     //hace la compraracion de los element con el contenido para que si hace math estos locaciones se defian
     //por noticia es decir cuantas noticias en esa localidad hablan de esa noticia es decir tema o palabra clave
 
@@ -90,17 +96,13 @@ export class GenerateFountsService {
 
         diccionarios_principal = diccionarios_principal_values[index_dicc_principal];
 
-      }/*  else {
-        continue;
-      } */
+      }
 
       if (index_dicc_ligado !== -1) {
 
         diccionarios_ligado = diccionarios_ligado_values[index_dicc_ligado];
 
-      } /* else {
-        continue;
-      } */
+      }
 
       let matrizPrincipalLigado: any[] = [];
 
@@ -109,17 +111,14 @@ export class GenerateFountsService {
 
         //optimizacion de palabras
         let diccionario_principal: string = diccionario_principal_original.toLowerCase()
-        diccionario_principal = this.removeAccents(diccionario_principal/* this.removeSpaces() */);
+        diccionario_principal = this.removeAccents(diccionario_principal/* this.removeChar() */);
 
         //realizo la combinatorio de los diccionarios
         for (const diccionario_ligado_original of diccionarios_ligado) {
 
           //optimizacion de palabras
           let diccionario_ligado: string = diccionario_ligado_original.toLowerCase()
-          diccionario_ligado = this.removeAccents(diccionario_ligado/* this.removeSpaces() */);
-
-          /* console.log("diccionario_ligado diccionario_ligado: ", diccionario_principal + ' - ' + diccionario_ligado);
-          console.log("k m: ", k + ' - ' + m); */
+          diccionario_ligado = this.removeAccents(diccionario_ligado/* this.removeChar() */);
 
           if (diccionario_principal !== undefined && diccionario_ligado !== undefined && diccionario_principal !== '' && diccionario_ligado !== '') {
 
@@ -132,10 +131,15 @@ export class GenerateFountsService {
 
       }
 
+      //set matriz ligado
+      element.matrizPrincipalLigado = matrizPrincipalLigado;
+
       let new_searchs = [];
 
       for (const search of element.searchs) {
         let contenido = search.content;
+
+        console.log("contenido", contenido?.length)
 
         //optimizacion de palabras
         let data_content_minus = contenido.toLowerCase();
@@ -145,16 +149,8 @@ export class GenerateFountsService {
         //BUSQUEDA EN MATRIZ DE COMBINACION DE DICCONARIO PRINCIPAL CON LIGADO 
         //BUSQUEDA EN MATRIZ INVERSA DE COMBINACION DE DICCONARIO LIGADO CON PRINCIPAL
 
-        console.log("matrizPrincipalLigado Palabra clave", element['Palabra clave']);
-        console.log("matrizPrincipalLigado tamaño", matrizPrincipalLigado.length);
-        console.log("matrizPrincipalLigado 0", matrizPrincipalLigado[0]);
-
-        if (index > 1 && elements.length > 1) {
-          console.log("estado de proceso", (index / (elements.length - 1)) * 100);
-        }
-
-
         for (const pairWords of matrizPrincipalLigado) {
+          console.log("progres math words", (elements.length > 0 ? index / elements.length : 1) * 100)
 
           if (pairWords.length == 2) {
             //init contadores
@@ -170,66 +166,93 @@ export class GenerateFountsService {
 
               element[pairwordsmath]++;
 
-              headerWorks.push(pairwordsmath);
+              if (!headerWorks.includes(pairwordsmath)) {
+                headerWorks.push(pairwordsmath);
+
+              }
 
             }
 
           }
         }
 
-        //REALIZANDO MATH CON LOS PAISES
+
+        /*    
+          * se agrega a un arreglo con ese objeto 
+          * y la cantidad de veces con las que vuelva a hacer math 
+          * si no hace math se agrega otro a este arreglo (elements)
+          * con la cantidad de 1
+          * 
+        */
+
+        //REALIZANDO MATH CON LOS PAISES este hace por municipio
         for (const location of locations.data) {
 
+          let municipio = location.municipio.toLowerCase();
+          municipio = this.removeAccents(municipio);
+          //error con bogota d.c
+          municipio = municipio.replace(" d.c.", "");
+
+          if (data_content.includes(municipio)) {
+
+            let head3 = "municipio:" + municipio;
+
+            if (!element[head3]) {
+              element[head3] = 0;
+            }
+
+            element[head3]++;
+
+            if (!headerLocations.includes(head3)) {
+              headerLocations.push(head3);
+            }
+          }
+        }
+
+        for (let region of Object.keys(locationsRegion)) {
+
           //optimizacion de palabras
-          location.region = location.region.toLowerCase();
-          location.region = this.removeAccents(location.region);
+          region = region.toLowerCase();
+          region = this.removeAccents(region);
+          if (data_content.includes(region)) {
 
-          location.departamento = location.departamento.toLowerCase();
-          location.departamento = this.removeAccents(location.departamento);
+            let head1 = "region:" + region;
+
+            if (!element[head1]) {
+              element[head1] = 0;
+            }
+            element[head1]++;
+
+            if (!headerLocations.includes(head1)) {
+              headerLocations.push(head1);
+            }
+          }
+
+        }
+
+        for (let departamento of Object.keys(locationsDepartamento)) {
+
+          departamento = departamento.toLowerCase();
+          departamento = this.removeAccents(departamento);
           //error con bogota d.c
-          location.departamento = location.departamento.replace(" d.c.", "")
-
-          location.municipio = location.municipio.toLowerCase();
-          location.municipio = this.removeAccents(location.municipio);
-          //error con bogota d.c
-          location.municipio = location.municipio.replace(" d.c.", "");
-          /*    
-            * se agrega a un arreglo con ese objeto 
-            * y la cantidad de veces con las que vuelva a hacer math 
-            * si no hace math se agrega otro a este arreglo (elements)
-            * con la cantidad de 1
-            * 
-          */
-          if (data_content.includes(location.region)) {
-            console.log("SI ubo math de locacion")
-
-            if (!element[location.region]) {
-              element[location.region] = 0;
+          departamento = departamento.replace(" d.c.", "")
+  
+          if (data_content.includes(departamento)) {
+  
+            let head2 = "departamento:" + departamento;
+  
+            if (!element[head2]) {
+              element[head2] = 0;
             }
-            element[location.region]++;
-          }
-
-          if (data_content.includes(location.departamento)) {
-            console.log("SI ubo math de locacion")
-
-            if (!element[location.departamento]) {
-              element[location.departamento] = 0;
+  
+            element[head2]++;
+  
+            if (!headerLocations.includes(head2)) {
+              headerLocations.push(head2);
             }
-
-            element[location.departamento]++;
-
+  
           }
-
-          if (data_content.includes(location.municipio)) {
-            console.log("SI ubo math de locacion")
-
-            if (!element[location.municipio]) {
-              element[location.municipio] = 0;
-            }
-
-            element[location.municipio]++;
-          }
-
+          
         }
 
         new_searchs.push({
@@ -241,11 +264,12 @@ export class GenerateFountsService {
       }
 
       element.searchs = new_searchs;
-      element.matrizPrincipalLigado = matrizPrincipalLigado;
 
       elementsMathed.push(element);
 
     }
+    console.log("headerLocations", headerLocations)
+    console.log("headerWorks", headerWorks)
 
     //es mejor despuesde de para que se cuenten los registros correspondientes
     for (let n = 0; n < elementsMathed.length; n++) {
@@ -257,15 +281,25 @@ export class GenerateFountsService {
         let indexWord = keys.indexOf(word);
 
         if (indexWord == -1) {
-          elementsMathed[word] = 0;
+          elementCustomWord[word] = 0;
         }
 
       }
 
-    }
+      for (const location of headerLocations) {
 
-    console.log("elementsMathed[0]", elementsMathed[0]);
-    console.log("headerWorks[0]", headerWorks[0]);
+        let indexWordLocations = keys.indexOf(location);
+
+        console.log("indexWordLocations", indexWordLocations);
+
+        if (indexWordLocations == -1) {
+          elementCustomWord[location] = 0;
+        }
+
+      }
+
+
+    }
 
     return elementsMathed;
   }
@@ -274,8 +308,8 @@ export class GenerateFountsService {
     return str ? str.normalize('NFD').replace(/[\u0300-\u036f]/g, '') : str;
   }
 
-  removeSpaces(str: string) {
-    return str ? str.replaceAll(' ', '') : str;
+  removeChar(str: string, char) {
+    return str ? str.replaceAll(char, '') : str;
   }
 
   getContentWeb(link, snippet, config) {
@@ -300,145 +334,104 @@ export class GenerateFountsService {
       }
     });
   }
-  buscarDosPalabras(texto, palabra1, palabra2) {
-    texto = this.removeSpaces(texto);
 
-    palabra1 = this.removeSpaces(palabra1);
-    palabra2 = this.removeSpaces(palabra2);
+  buscarDosPalabras(texto, palabra1, palabra2) {
+
+    console.log("buscarDosPalabras", palabra1 + palabra2)
+
+    let wordsTexto = texto.split(" ");
+    let wordsPalabra1 = palabra1.split(" ");
+    let wordsPalabra2 = palabra2.split(" ");
+
+    texto = this.removeChar(texto, " ");
+    palabra1 = this.removeChar(palabra1, " ");
+    palabra2 = this.removeChar(palabra2, " ");
 
     let index = texto.indexOf(palabra1);
     let coincidencias = 0;
-    let cantMaxWordsMiddles = 4;
 
-    if (index > 0) {
-      if (palabra1 == "altera")
-        console.log("PALABRA1", palabra1)
-
-      //for (let indexMax = 0; indexMax < cantMaxWordsMiddles; indexMax++) {
+    if (index >= 0) {
 
       let subtexto = texto.substr(index, texto.length - 1);
 
-      console.log("subtexto", subtexto)
-
       let index2 = subtexto.indexOf(palabra2);
-      console.log("palabra2", palabra2)
-      console.log("index2", index2)
 
-      if (index2 == 0) {
+      //calculo de maximo tolerancia de busqueads de palabras 4 maximo
+      //con un arreglo en parte del tamaño de la frase a comprar
+      //pasada a string sin comas
+
+      //la idea es tener el indice de la frase de la palabra 1 
+      //mas 4 palabras 
+      //mas la frase de la palabra2 para con ello
+      //buscar el indice maximo a buscar 
+      //todo esto aprtir de la palabra subtexto
+      let palabra1mas4seguientespalabras = this.prepareToCompare(wordsTexto, wordsPalabra1);
+
+      //buscar el index string de 
+      //defino el indice con el numero de 4 palabras siguientes
+
+      //con la cuarta palara despues de la palabra1 mas la paralbra2 puedo tener el maximo indice de palabras
+      let indexLastWordMax = subtexto.indexOf(palabra1mas4seguientespalabras) + palabra1mas4seguientespalabras.length + palabra2.length;
+
+      if (index2 >= 0 && index2 <= indexLastWordMax) {
         coincidencias++;
       }
 
-      //}
     }
 
     return coincidencias;
   }
 
-  buscarDosPalabras_(texto, palabra1, palabra2) {
+  /**
+   * funcion para uir os grupos de un arreglo paa poder comparar
+   */
+  prepareToCompare(arraypajar, arrayaguja) {
 
-    const palabras = texto.split(" ");
-    let coincidencias = 0;
+    let indexWord1 = 0;
+    let contMath = 0;
+    let indexLastWord = 0;
+    let wordsForFindedIndex = "";
+    //preparo para buscar
+    for (var i = 0; i < arraypajar.length; i++) {
+      const element1 = this.removeChar(arraypajar[i], " ");
+      const firstWordAguja = this.removeChar(arrayaguja[0], " ");
 
-    let arrayPalabra1 = palabra1.split(" ");
-    let arrayPalabra2 = palabra2.split(" ");
+      if (firstWordAguja && element1 && (firstWordAguja.includes(element1) || element1.includes(firstWordAguja))) {
+        contMath = 1;
 
-    //quitar espacios si la palabra es solo una
-    if (arrayPalabra1.length == 2) {
-      palabra1 = this.removeSpaces(palabra1);
-    }
+        for (let j = 1; j < arrayaguja.length; j++) {
+          const element1Next1 = this.removeChar(arraypajar[i + j], " ");
+          const element2Next1 = this.removeChar(arrayaguja[j], " ");
 
-    //quitar espacios si la palabra es solo una
-    if (arrayPalabra2.length == 2) {
-      palabra2 = this.removeSpaces(palabra2);
-    }
-
-    console.log("existe el par", texto.includes(palabra1) && texto.includes(palabra2));
-
-    for (let i = 0; i < palabras.length - 1; i++) {
-
-      let currentWord = palabras[i];
-      let nextOneWord = palabras[i + 1];
-      let nextTwoWord = palabras[i + 2];
-      let nextThreeWord = palabras[i + 3];
-      let nextFourWord = palabras[i + 4];
-
-      //eliminar puntos comas acentos a la palabra
-      /* console.log("currentWord", currentWord)
-      console.log("nextOneWord", nextOneWord) */
-
-      if (palabra1.includes("altera") && palabra2.includes("exacerbadas")) {
-
-        if (currentWord.includes(palabra1) || nextOneWord.includes(palabra2)) {
-
-          console.log("palabra1 " + palabra1 + " palabra2 ", palabra2)
-          console.log("PALABRAS CURRENT      :", currentWord)
-          console.log("PALABRAS nextOneWord      :", nextOneWord)
-          console.log("--------------------------------------------")
-          console.log("currentWord.includes(palabra1)", currentWord.includes(palabra1))
-          console.log("nextOneWord.includes(palabra2)", nextOneWord.includes(palabra2))
-          console.log("--------------------------------------------")
-        }
-
-      }
-
-      // sin son mas de una palabra que se va  ahacer math
-
-      if (arrayPalabra1 > 2 || arrayPalabra2 > 2) {
-
-        let contAcertWord1 = 0;
-        //palabraa palabrab palabrac
-        if (currentWord.includes(arrayPalabra1[0])) {
-          contAcertWord1++
-
-          for (let indexword = 1; indexword < arrayPalabra1.length; indexword++) {
-            const word1 = arrayPalabra1[indexword];
-
-            if (word1 == currentWord[i + indexword]) {
-              contAcertWord1++
+          if (element1Next1.includes(element2Next1) || element2Next1.includes(element1Next1)) {
+            contMath++;
+            indexLastWord = i + j;
+            if (contMath == arrayaguja.length) {
+              break;
             }
-
           }
 
-          if (arrayPalabra1.length == contAcertWord1) {
-
-            coincidencias++;
-          }
-        }
-
-
-        if (currentWord.includes(palabra1) && nextTwoWord.includes(palabra2)) {
-          coincidencias++;
-        }
-
-        if (currentWord.includes(palabra1) && nextThreeWord.includes(palabra2)) {
-          coincidencias++;
-        }
-
-        if (currentWord.includes(palabra1) && nextFourWord.includes(palabra2)) {
-          coincidencias++;
-        }
-
-      } else {
-
-        if (currentWord.includes(palabra1) && nextOneWord.includes(palabra2)) {
-          coincidencias++;
-        }
-
-        if (currentWord.includes(palabra1) && nextTwoWord.includes(palabra2)) {
-          coincidencias++;
-        }
-
-        if (currentWord.includes(palabra1) && nextThreeWord.includes(palabra2)) {
-          coincidencias++;
-        }
-
-        if (currentWord.includes(palabra1) && nextFourWord.includes(palabra2)) {
-          coincidencias++;
         }
 
       }
+
     }
 
-    return coincidencias;
+    if (contMath == arrayaguja.length && contMath !== 0 && indexLastWord !== 0) {
+      indexWord1 = indexLastWord;
+
+      let word1String = this.removeChar(arrayaguja.toString(), ",")
+      word1String = this.removeChar(word1String, " ")
+
+      wordsForFindedIndex = word1String +
+        arraypajar[indexWord1 + 1] +
+        arraypajar[indexWord1 + 2] +
+        arraypajar[indexWord1 + 3] +
+        arraypajar[indexWord1 + 4];
+    }
+
+    //ecuentro las cuatro siguientes palabras
+    //le sumo al string de la palabra1 la sumatoria de las 4 siguientes palabras
+    return wordsForFindedIndex;
   }
 }
