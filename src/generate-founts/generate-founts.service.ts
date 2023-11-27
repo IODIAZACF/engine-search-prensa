@@ -192,10 +192,14 @@ export class GenerateFountsService {
           municipio = this.removeAccents(municipio);
           //error con bogota d.c
           municipio = municipio.replace(" d.c.", "");
+          let countMathesMunicipio = this.buscarDosPalabras(data_content, "municipio", municipio);
 
-          if (data_content.includes(municipio)) {
+          if (countMathesMunicipio > 0) {
+          //if (data_content.includes(municipio)) {
 
             let head3 = "municipio:" + municipio;
+
+            console.log("municipio:tona");
 
             if (!element[head3]) {
               element[head3] = 0;
@@ -214,7 +218,10 @@ export class GenerateFountsService {
           //optimizacion de palabras
           region = region.toLowerCase();
           region = this.removeAccents(region);
-          if (data_content.includes(region)) {
+
+          let countMathesRegion = this.buscarDosPalabras(data_content, "region", region);
+          
+          if (countMathesRegion > 0) {
 
             let head1 = "region:" + region;
 
@@ -236,23 +243,24 @@ export class GenerateFountsService {
           departamento = this.removeAccents(departamento);
           //error con bogota d.c
           departamento = departamento.replace(" d.c.", "")
-  
-          if (data_content.includes(departamento)) {
-  
+
+          let countMathesDepartamento = this.buscarDosPalabras(data_content, " ", departamento);
+          if (countMathesDepartamento > 0) {
+
             let head2 = "departamento:" + departamento;
-  
+
             if (!element[head2]) {
               element[head2] = 0;
             }
-  
+
             element[head2]++;
-  
+
             if (!headerLocations.includes(head2)) {
               headerLocations.push(head2);
             }
-  
+
           }
-          
+
         }
 
         new_searchs.push({

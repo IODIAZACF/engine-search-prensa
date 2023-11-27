@@ -282,7 +282,7 @@ export class GenerateFountsController {
 
           const responseContent: any = await this.getContentWeb(element.link, element.snippet, null);
 
-          let data = responseContent.data;
+          let data = responseContent?.data;
 
           let content: string | any = "";
 
@@ -447,7 +447,7 @@ export class GenerateFountsController {
           "htmlTitle": "Frio, granizada y, ahora, el <b>fenómeno del Niño</b>: estos son los ...",
           "link": "https://www.infobae.com/colombia/2023/09/23/frio-granizada-y-ahora-el-fenomeno-del-nino-estos-son-los-cambios-climaticos-que-ha-sufrido-bogota-en-esta-semana/",
           "displayLink": "www.infobae.com",
-          "content": "norte de santander Sep 23, 2023 ... Ahora puede seguirnos en nuestro WhatsApp Channel y en Google News. ... Este clima atípico en Bogotá se produce en un contexto más amplio en ...",
+          "content": "departamento norte de santander Sep 23, 2023 ... Ahora puede seguirnos en nuestro WhatsApp Channel y en Google News. ... Este clima atípico en Bogotá se produce en un contexto más amplio en ...",
           "htmlSnippet": "Sep 23, 2023 <b>...</b> Ahora puede seguirnos en nuestro WhatsApp Channel y en Google <b>News</b>. ... Este clima atípico en <b>Bogotá</b> se produce en un contexto más amplio en&nbsp;...",
           "cacheId": "bxotvT74lXIJ",
           "formattedUrl": "https://www.infobae.com/.../frio-granizada-y-ahora-el-fenomeno-del-nino-...",
