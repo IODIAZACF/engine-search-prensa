@@ -48,7 +48,7 @@ export class GenerateFountsController {
     @Body() createGenerateFountDto: CreateGenerateFountDto,
     @UploadedFile() file: Express.Multer.File,
     @Res({ passthrough: true }) res: Response
-  )/* : Promise<StreamableFile> */ {
+  ): Promise<StreamableFile> {
 
     let json = [];
     //convert or create excel con la informacion de resultado y formato en las demas hojas de calculo
@@ -94,12 +94,12 @@ export class GenerateFountsController {
     //start = createGenerateFountDto['start'];
 
     if (createGenerateFountDto['noticia'])
-      query += " + " + " news ";
+      query += " news ";
     else
-      query += " + " + " investigation ";
+      query += " investigation ";
 
     if (createGenerateFountDto['city'])
-      query += " + " + createGenerateFountDto['city'];
+      query += " + " + createGenerateFountDto['city'] + " ";
 
     let query_params = query;
 
@@ -130,7 +130,7 @@ export class GenerateFountsController {
     let diccionarios_ligado: any = {};
     let subcategoria;
 
-    /* for (let index = 0; index < json.length; index++) {
+    for (let index = 0; index < json.length; index++) {
       var element = json[index];
 
       subcategoria = element["Subcategorias"] ? element["Subcategorias"] : subcategoria;
@@ -177,7 +177,7 @@ export class GenerateFountsController {
       }
 
       if (element["Palabra clave"] && element["Palabra clave"] !== "") {
-        config.params.q = element["Palabra clave"] + query_params;
+        config.params.q = query_params + element["Palabra clave"];
 
         //DEFINO LAS BUSQUEDAS
         //validar si esta palabra clave ya fue buscada
@@ -247,16 +247,18 @@ export class GenerateFountsController {
 
         }
       }
-    } */
+    }
 
     let contentsAux = [];
 
     //poner aqui data dummy
     //remover
-    dataPaginated = dummy.dataPaginated;
+    /* dataPaginated = dummy.dataPaginated;
     diccionarios_principal = dummy.diccionarios_principal;
-    diccionarios_ligado = dummy.diccionarios_ligado;
+    diccionarios_ligado = dummy.diccionarios_ligado; */
     //remover
+
+    console.log("dataPaginated.length", dataPaginated.length);
 
     //procesar los datos para que podamos mostrar mas contenido extrayendo todo el texto de la web
     // Web Scraping
@@ -504,7 +506,7 @@ export class GenerateFountsController {
           "htmlTitle": "Navidad a media luz en <b>Colombia</b> por temor a apagones | AP <b>News</b>",
           "link": "https://apnews.com/article/3d685b8c26384a79bf3493fbf664794c",
           "displayLink": "apnews.com",
-          "content": "Dec 24, 2015 ... BOGOTA, Colombia (AP) — Una brutal sequía provocada por el fenómeno de El Niño cobró una inesperada víctima en esta época festiva de fin de ...",
+          "content": "Record de temperatura intenso Dec 24, 2015 ... BOGOTA, Colombia (AP) — Una brutal sequía provocada por el fenómeno de El Niño cobró una inesperada víctima en esta época festiva de fin de ...",
           "htmlSnippet": "Dec 24, 2015 <b>...</b> <b>BOGOTA</b>, <b>Colombia</b> (AP) — Una brutal sequía provocada por el <b>fenómeno</b> de El <b>Niño</b> cobró una inesperada víctima en esta época festiva de fin de&nbsp;...",
           "cacheId": "tn0ACcD_4YMJ",
           "formattedUrl": "https://apnews.com/article/3d685b8c26384a79bf3493fbf664794c",

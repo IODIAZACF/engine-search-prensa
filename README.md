@@ -51,7 +51,22 @@ Nest is [MIT licensed](LICENSE).
 # para descargar templates para la carga del diccionario de datos
 http://localhost:3000/generate-founts/templates/diccionario_de_datos.csv
 
+## documentacion de la api console search
+
+https://developers.google.com/custom-search/v1/overview?hl=es-419#:~:text=Get%20a%20Key-,Pricing,to%2010k%20queries%20per%20day.
+
+## documentacion de console custom search
+
+https://programmablesearchengine.google.com/about/
+
+https://console.cloud.google.com/apis/library/customsearch.googleapis.com?hl=ES&project=ach-dev-3
+
  
+## Nota 
+
+# duracion de la solictud de prensa mas de una hroa con diccionario de datos_
+
+
 ## Metas
 
 # Do
@@ -61,4 +76,14 @@ http://localhost:3000/generate-founts/templates/diccionario_de_datos.csv
 
 # Does
 
+
+buscar precios
+
+
+
+hacaer la busqueda de nuevo con que sean por pais colombia
+
+para que haga math con el diccionario de datos
+
+arreglar el math de localidades
 

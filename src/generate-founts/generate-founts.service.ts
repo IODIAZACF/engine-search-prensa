@@ -74,6 +74,7 @@ export class GenerateFountsService {
     //inicializar contadores y contar
     //mathed
     for (let index = 0; index < elements.length; index++) {
+      console.log("progres math words", (elements.length > 0 ? index / elements.length : 1) * 100)
 
       let element = elements[index];
 
@@ -150,7 +151,6 @@ export class GenerateFountsService {
         //BUSQUEDA EN MATRIZ INVERSA DE COMBINACION DE DICCONARIO LIGADO CON PRINCIPAL
 
         for (const pairWords of matrizPrincipalLigado) {
-          console.log("progres math words", (elements.length > 0 ? index / elements.length : 1) * 100)
 
           if (pairWords.length == 2) {
             //init contadores
@@ -195,7 +195,7 @@ export class GenerateFountsService {
           let countMathesMunicipio = this.buscarDosPalabras(data_content, "municipio", municipio);
 
           if (countMathesMunicipio > 0) {
-          //if (data_content.includes(municipio)) {
+            //if (data_content.includes(municipio)) {
 
             let head3 = "municipio:" + municipio;
 
@@ -220,7 +220,7 @@ export class GenerateFountsService {
           region = this.removeAccents(region);
 
           let countMathesRegion = this.buscarDosPalabras(data_content, "region", region);
-          
+
           if (countMathesRegion > 0) {
 
             let head1 = "region:" + region;
@@ -328,6 +328,7 @@ export class GenerateFountsService {
           this.httpService.get<any>(link, config)
             .pipe(
               catchError((error: any) => {
+                console.log("error", error.response)
                 if (error.response?.data)
                   this.logger.error(error.response.data);
                 //throw 'An error happened!';
@@ -345,7 +346,7 @@ export class GenerateFountsService {
 
   buscarDosPalabras(texto, palabra1, palabra2) {
 
-    console.log("buscarDosPalabras", palabra1 + palabra2)
+    //console.log("buscarDosPalabras", palabra1 + palabra2)
 
     let wordsTexto = texto.split(" ");
     let wordsPalabra1 = palabra1.split(" ");
@@ -404,14 +405,13 @@ export class GenerateFountsService {
       const element1 = this.removeChar(arraypajar[i], " ");
       const firstWordAguja = this.removeChar(arrayaguja[0], " ");
 
-      if (firstWordAguja && element1 && (firstWordAguja.includes(element1) || element1.includes(firstWordAguja))) {
+      if (firstWordAguja && element1 && (firstWordAguja.includes(element1))) {
         contMath = 1;
 
         for (let j = 1; j < arrayaguja.length; j++) {
           const element1Next1 = this.removeChar(arraypajar[i + j], " ");
           const element2Next1 = this.removeChar(arrayaguja[j], " ");
-
-          if (element1Next1.includes(element2Next1) || element2Next1.includes(element1Next1)) {
+          if (element1Next1 && element2Next1 && element1Next1.includes(element2Next1)) {
             contMath++;
             indexLastWord = i + j;
             if (contMath == arrayaguja.length) {

@@ -7,9 +7,6 @@
 			"path": "../Users/iodiaz/OneDrive - Fundacion Accion contra el Hambre/Documentos/documentations & investigations"
 		},
 		{
-			"path": "../frontend"
-		},
-		{
 			"path": "../Users/iodiaz/OneDrive - Fundacion Accion contra el Hambre/Documentos/correos"
 		},
 		{
@@ -19,10 +16,16 @@
 			"path": "../ACH/backend/ach-mire"
 		},
 		{
-			"path": "../ACH/backend/API-REST"
+			"path": "../ACH/frontend-consorciomire"
 		},
 		{
-			"path": "../ACH/frontend-consorciomire"
+			"path": "../ACH/backend/API-REST-NESTJS"
+		},
+		{
+			"path": "../ACH/backend/API-TEST-LARAVEL"
+		},
+		{
+			"path": "../ACH/frontend"
 		}
 	],
 	"settings": {}
