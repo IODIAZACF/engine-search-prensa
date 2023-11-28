@@ -1995,7 +1995,7 @@ export class GenerateFountsController {
   getTextFromHtml(htmlString) {
 
     //elimino todos los css
-    console.log("htmlString", typeof htmlString)
+    //console.log("htmlString", typeof htmlString)
 
     htmlString = htmlString.substr(0, htmlString.indexOf("<body"));
 
