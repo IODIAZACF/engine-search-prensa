@@ -87,7 +87,7 @@ export class GenerateFountsController {
 
     let query = "",
       cr = createGenerateFountDto['cr'],
-      dateRestrict = createGenerateFountDto['dateRestrictType'] + "[" + createGenerateFountDto['dateRestrictNum'] + "]",
+      dateRestrict = createGenerateFountDto['dateRestrictType'] + createGenerateFountDto['dateRestrictNum'] ,
       highRange = createGenerateFountDto['highRange'] ? createGenerateFountDto['highRange'] : null,
       num = createGenerateFountDto['num'] ? JSON.parse(createGenerateFountDto['num']) : 10,
       lowRange = createGenerateFountDto['lowRange'] ? createGenerateFountDto['lowRange'] : null;
@@ -107,7 +107,7 @@ export class GenerateFountsController {
       params: {
         //start: 1,
         num,
-        dateRestrict,//2021-01-01:2021-12-31
+        dateRestrict,//2021-01-01:2021-12-31 dateRestrict
         cr,
         "q": "",
         "key": api_key,
@@ -288,7 +288,7 @@ export class GenerateFountsController {
 
           let content: string | any = "";
 
-          if (data) {
+          if (typeof data == "string") {
             content = await this.getTextFromHtml(data);
             //mejorar el string quitando muchos espacio al princiapio y al final
             content = content.trim();
