@@ -1,9 +1,9 @@
 import { Logger, Injectable } from '@nestjs/common';
 import { CreateGenerateFountDto } from './dto/create-generate-fount.dto';
 import { UpdateGenerateFountDto } from './dto/update-generate-fount.dto';
-import { Observable, firstValueFrom, catchError } from 'rxjs';
+import { Observable, firstValueFrom, catchError, concat } from 'rxjs';
 import { HttpService } from '@nestjs/axios';
-import { url_provider_locationscolombia } from '../config.service';
+import { url_provider_locationscolombia, departamentosCiudades } from '../config.service';
 import { HelperService } from '../services/helper/helper.service';
 import { LocationsCo } from '../interfaces/locations-co/locations-co.interface'
 
@@ -67,16 +67,25 @@ export class GenerateFountsService {
 
     let locationsRegion = this.helper.groupBy(locations.data, 'region');
     let locationsDepartamento = this.helper.groupBy(locations.data, 'departamento');
+    let locationsMunicipio = this.helper.groupBy(locations.data, 'municipio');
+
+    let departamentosCiudadesArray = departamentosCiudades;
+
+    let arrayDepartamentos = Object.keys(locationsDepartamento);
+    let arrayRegiones = Object.keys(locationsRegion);
+    let arrayMunicipios = Object.keys(locationsMunicipio);
+    let allLocations = arrayDepartamentos.concat(arrayRegiones).concat(arrayMunicipios);
 
     //hace la compraracion de los element con el contenido para que si hace math estos locaciones se defian
     //por noticia es decir cuantas noticias en esa localidad hablan de esa noticia es decir tema o palabra clave
 
     //inicializar contadores y contar
     //mathed
-    for (let index = 0; index < elements.length; index++) {
-      console.log("progres math words", (elements.length > 0 ? index / elements.length : 1) * 100)
+    let index = 0;
 
-      let element = elements[index];
+    elements.map(element => {
+      index++;
+      console.log("progres math words", (elements.length > 0 ? index / elements.length : 1) * 100)
 
       let diccionarios_principal: string[] = [];
       let diccionarios_ligado: string[] = [];
@@ -138,9 +147,9 @@ export class GenerateFountsService {
       let new_searchs = [];
 
       for (const search of element.searchs) {
-        let contenido = search.content;
+        let contenido = search.title + " " + search.content;
 
-        console.log("contenido", contenido?.length)
+        console.log("contenido country bogota-> ", contenido.includes("bogota"));
 
         //optimizacion de palabras
         let data_content_minus = contenido.toLowerCase();
@@ -184,14 +193,15 @@ export class GenerateFountsService {
           * con la cantidad de 1
           * 
         */
+        let countMathLocations = 0;
 
         //REALIZANDO MATH CON LOS PAISES este hace por municipio
-        for (const location of locations.data) {
+        for (let municipio of arrayMunicipios) {
 
-          let municipio = location.municipio.toLowerCase();
+          municipio = municipio.toLowerCase();
           municipio = this.removeAccents(municipio);
           //error con bogota d.c
-          municipio = municipio.replace(" d.c.", "");
+          municipio = this.removeChar(municipio, "d.c.");
           let countMathesMunicipio = this.buscarDosPalabras(data_content, "municipio", municipio);
 
           if (countMathesMunicipio > 0) {
@@ -206,6 +216,7 @@ export class GenerateFountsService {
             }
 
             element[head3]++;
+            countMathLocations++;
 
             if (!headerLocations.includes(head3)) {
               headerLocations.push(head3);
@@ -213,7 +224,7 @@ export class GenerateFountsService {
           }
         }
 
-        for (let region of Object.keys(locationsRegion)) {
+        for (let region of arrayRegiones) {
 
           //optimizacion de palabras
           region = region.toLowerCase();
@@ -229,6 +240,7 @@ export class GenerateFountsService {
               element[head1] = 0;
             }
             element[head1]++;
+            countMathLocations++;
 
             if (!headerLocations.includes(head1)) {
               headerLocations.push(head1);
@@ -237,14 +249,14 @@ export class GenerateFountsService {
 
         }
 
-        for (let departamento of Object.keys(locationsDepartamento)) {
+        for (let departamento of arrayDepartamentos) {
 
           departamento = departamento.toLowerCase();
           departamento = this.removeAccents(departamento);
           //error con bogota d.c
-          departamento = departamento.replace(" d.c.", "")
+          departamento = this.removeChar(departamento, "d.c.");
 
-          let countMathesDepartamento = this.buscarDosPalabras(data_content, " ", departamento);
+          let countMathesDepartamento = this.buscarDosPalabras(data_content, "departamento", departamento);
           if (countMathesDepartamento > 0) {
 
             let head2 = "departamento:" + departamento;
@@ -254,6 +266,7 @@ export class GenerateFountsService {
             }
 
             element[head2]++;
+            countMathLocations++;
 
             if (!headerLocations.includes(head2)) {
               headerLocations.push(head2);
@@ -263,10 +276,64 @@ export class GenerateFountsService {
 
         }
 
+        console.log("countMathLocations", countMathLocations)
+
+        /* if (countMathLocations == 0) { */
+
+        for (let location of allLocations) {
+
+          location = location.toLowerCase();
+          location = this.removeAccents(location);
+          //error con bogota d.c
+          location = this.removeChar(location, "d.c.");
+
+          let mathesLocation = data_content.includes(location);
+          if (mathesLocation) {
+
+            if (!element[location]) {
+              element[location] = 0;
+            }
+
+            element[location]++;
+
+            if (!headerLocations.includes(location)) {
+              headerLocations.push(location);
+            }
+
+          }
+
+        }
+
+        /* } */
+
+        //math de ciudades
+        for (let departamento of departamentosCiudadesArray) {
+          for (let ciudad of departamento.ciudades) {
+            
+            let mathesCiudad = data_content.includes(ciudad);
+            if (mathesCiudad) {
+              let head2 = "ciudad:" + ciudad;
+
+              if (!element[head2]) {
+                element[head2] = 0;
+              }
+
+              element[head2]++;
+
+              if (!headerLocations.includes(head2)) {
+                headerLocations.push(head2);
+              }
+
+            }
+          }
+
+        }
+
         new_searchs.push({
           title: search.title,
-          displayLink: search.displayLink,
-          formattedUrl: search.formattedUrl
+          link: search.link,
+          formattedUrl: search.formattedUrl,
+          snippet: search.snippet
         });
 
       }
@@ -275,13 +342,14 @@ export class GenerateFountsService {
 
       elementsMathed.push(element);
 
-    }
+    });
+
     console.log("headerLocations", headerLocations)
     console.log("headerWorks", headerWorks)
 
     //es mejor despuesde de para que se cuenten los registros correspondientes
-    for (let n = 0; n < elementsMathed.length; n++) {
-      let elementCustomWord = elementsMathed[n];
+    elementsMathed.map(elementCustomWord => {
+
       let keys = Object.keys(elementCustomWord);
 
       for (const word of headerWorks) {
@@ -307,7 +375,8 @@ export class GenerateFountsService {
       }
 
 
-    }
+      return elementCustomWord;
+    });
 
     return elementsMathed;
   }

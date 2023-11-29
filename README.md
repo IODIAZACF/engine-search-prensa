@@ -87,3 +87,13 @@ para que haga math con el diccionario de datos
 
 arreglar el math de localidades
 
+
+## cuenta usada en datos.gov
+
+datos.gov.co
+
+https://datos.gov.co/verify_email?unverified_email=iodiazbard@gmail.com
+
+correo: iodiazbard@gmail.com
+
+contraseña: v24250144

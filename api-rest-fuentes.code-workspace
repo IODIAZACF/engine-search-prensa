@@ -22,10 +22,10 @@
 			"path": "../ACH/backend/API-REST-NESTJS"
 		},
 		{
-			"path": "../ACH/backend/API-TEST-LARAVEL"
+			"path": "../ACH/frontend"
 		},
 		{
-			"path": "../ACH/frontend"
+			"path": "../ACH/backend/API-REST-LARAVEL"
 		}
 	],
 	"settings": {}
