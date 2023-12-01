@@ -70,6 +70,23 @@ https://console.cloud.google.com/apis/library/customsearch.googleapis.com?hl=ES&
 ## Metas
 
 # Do
+    * EN DONDE SALE para el start de la api v1 de google hay que solicitar la 
+        siguiente pagina y ponerla a los res
+
+    * crear la opcion de uso masico de las consultas de la api de google
+    * y que tambien si hace math con solo una palabra del diccionrio principal o ligado.
+    * que cuando la fecha de las busquedas exceda la fecha de consulta no las tome tomando en cuenta que se tomaran 20 noticias es decir 1o noticias mas.
+    * 
+    
+
+Vamos a organizar las hojas de excel por SUBCATEGORIAS, Ej: 
+agua, energía, seguridad alimentaria, salud
+
+en cada hoja vamos a organizar por filas los municipios y por columnas
+ las palabras clave asociadas a solo 1 diccionarios (la combinación de
+  el diccionario ligado y el principal)
+
+  
 
 # Doing
 
@@ -78,8 +95,6 @@ https://console.cloud.google.com/apis/library/customsearch.googleapis.com?hl=ES&
 
 
 buscar precios
-
-
 
 hacaer la busqueda de nuevo con que sean por pais colombia
 

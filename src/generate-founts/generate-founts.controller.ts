@@ -3697,7 +3697,7 @@ export class GenerateFountsController {
     /* console.log("dataPaginatedCreated", dataPaginatedCreated); */
 
 
-    return dataPaginatedCreated;
+    return {dataPaginatedCreated, diccionarios_principal, diccionarios_ligado};
   }
 
   @Get('/templates/diccionario_de_datos.csv')
