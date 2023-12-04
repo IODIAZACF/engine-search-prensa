@@ -337,12 +337,12 @@ export class GenerateFountsController {
     let rowIndex = 2;
     dataPaginatedCreated.forEach(record => {
       let columnIndex = 1;
-      
+
       for (let index = 0; index < headingColumnNames.length; index++) {
         const columnName = headingColumnNames[index];
         //columnIndex = columnIndex + index;
 
-      //Object.keys(record).forEach(columnName => {
+        //Object.keys(record).forEach(columnName => {
 
         switch (typeof record[columnName]) {
 
@@ -357,8 +357,30 @@ export class GenerateFountsController {
             break;
 
           case 'object':
-            ws.cell(rowIndex, columnIndex++)
-              .string(JSON.stringify(record[columnName]))
+
+            let columnArrayValues = Object.values(record[columnName]);
+            let columnArrayKeys = Object.keys(record[columnName]);
+
+            if (columnArrayValues.length === 0) {
+              ws.cell(rowIndex, columnIndex++)
+                .string(JSON.stringify(record[columnName]))
+              break;
+            }
+
+            //debo agregar una columna para poner lo que voy a imprimir y
+            // que vendria siendo las localizaciones en el headingColumnNames
+            // llamado "localizaciones"
+
+            //hacer en al misma fila con una columna nueva y fila nueva los datos
+            // que siguen del form que estoy recorriendo
+
+            for (let index = 0; index < columnArrayValues.length; index++) {
+              const element = columnArrayValues[index];
+
+              ws.cell(rowIndex, columnIndex++)
+                .string(JSON.stringify(record[columnName]))
+            }
+
             break;
 
           default:
@@ -367,7 +389,7 @@ export class GenerateFountsController {
             break;
         }
 
-      //});
+        //});
       }
 
       rowIndex++;
@@ -428,6 +450,7 @@ export class GenerateFountsController {
 
   @Get()
   async findAll(
+    @Res({ passthrough: true }) res: Response,
     @Body() createGenerateFountDto: CreateGenerateFountDto,
     @UploadedFile() file: Express.Multer.File,
   ) /* : Promise<any> */ {
@@ -3697,7 +3720,126 @@ export class GenerateFountsController {
     /* console.log("dataPaginatedCreated", dataPaginatedCreated); */
 
 
-    return {dataPaginatedCreated, diccionarios_principal, diccionarios_ligado};
+
+    //crear el axcel
+    var xl = require('excel4node');
+
+    const wb = new xl.Workbook();
+    const ws = wb.addWorksheet('Matriz');
+
+    const headingColumnNames: any = Object.keys(dataPaginatedCreated[0])
+
+    let headingColumnIndex = 1;
+    headingColumnNames.forEach(heading => {
+
+      //set header localization espacio blanco
+      if (headingColumnIndex == 12) {
+        ws.cell(1, headingColumnIndex++)
+          .string("")
+      } else {
+        ws.cell(1, headingColumnIndex++)
+          .string(heading)
+      }
+
+    });
+
+    //set header localization
+    ws.cell(2, 12)
+      .string("Localizaciones");
+
+    let rowIndex = 3;
+    dataPaginatedCreated.forEach(record => {
+      let columnIndex = 1;
+
+      for (let index = 0; index < headingColumnNames.length; index++) {
+        const columnName = headingColumnNames[index];
+        //columnIndex = columnIndex + index;
+
+        //Object.keys(record).forEach(columnName => {
+
+        switch (typeof record[columnName]) {
+
+          case 'string':
+            ws.cell(rowIndex, columnIndex++)
+              .string(record[columnName])
+            break;
+
+          case 'number':
+            ws.cell(rowIndex, columnIndex++)
+              .number(record[columnName])
+            break;
+
+          case 'object':
+
+            let columnArrayValues = Object.values(record[columnName]);
+            let columnArrayKeys = Object.keys(record[columnName]);
+
+            if (columnArrayKeys[0] == 'searchs' || columnArrayKeys[0] == 'matrizPrincipalLigado') {
+              ws.cell(rowIndex, columnIndex++)
+                .string(JSON.stringify(record[columnName]))
+              break;
+            }
+
+            //debo agregar una columna para poner lo que voy a imprimir y
+            // que vendria siendo las localizaciones en el headingColumnNames
+            // llamado "localizaciones"
+
+
+
+            //hacer en al misma fila con una columna nueva y fila nueva los datos
+            // que siguen del form que estoy recorriendo
+
+            //columnIndex++;
+
+            for (let index = 0; index < columnArrayValues.length; index++) {
+
+              if (columnIndex == 12) {
+                ws.cell(rowIndex, columnIndex++)
+                  .string(JSON.stringify(columnArrayKeys[index].localization))
+              }
+
+              const elementColumnValue = columnArrayValues[index];
+
+              ws.cell(rowIndex, columnIndex++)
+                .string(JSON.stringify(elementColumnValue))
+            }
+            //rowIndex++;
+
+            break;
+
+          default:
+            ws.cell(rowIndex, columnIndex++)
+              .string(JSON.stringify(record[columnName]))
+            break;
+        }
+
+        //});
+      }
+
+      rowIndex++;
+    });
+
+    wb.write('ExcelFile.xlsx', function (err, stats) {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log(stats); // Prints out an instance of a node.js fs.Stats object
+
+        return stats;
+      }
+    });
+
+    let buffer = await wb.writeToBuffer('ExcelFile.xlsx');
+
+    res.set({
+      'Content-Type': 'application/excel',
+      'Content-Disposition': 'attachment; filename="Matriz de consistencia Prensa Fenomeno del Niño.xlsx"',
+    });
+
+    return new StreamableFile(buffer);
+
+
+    //return { dataPaginatedCreated, diccionarios_principal, diccionarios_ligado };
   }
 
   @Get('/templates/diccionario_de_datos.csv')

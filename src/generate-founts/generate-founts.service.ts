@@ -62,6 +62,7 @@ export class GenerateFountsService {
 
 
     let headerWorks: string[] = [];
+    let subHeaderLocations: any[] = [];
 
     //hace la compraracion de los element con el contenido para que si hace math estos locaciones se defian
     //por noticia es decir cuantas noticias en esa localidad hablan de esa noticia es decir tema o palabra clave
@@ -136,7 +137,7 @@ export class GenerateFountsService {
       }
 
       //set matriz ligado
-      element.matrizPrincipalLigado = matrizPrincipalLigado;
+      element.matrizPrincipalLigado = { matrizPrincipalLigado };
 
       console.log("element.matrizPrincipalLigado ", element.matrizPrincipalLigado.length);
 
@@ -165,25 +166,32 @@ export class GenerateFountsService {
             let countMathes = this.buscarDosPalabras(data_content, pairWords[0], pairWords[1]);
 
             if (countMathes > 0) {
+              let localationStr = this.getLocationNew(data_content);
 
-              if (!pairwordCounted.includes(link + pairWords[0] + pairWords[1])) {
-                pairwordCounted.push(link + pairWords[0] + pairWords[1]);
+              if (!pairwordCounted.includes(link + pairWords[0] + pairWords[1] + localationStr)) {
+
+                pairwordCounted.push(link + pairWords[0] + pairWords[1] + localationStr);
 
                 const pairwordsmath = pairWords[0] + '+' + pairWords[1];
 
                 if (!element[pairwordsmath]) {
-                  element[pairwordsmath] = { cant: 0, location: [] };
+                  element[pairwordsmath] = {};
                 }
 
-                element[pairwordsmath].cant++;
+                if (!element[pairwordsmath].localization) {
+                  element[pairwordsmath].localization = {}
+                }
+
+                if (!element[pairwordsmath].localization[localationStr]) {
+                  element[pairwordsmath].localization[localationStr] = 0;
+                }
+
+                element[pairwordsmath].localization[localationStr]++;
 
                 if (!headerWorks.includes(pairwordsmath)) {
                   headerWorks.push(pairwordsmath);
-
                 }
 
-                //aqui poner dentro del contador en municipio ciudad ocurrio
-                element[pairwordsmath].location.push(this.getLocationNew(data_content));
 
               }
 
@@ -198,24 +206,29 @@ export class GenerateFountsService {
 
               //word 1
               if (index2 !== -1) {
-                if (!pairwordCounted.includes(link + word1)) {
-                  pairwordCounted.push(link + word1);
+                let localationStr = this.getLocationNew(data_content);
+
+                if (!pairwordCounted.includes(link + word1 + localationStr)) {
+                  pairwordCounted.push(link + word1 + localationStr);
                   //console.log("index2", index2);
 
                   if (!element[word1]) {
-                    element[word1] = { cant: 0, location: [] };
+                    element[word1] = {};
                   }
 
-                  element[word1].cant++;
+                  if (!element[word1].localization) {
+                    element[word1].localization = {}
+                  }
+
+                  if (!element[word1].localization[localationStr]) {
+                    element[word1].localization[localationStr] = 0;
+                  }
+
+                  element[word1].localization[localationStr]++;
 
                   if (!headerWorks.includes(word1)) {
                     headerWorks.push(word1);
-
                   }
-
-                  //aqui poner dentro del contador en departamento region municipio ciudad ocurrio
-                  element[word1].location.push(this.getLocationNew(data_content));
-
 
                 }
 
@@ -234,18 +247,22 @@ export class GenerateFountsService {
 
       }
 
-      element.searchs = new_searchs;
+      element.searchs = { searchs: new_searchs };
 
       elementsMathed.push(element);
 
     });
 
     console.log("headerWorks", headerWorks)
+    console.log("subHeaderLocations", subHeaderLocations)
 
     //es mejor despuesde de para que se cuenten los registros correspondientes
     elementsMathed.map(elementCustomWord => {
 
       let keys = Object.keys(elementCustomWord);
+      let values = Object.values(elementCustomWord);
+
+      let locations = this.extractLocationsEstandar(values)
 
       for (const word of headerWorks) {
 
@@ -255,7 +272,18 @@ export class GenerateFountsService {
           elementCustomWord[word] = 0;
         }
 
+        //para localizacion 
+        for (let index = 0; index < locations.length; index++) {
+          const location = locations[index];
+
+          if(!elementCustomWord[word].localization[location]){
+            elementCustomWord[word].localization[location] = 0;
+          }
+
+        }
+
       }
+
 
       return elementCustomWord;
     });
@@ -394,22 +422,23 @@ export class GenerateFountsService {
     return wordsForFindedIndex;
   }
 
-  async getLocationNew(data_content) {
-    
+  getLocationNew(data_content): string {
+
     let locationAprox = "";
     let headerLocations: string[] = [];
     let departamentosCiudadesArray = this.helper.getCities();
+    let groupCitiesObj = this.helper.groupBy(departamentosCiudadesArray, 'ciudades');
+    let groupCitiesArray = Object.keys(groupCitiesObj);
 
     let locations: any = this.helper.getMunicipios();
-
     let locationsMunicipio = this.helper.groupBy(locations, 'municipio');
     let arrayMunicipios = Object.keys(locationsMunicipio);
-    let locationsDepartamento:any = this.helper.groupBy(locations, 'departamento');
-    let arrayDepartamentos:any = Object.keys(locationsDepartamento);
+    let locationsDepartamento: any = this.helper.groupBy(locations, 'departamento');
+    let arrayDepartamentos: any = Object.keys(locationsDepartamento);
     let locationsRegion = this.helper.groupBy(locations, 'region');
-    let arrayRegiones:any = Object.keys(locationsRegion);
+    let arrayRegiones: any = Object.keys(locationsRegion);
 
-    
+
     //REALIZANDO MATH CON LOS PAISES este hace por municipio
     for (let municipioOrigininal of arrayMunicipios) {
 
@@ -430,19 +459,22 @@ export class GenerateFountsService {
           "municipio": "Abejorral"
         } */
 
-        let head3 = "municipio:" + municipioOrigininal+ 
-        " departamento:" + location?.departamento;
+        let head3 = "municipio:" + municipioOrigininal +
+          " departamento:" + location?.departamento;
 
         if (!headerLocations.includes(head3)) {
           headerLocations.push(head3);
         }
+
+        locationAprox = head3;
+
       }
     }
-    
-    if(locationAprox !== ""){
+
+    if (locationAprox !== "") {
       return locationAprox;
     }
-    
+
     //math de ciudades
     for (let departamento of departamentosCiudadesArray) {
       for (let ciudad of departamento.ciudades) {
@@ -455,8 +487,8 @@ export class GenerateFountsService {
 
         if (mathesCiudad) {
 
-          let head2 = "ciudad:" + ciudadFormated + 
-          " departamento:" + departamento?.departamento;
+          let head2 = "ciudad:" + ciudadFormated +
+            " departamento:" + departamento?.departamento;
 
           if (!headerLocations.includes(head2)) {
             headerLocations.push(head2);
@@ -468,7 +500,7 @@ export class GenerateFountsService {
 
     }
 
-    if(locationAprox !== ""){
+    if (locationAprox !== "") {
       return locationAprox;
     }
 
@@ -483,8 +515,8 @@ export class GenerateFountsService {
       let countMathesDepartamento = this.buscarDosPalabras(data_content, "departamento", departamento);
       if (countMathesDepartamento > 0) {
 
-        let head2 = "departamento:" + departamento + 
-        " region:" + departamento.region;
+        let head2 = "departamento:" + departamento +
+          " region:" + departamento.region;
 
         if (!headerLocations.includes(head2)) {
           headerLocations.push(head2);
@@ -496,7 +528,7 @@ export class GenerateFountsService {
 
     }
 
-    if(locationAprox !== ""){
+    if (locationAprox !== "") {
       return locationAprox;
     }
 
@@ -521,11 +553,11 @@ export class GenerateFountsService {
 
     }
 
-    if(locationAprox !== ""){
+    if (locationAprox !== "") {
       return locationAprox;
     }
 
-    let allLocations = arrayDepartamentos.concat(departamentosCiudadesArray);
+    let allLocations = arrayDepartamentos.concat(groupCitiesArray);
 
     for (let location of allLocations) {
 
@@ -536,7 +568,7 @@ export class GenerateFountsService {
 
       let mathesLocation = data_content.includes(location);
       if (mathesLocation) {
-        
+
         if (!headerLocations.includes(location)) {
           headerLocations.push(location);
         }
@@ -546,6 +578,41 @@ export class GenerateFountsService {
 
     }
 
+
+    if (locationAprox == "") {
+      return "INDEFINIDO";
+    }
+
     return locationAprox;
+  }
+
+  /**
+   * funcion para extraer los subhedaer localizaciones del elemento o fila
+   *  
+   */
+  extractLocationsEstandar(fila) {
+
+    let values: any[] = Object.values(fila);
+    let locations = [];
+
+    for (let index = 0; index < values.length; index++) {
+      const element = values[index];
+
+      if (element?.localization) {
+        let locationsRepited = element?.localization;
+
+        for (let index = 0; index < locationsRepited.length; index++) {
+          const locationRepited = locationsRepited[index];
+
+          if (!locations.includes(locationRepited)) {
+            locations.push(locationRepited)
+          }
+        }
+      }
+
+    }
+
+    return locations;
+
   }
 }
