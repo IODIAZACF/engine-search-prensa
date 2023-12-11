@@ -270,13 +270,13 @@ export class GenerateFountsService {
 
         if (indexWord == -1) {
           elementCustomWord[word] = 0;
+          continue;
         }
 
         //para localizacion 
         for (let index = 0; index < locations.length; index++) {
           const location = locations[index];
-
-          if(!elementCustomWord[word].localization[location]){
+          if (elementCustomWord[word]?.localization && !elementCustomWord[word]?.localization[location]) {
             elementCustomWord[word].localization[location] = 0;
           }
 
@@ -599,7 +599,7 @@ export class GenerateFountsService {
       const element = values[index];
 
       if (element?.localization) {
-        let locationsRepited = element?.localization;
+        let locationsRepited = Object.keys(element?.localization);
 
         for (let index = 0; index < locationsRepited.length; index++) {
           const locationRepited = locationsRepited[index];

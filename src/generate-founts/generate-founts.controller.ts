@@ -469,8 +469,8 @@ export class GenerateFountsController {
 
     let dataPaginated = [
       {
-        "Categoría": "",
-        "Subcategorias": "",
+        "Categoría": "Ctaegoria",
+        "Subcategorias": "Fenomeno del niño",
         "Temas": "2. Fenomeno para Colombia",
         "Palabra clave": "Oscilación del sur",
         "Diccionario Principal": "alteración / altera",
@@ -3736,10 +3736,10 @@ export class GenerateFountsController {
       if (headingColumnIndex == 12) {
         ws.cell(1, headingColumnIndex++)
           .string("")
-      } else {
-        ws.cell(1, headingColumnIndex++)
-          .string(heading)
       }
+
+      ws.cell(1, headingColumnIndex++)
+        .string(heading)
 
     });
 
@@ -3748,11 +3748,15 @@ export class GenerateFountsController {
       .string("Localizaciones");
 
     let rowIndex = 3;
+    let oldRowIndex = [];
     dataPaginatedCreated.forEach(record => {
       let columnIndex = 1;
 
       for (let index = 0; index < headingColumnNames.length; index++) {
         const columnName = headingColumnNames[index];
+        let columnNameBefore = "";
+        if (index - 1 >= 0)
+          columnNameBefore = headingColumnNames[index - 1];
         //columnIndex = columnIndex + index;
 
         //Object.keys(record).forEach(columnName => {
@@ -3772,7 +3776,7 @@ export class GenerateFountsController {
           case 'object':
 
             let columnArrayValues = Object.values(record[columnName]);
-            let columnArrayKeys = Object.keys(record[columnName]);
+            let columnArrayKeys: any = Object.keys(record[columnName]);
 
             if (columnArrayKeys[0] == 'searchs' || columnArrayKeys[0] == 'matrizPrincipalLigado') {
               ws.cell(rowIndex, columnIndex++)
@@ -3784,26 +3788,82 @@ export class GenerateFountsController {
             // que vendria siendo las localizaciones en el headingColumnNames
             // llamado "localizaciones"
 
+            //1
+            /*
+            [
+              {
+                'ciudad:colombia departamento:Huila': 1,
+                'ciudad:bogota departamento:Cundinamarca': 0
+              } 
+            ]
+            */
 
+            /* {localization: {
+              'ciudad:colombia departamento:Huila': 1,
+              'ciudad:bogota departamento:Cundinamarca': 0
+            }} */
 
-            //hacer en al misma fila con una columna nueva y fila nueva los datos
-            // que siguen del form que estoy recorriendo
+            if (columnArrayKeys[0] == 'localization') {
 
-            //columnIndex++;
+              //hacer en al misma fila con una columna nueva y fila nueva los datos
+              // que siguen del form que estoy recorriendo
 
-            for (let index = 0; index < columnArrayValues.length; index++) {
+              //columnIndex++;
+              let arrayLocationsValues = Object.values(record[columnName].localization);
+              let arrayLocationsKeys = Object.keys(record[columnName].localization);
 
-              if (columnIndex == 12) {
-                ws.cell(rowIndex, columnIndex++)
-                  .string(JSON.stringify(columnArrayKeys[index].localization))
+              let wordKey = record["Subcategorias"];
+
+              oldRowIndex[wordKey] = rowIndex;
+              let subHeaders = Object.keys(record[columnName]);
+              let rowIndexSubHeader = rowIndex;
+
+              for (let index = 0; index < arrayLocationsValues.length; index++) {
+
+                /* if (arrayLocationsValues.length - 1 == index) {
+                  //rowIndex--;
+                  if(oldRowIndex-1 > 0){
+                    oldRowIndex--;
+                  }
+                } */
+
+                const elementColumnKey = arrayLocationsKeys[index];
+
+                if (columnIndex == 12) {
+                  columnIndex++;
+                }
+
+                ws.cell(rowIndex, 12)
+                  .string(JSON.stringify(elementColumnKey))
+
+                if (0 == index) {
+                  //console.log("oldRowIndex", oldRowIndex);
+                  //console.log("rowIndex", rowIndex);
+                  //oldRowIndex++;
+
+                } else {
+                  //oldRowIndex += arrayLocationsValues.length;
+                  //oldRowIndex++
+                }
+
+                const elementColumnValue = arrayLocationsValues[index];
+
+                ws.cell(rowIndex++, columnIndex)
+                  .string(JSON.stringify(elementColumnValue))
+
               }
+              console.log("oldRowIndex", oldRowIndex);
+              console.log("rowIndex", rowIndex);
+              console.log("wordKey", wordKey);
+              console.log("record[columnName]", record[columnName]);
+              //console.log("arrayLocationsValues", arrayLocationsValues);[1, 2, 3]
+              console.log("columnArrayKeys", columnArrayKeys);
 
-              const elementColumnValue = columnArrayValues[index];
-
-              ws.cell(rowIndex, columnIndex++)
-                .string(JSON.stringify(elementColumnValue))
+              //cuando cambie de categoria
+              if (wordKey)
+                rowIndex = oldRowIndex[wordKey];
+              columnIndex++;
             }
-            //rowIndex++;
 
             break;
 
