@@ -3719,7 +3719,7 @@ export class GenerateFountsController {
     );
     /* console.log("dataPaginatedCreated", dataPaginatedCreated); */
 
-
+    dataPaginatedCreated = this.showLocations(dataPaginatedCreated);
 
     //crear el axcel
     var xl = require('excel4node');
@@ -3733,10 +3733,10 @@ export class GenerateFountsController {
     headingColumnNames.forEach(heading => {
 
       //set header localization espacio blanco
-      if (headingColumnIndex == 12) {
+      /* if (headingColumnIndex == 12) {
         ws.cell(1, headingColumnIndex++)
           .string("")
-      }
+      } */
 
       ws.cell(1, headingColumnIndex++)
         .string(heading)
@@ -3744,9 +3744,9 @@ export class GenerateFountsController {
     });
 
     //set header localization
-    ws.cell(2, 12)
+    /* ws.cell(2, 12)
       .string("Localizaciones");
-
+ */
     let rowIndex = 3;
     let oldRowIndex = [];
     dataPaginatedCreated.forEach(record => {
@@ -3778,11 +3778,11 @@ export class GenerateFountsController {
             let columnArrayValues = Object.values(record[columnName]);
             let columnArrayKeys: any = Object.keys(record[columnName]);
 
-            if (columnArrayKeys[0] == 'searchs' || columnArrayKeys[0] == 'matrizPrincipalLigado') {
+            //if (columnArrayKeys[0] == 'searchs' || columnArrayKeys[0] == 'matrizPrincipalLigado') {
               ws.cell(rowIndex, columnIndex++)
                 .string(JSON.stringify(record[columnName]))
               break;
-            }
+            //}
 
             //debo agregar una columna para poner lo que voy a imprimir y
             // que vendria siendo las localizaciones en el headingColumnNames
@@ -3803,67 +3803,6 @@ export class GenerateFountsController {
               'ciudad:bogota departamento:Cundinamarca': 0
             }} */
 
-            if (columnArrayKeys[0] == 'localization') {
-
-              //hacer en al misma fila con una columna nueva y fila nueva los datos
-              // que siguen del form que estoy recorriendo
-
-              //columnIndex++;
-              let arrayLocationsValues = Object.values(record[columnName].localization);
-              let arrayLocationsKeys = Object.keys(record[columnName].localization);
-
-              let wordKey = record["Subcategorias"];
-
-              oldRowIndex[wordKey] = rowIndex;
-              let subHeaders = Object.keys(record[columnName]);
-              let rowIndexSubHeader = rowIndex;
-
-              for (let index = 0; index < arrayLocationsValues.length; index++) {
-
-                /* if (arrayLocationsValues.length - 1 == index) {
-                  //rowIndex--;
-                  if(oldRowIndex-1 > 0){
-                    oldRowIndex--;
-                  }
-                } */
-
-                const elementColumnKey = arrayLocationsKeys[index];
-
-                if (columnIndex == 12) {
-                  columnIndex++;
-                }
-
-                ws.cell(rowIndex, 12)
-                  .string(JSON.stringify(elementColumnKey))
-
-                if (0 == index) {
-                  //console.log("oldRowIndex", oldRowIndex);
-                  //console.log("rowIndex", rowIndex);
-                  //oldRowIndex++;
-
-                } else {
-                  //oldRowIndex += arrayLocationsValues.length;
-                  //oldRowIndex++
-                }
-
-                const elementColumnValue = arrayLocationsValues[index];
-
-                ws.cell(rowIndex++, columnIndex)
-                  .string(JSON.stringify(elementColumnValue))
-
-              }
-              console.log("oldRowIndex", oldRowIndex);
-              console.log("rowIndex", rowIndex);
-              console.log("wordKey", wordKey);
-              console.log("record[columnName]", record[columnName]);
-              //console.log("arrayLocationsValues", arrayLocationsValues);[1, 2, 3]
-              console.log("columnArrayKeys", columnArrayKeys);
-
-              //cuando cambie de categoria
-              if (wordKey)
-                rowIndex = oldRowIndex[wordKey];
-              columnIndex++;
-            }
 
             break;
 
@@ -3983,6 +3922,35 @@ export class GenerateFountsController {
         resolve(htmlString)
       }
     })
+
+  }
+
+  showLocations(dataPaginatedCreated){
+
+    let dataPaginatedCreatedLocations:any=[];
+
+    /* 
+
+    if (headingColumnIndex == 12) {
+      ws.cell(1, headingColumnIndex++)
+        .string("")
+    }
+
+    ws.cell(2, 12)
+    .string("Localizaciones"); 
+    
+    */
+
+    for (let index = 0; index < dataPaginatedCreated.length; index++) {
+      let element = dataPaginatedCreated[index];
+
+      
+
+      dataPaginatedCreatedLocations.push(element);
+      
+    }
+
+    return dataPaginatedCreatedLocations
 
   }
 }
