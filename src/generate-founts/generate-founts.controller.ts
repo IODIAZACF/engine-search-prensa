@@ -3805,28 +3805,13 @@ export class GenerateFountsController {
 
             if (columnArrayKeys[0] == 'localization') {
 
-              //hacer en al misma fila con una columna nueva y fila nueva los datos
-              // que siguen del form que estoy recorriendo
+              record[columnName].localization = this.orderOject(record[columnName].localization);
 
-              //columnIndex++;
               let arrayLocationsValues = Object.values(record[columnName].localization);
               let arrayLocationsKeys = Object.keys(record[columnName].localization);
 
-              let wordKey = record["Subcategorias"];
-
-              oldRowIndex[wordKey] = rowIndex;
-              let subHeaders = Object.keys(record[columnName]);
-              let rowIndexSubHeader = rowIndex;
-
               for (let index = 0; index < arrayLocationsValues.length; index++) {
-
-                /* if (arrayLocationsValues.length - 1 == index) {
-                  //rowIndex--;
-                  if(oldRowIndex-1 > 0){
-                    oldRowIndex--;
-                  }
-                } */
-
+                //subheader
                 const elementColumnKey = arrayLocationsKeys[index];
 
                 if (columnIndex == 12) {
@@ -3834,35 +3819,24 @@ export class GenerateFountsController {
                 }
 
                 ws.cell(rowIndex, 12)
-                  .string(JSON.stringify(elementColumnKey))
+                  .string(JSON.stringify(elementColumnKey));
+                //subheader
 
-                if (0 == index) {
-                  //console.log("oldRowIndex", oldRowIndex);
-                  //console.log("rowIndex", rowIndex);
-                  //oldRowIndex++;
+                const element = arrayLocationsValues[index];
 
-                } else {
-                  //oldRowIndex += arrayLocationsValues.length;
-                  //oldRowIndex++
+                if (index > 0) {
+                  rowIndex++
                 }
 
-                const elementColumnValue = arrayLocationsValues[index];
+                ws.cell(rowIndex, columnIndex)
+                  .string(JSON.stringify(element))
 
-                ws.cell(rowIndex++, columnIndex)
-                  .string(JSON.stringify(elementColumnValue))
+                if (arrayLocationsValues.length - 1 == index) {
+                  columnIndex++
+                  rowIndex--
 
+                }
               }
-              console.log("oldRowIndex", oldRowIndex);
-              console.log("rowIndex", rowIndex);
-              console.log("wordKey", wordKey);
-              console.log("record[columnName]", record[columnName]);
-              //console.log("arrayLocationsValues", arrayLocationsValues);[1, 2, 3]
-              console.log("columnArrayKeys", columnArrayKeys);
-
-              //cuando cambie de categoria
-              if (wordKey)
-                rowIndex = oldRowIndex[wordKey];
-              columnIndex++;
             }
 
             break;
@@ -3984,5 +3958,18 @@ export class GenerateFountsController {
       }
     })
 
+  }
+
+  orderOject(unordered) {
+
+    const ordered = Object.keys(unordered).sort().reduce(
+      (obj, key) => {
+        obj[key] = unordered[key];
+        return obj;
+      },
+      {}
+    );
+
+    return ordered;
   }
 }

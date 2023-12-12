@@ -1,0 +1,69 @@
+
+
+record[columnName].localization = this.orderOject(record[columnName].localization);
+
+
+//hacer en al misma fila con una columna nueva y fila nueva los datos
+// que siguen del form que estoy recorriendo
+
+//columnIndex++;
+let arrayLocationsValues = Object.values(record[columnName].localization);
+let arrayLocationsKeys = Object.keys(record[columnName].localization);
+
+let wordKey = record["Subcategorias"];
+
+oldRowIndex["wordKey"] = rowIndex;
+let subHeaders = Object.keys(record[columnName]);
+let rowIndexSubHeader = rowIndex;
+
+for (let index = 0; index < arrayLocationsKeys.length; index++) {
+
+  if (arrayLocationsKeys.length - 1 == index) {
+    //rowIndex = oldRowIndex["wordKey"];
+    //rowIndex--;
+    //if (rowIndex - arrayLocationsKeys.length > 0) {
+    //  rowIndex -= arrayLocationsKeys.length;
+    //oldRowIndex--;
+    //}
+  }
+
+  if (index > 0) {
+    //rowIndex = oldRowIndex["wordKey"];
+    //console.log("oldRowIndex", oldRowIndex);
+    //console.log("rowIndex", rowIndex);
+    //oldRowIndex++;
+    rowIndex+2
+  } else {
+    //oldRowIndex += arrayLocationsKeys.length;
+    //oldRowIndex++
+    rowIndex--
+  }
+
+  const elementColumnKey = arrayLocationsKeys[index];
+
+  if (columnIndex == 12) {
+    columnIndex++;
+  }
+
+  ws.cell(rowIndex, 12)
+    .string(JSON.stringify(elementColumnKey));
+
+  const elementColumnValue = record[columnName].localization[elementColumnKey];
+
+  ws.cell(rowIndex, columnIndex)
+    .string(JSON.stringify(elementColumnValue))
+
+}
+console.log("oldRowIndex", oldRowIndex);
+console.log("rowIndex", rowIndex);
+console.log("wordKey", wordKey);
+console.log("record[columnName]", record[columnName]);
+//console.log("arrayLocationsValues", arrayLocationsValues);[1, 2, 3]
+console.log("columnArrayKeys", columnArrayKeys);
+
+//cuando cambie de categoria
+/* let dinitiverow = oldRowIndex["wordKey"]+1;
+rowIndex = dinitiverow> 0 ?dinitiverow: rowIndex; */
+
+//rowIndex -= arrayLocationsKeys.length;
+columnIndex++;
