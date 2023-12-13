@@ -3719,7 +3719,7 @@ export class GenerateFountsController {
     );
     /* console.log("dataPaginatedCreated", dataPaginatedCreated); */
 
-
+    dataPaginatedCreated = this.showLocations(dataPaginatedCreated);
 
     //crear el axcel
     var xl = require('excel4node');
@@ -3733,10 +3733,10 @@ export class GenerateFountsController {
     headingColumnNames.forEach(heading => {
 
       //set header localization espacio blanco
-      if (headingColumnIndex == 12) {
+      /* if (headingColumnIndex == 12) {
         ws.cell(1, headingColumnIndex++)
           .string("")
-      }
+      } */
 
       ws.cell(1, headingColumnIndex++)
         .string(heading)
@@ -3744,9 +3744,9 @@ export class GenerateFountsController {
     });
 
     //set header localization
-    ws.cell(2, 12)
+    /* ws.cell(2, 12)
       .string("Localizaciones");
-
+ */
     let rowIndex = 3;
     let oldRowIndex = [];
     dataPaginatedCreated.forEach(record => {
@@ -3778,68 +3778,33 @@ export class GenerateFountsController {
             let columnArrayValues = Object.values(record[columnName]);
             let columnArrayKeys: any = Object.keys(record[columnName]);
 
-            if (columnArrayKeys[0] == 'searchs' || columnArrayKeys[0] == 'matrizPrincipalLigado') {
-              ws.cell(rowIndex, columnIndex++)
-                .string(JSON.stringify(record[columnName]))
-              break;
-            }
+            //if (columnArrayKeys[0] == 'searchs' || columnArrayKeys[0] == 'matrizPrincipalLigado') {
+            ws.cell(rowIndex, columnIndex++)
+              .string(JSON.stringify(record[columnName]))
+            break;
+          //}
 
-            //debo agregar una columna para poner lo que voy a imprimir y
-            // que vendria siendo las localizaciones en el headingColumnNames
-            // llamado "localizaciones"
+          //debo agregar una columna para poner lo que voy a imprimir y
+          // que vendria siendo las localizaciones en el headingColumnNames
+          // llamado "localizaciones"
 
-            //1
-            /*
-            [
-              {
-                'ciudad:colombia departamento:Huila': 1,
-                'ciudad:bogota departamento:Cundinamarca': 0
-              } 
-            ]
-            */
-
-            /* {localization: {
+          //1
+          /*
+          [
+            {
               'ciudad:colombia departamento:Huila': 1,
               'ciudad:bogota departamento:Cundinamarca': 0
-            }} */
+            } 
+          ]
+          */
 
-            if (columnArrayKeys[0] == 'localization') {
+          /* {localization: {
+            'ciudad:colombia departamento:Huila': 1,
+            'ciudad:bogota departamento:Cundinamarca': 0
+          }} 
 
-              record[columnName].localization = this.orderOject(record[columnName].localization);
 
-              let arrayLocationsValues = Object.values(record[columnName].localization);
-              let arrayLocationsKeys = Object.keys(record[columnName].localization);
-
-              for (let index = 0; index < arrayLocationsValues.length; index++) {
-                //subheader
-                const elementColumnKey = arrayLocationsKeys[index];
-
-                if (columnIndex == 12) {
-                  columnIndex++;
-                }
-
-                ws.cell(rowIndex, 12)
-                  .string(JSON.stringify(elementColumnKey));
-                //subheader
-
-                const element = arrayLocationsValues[index];
-
-                if (index > 0) {
-                  rowIndex++
-                }
-
-                ws.cell(rowIndex, columnIndex)
-                  .string(JSON.stringify(element))
-
-                if (arrayLocationsValues.length - 1 == index) {
-                  columnIndex++
-                  rowIndex--
-
-                }
-              }
-            }
-
-            break;
+          break;*/
 
           default:
             ws.cell(rowIndex, columnIndex++)
@@ -3971,5 +3936,36 @@ export class GenerateFountsController {
     );
 
     return ordered;
+  }
+
+  showLocations(dataPaginatedCreated) {
+
+    let dataPaginatedCreatedLocations: any = [];
+
+    /* 
+
+    if (headingColumnIndex == 12) {
+      ws.cell(1, headingColumnIndex++)
+        .string("")
+    }
+
+    ws.cell(2, 12)
+    .string("Localizaciones"); 
+    
+    */
+
+    for (let index = 0; index < dataPaginatedCreated.length; index++) {
+      let element = dataPaginatedCreated[index];
+
+      element.localization = orderOject(element.localization);
+
+      
+
+      dataPaginatedCreatedLocations.push(element);
+
+    }
+
+    return dataPaginatedCreatedLocations
+
   }
 }
