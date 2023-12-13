@@ -3956,12 +3956,47 @@ export class GenerateFountsController {
 
     for (let index = 0; index < dataPaginatedCreated.length; index++) {
       let element = dataPaginatedCreated[index];
+      let elementKeyArray = Object.keys(element);
+      let elementValueArray = Object.values(element);
+      let indexLimit = elementKeyArray.indexOf("matrizPrincipalLigado");
 
-      element.localization = orderOject(element.localization);
+      let elementFormaed: any = {};
 
-      
+      for (let j = 0; j < elementKeyArray.length; j++) {
 
-      dataPaginatedCreatedLocations.push(element);
+        const elementKey = elementKeyArray[j];
+        let elementValue: any = elementValueArray[j];
+
+        if (j <= indexLimit) {
+          elementFormaed[elementKey] = elementValue;
+        } else {
+
+          if (!elementValue.localization) {
+            continue;
+          }
+
+          console.log("elementKey", elementKey)
+          //alertas efectos ...
+          console.log("elementValue", elementValue)
+          //{localization: [{location: 1}, ...]}
+
+          elementValue.localization = this.orderOject(elementValue.localization);
+
+          for (let k = 0; k < elementValue.localization.length; k++) {
+            const localization = elementValue.localization[k];
+            //{location: 1}, {location: 1}, {location: 1}
+            let localizationKeyArray = Object.keys(localization);
+            let localizationValueArray = Object.values(localization);
+
+            elementFormaed['Localizaciones'] = localizationKeyArray[0];
+            elementFormaed[elementKey] = localizationValueArray[0];
+            dataPaginatedCreatedLocations.push(elementFormaed);
+          }
+
+        }
+
+      }
+
 
     }
 
