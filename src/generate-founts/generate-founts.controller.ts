@@ -3717,9 +3717,9 @@ export class GenerateFountsController {
       diccionarios_principal,
       diccionarios_ligado
     );
-    /* console.log("dataPaginatedCreated", dataPaginatedCreated); */
 
     dataPaginatedCreated = this.showLocations(dataPaginatedCreated);
+
 
     //crear el axcel
     var xl = require('excel4node');
@@ -3981,15 +3981,18 @@ export class GenerateFountsController {
           //{localization: [{location: 1}, ...]}
 
           elementValue.localization = this.orderOject(elementValue.localization);
+          console.log("elementValue.localization", elementValue.localization);
+          //{location: 1}, {location: 1}, {location: 1}
 
-          for (let k = 0; k < elementValue.localization.length; k++) {
-            const localization = elementValue.localization[k];
-            //{location: 1}, {location: 1}, {location: 1}
-            let localizationKeyArray = Object.keys(localization);
-            let localizationValueArray = Object.values(localization);
+          let localizationsKeyArray = Object.keys(elementValue.localization);
+          let localizationsValueArray = Object.values(elementValue.localization);
 
-            elementFormaed['Localizaciones'] = localizationKeyArray[0];
-            elementFormaed[elementKey] = localizationValueArray[0];
+          for (let k = 0; k < localizationsValueArray.length; k++) {
+            const localizationValue = localizationsValueArray[k];
+            const localizationKey = localizationsKeyArray[k];
+
+            elementFormaed['Localizaciones'] = localizationKey;
+            elementFormaed[elementKey] = localizationValue;
             dataPaginatedCreatedLocations.push(elementFormaed);
           }
 
@@ -3999,6 +4002,7 @@ export class GenerateFountsController {
 
 
     }
+    console.log("dataPaginatedCreatedLocations", dataPaginatedCreatedLocations);
 
     return dataPaginatedCreatedLocations
 
