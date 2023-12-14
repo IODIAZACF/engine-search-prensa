@@ -3747,7 +3747,7 @@ export class GenerateFountsController {
     /* ws.cell(2, 12)
       .string("Localizaciones");
  */
-    let rowIndex = 3;
+    let rowIndex = 2;
     let oldRowIndex = [];
     dataPaginatedCreated.forEach(record => {
       let columnIndex = 1;
@@ -3838,7 +3838,7 @@ export class GenerateFountsController {
     return new StreamableFile(buffer);
 
 
-    //return { dataPaginatedCreated, diccionarios_principal, diccionarios_ligado };
+    return { dataPaginatedCreated, diccionarios_principal, diccionarios_ligado };
   }
 
   @Get('/templates/diccionario_de_datos.csv')
@@ -3941,6 +3941,7 @@ export class GenerateFountsController {
   showLocations(dataPaginatedCreated) {
 
     let dataPaginatedCreatedLocations: any = [];
+    let dataPaginatedCreatedEnd: any = [];
 
     /* 
 
@@ -3960,51 +3961,61 @@ export class GenerateFountsController {
       let elementValueArray = Object.values(element);
       let indexLimit = elementKeyArray.indexOf("matrizPrincipalLigado");
 
-      let elementFormaed: any = {};
+      let elementFormaed: any = { wordlocation: [], Localizacion: [] };
 
       for (let j = 0; j < elementKeyArray.length; j++) {
+
 
         const elementKey = elementKeyArray[j];
         let elementValue: any = elementValueArray[j];
 
-        if (j <= indexLimit) {
-          elementFormaed[elementKey] = elementValue;
-        } else {
 
-          if (!elementValue.localization) {
-            continue;
-          }
-
-          console.log("elementKey", elementKey)
-          //alertas efectos ...
-          console.log("elementValue", elementValue)
-          //{localization: [{location: 1}, ...]}
+        if (elementValue.localization) {
+          //elementFormaed.Localizacion = [];
+          //elementFormaed.wordlocation = [];
 
           elementValue.localization = this.orderOject(elementValue.localization);
-          console.log("elementValue.localization", elementValue.localization);
           //{location: 1}, {location: 1}, {location: 1}
 
           let localizationsKeyArray = Object.keys(elementValue.localization);
           let localizationsValueArray = Object.values(elementValue.localization);
 
           for (let k = 0; k < localizationsValueArray.length; k++) {
+
             const localizationValue = localizationsValueArray[k];
             const localizationKey = localizationsKeyArray[k];
 
-            elementFormaed['Localizaciones'] = localizationKey;
-            elementFormaed[elementKey] = localizationValue;
-            dataPaginatedCreatedLocations.push(elementFormaed);
+            elementFormaed.Localizacion.push(localizationKey);
+            elementFormaed.wordlocation.push({ elementKey: elementKey, value: localizationValue, key: localizationKey });
           }
-
+        } else {
+          elementFormaed[elementKey] = elementValue;
         }
 
       }
 
+      dataPaginatedCreatedLocations.push(elementFormaed);
 
     }
-    console.log("dataPaginatedCreatedLocations", dataPaginatedCreatedLocations);
 
-    return dataPaginatedCreatedLocations
+    //imprimir aqui
+
+    /* for (let index = 0; index < dataPaginatedCreatedLocations.length; index++) {
+      let element = dataPaginatedCreatedLocations[index];
+
+      for (let m = 0; m < element.wordlocation.length; m++) {
+        const wordlocation = element.wordlocation[m];
+        element[wordlocation.elementKey] = wordlocation.value;
+        element.Localizacion = wordlocation.key;
+
+        dataPaginatedCreatedEnd.push(element);
+      }
+
+    } */
+
+    console.log("dataPaginatedCreatedEnd", dataPaginatedCreatedEnd);
+
+    return dataPaginatedCreatedLocations;
 
   }
 }
