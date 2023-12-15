@@ -3820,7 +3820,7 @@ export class GenerateFountsController {
       rowIndex++;
     });
 
-    wb.write('ExcelFile.xlsx', function (err, stats) {
+    /* wb.write('ExcelFile.xlsx', function (err, stats) {
       if (err) {
         console.error(err);
       } else {
@@ -3837,8 +3837,7 @@ export class GenerateFountsController {
       'Content-Disposition': 'attachment; filename="Matriz de consistencia Prensa Fenomeno del Niño.xlsx"',
     });
 
-    return new StreamableFile(buffer);
-
+    return new StreamableFile(buffer); */
 
     return { dataPaginatedCreated, diccionarios_principal, diccionarios_ligado };
   }
@@ -3961,7 +3960,7 @@ export class GenerateFountsController {
       let element = dataPaginatedCreated[index];
       let elementKeyArray = Object.keys(element);
       let elementValueArray = Object.values(element);
-      let indexLimit = elementKeyArray.indexOf("matrizPrincipalLigado") + 1;
+      let indexLimit = elementKeyArray.indexOf("matrizPrincipalLigado");
 
       let elementFormaed: any = {};
 
@@ -3970,11 +3969,12 @@ export class GenerateFountsController {
 
         const elementKey = elementKeyArray[j];
         let elementValue: any = elementValueArray[j];
-        let indexCurrent = dataPaginatedCreated.map(function (e) { return e[elementKey]; }).indexOf(elementFormaed[elementKey]);
+        let indexCurrent = elementKeyArray.map(function (e) { return e; }).indexOf(elementKey);
 
         //no mover o no saldra los demas valores del elemento del objeo general
         elementFormaed[elementKey] = elementValue;
-
+        console.log("indexCurrent", indexCurrent);
+        console.log("indexLimit", indexLimit);
 
         if (indexCurrent > indexLimit) {
 
@@ -4013,26 +4013,59 @@ export class GenerateFountsController {
     }
 
     //imprimir aqui
-    console.log("dataPaginatedCreatedLocations", dataPaginatedCreatedLocations);
+    //console.log("dataPaginatedCreatedLocations", dataPaginatedCreatedLocations);
 
-    for (let index = 0; index < dataPaginatedCreatedLocations.length; index++) {
-      let element = dataPaginatedCreatedLocations[index];
+    for (let p = 0; p < dataPaginatedCreatedLocations.length; p++) {
+      let elementP = dataPaginatedCreatedLocations[p];
+      //delete elementP.Lo
+      let elementModified:any = elementP;
 
-      let groupBylocation = this.helperService.groupBy(element.wordlocation, 'key');
+      /* for (let q = 0; q < elementP.wordlocation.length; q++) {
+        const wl = elementP.wordlocation[q];
+
+        elementP[wl.elementKey] = wl.value;
+        dataPaginatedCreatedEnd.push(elementP);
+      } */
+
+
+
+
+      let locations = [];
+
+      let groupBylocation = this.helperService.groupBy(elementP.wordlocation, 'key');
+
+
+      //console.log("groupBylocation", groupBylocation);
 
       let groupBylocationValue: any = Object.values(groupBylocation);
       let groupBylocationKey: any = Object.keys(groupBylocation);
 
-      for (let m = 0; m < groupBylocationValue.length; m++) {
-        const groupLocationValue: any = groupBylocationValue[m];
-        const groupLocationKey: any = groupBylocationKey[m];
-        console.log("groupLocationValue", groupLocationValue);
-        console.log("groupLocationKey", groupLocationKey);
-        element[groupLocationValue.elementKey] = groupLocationValue.value;
-        element.Localizacion = groupLocationKey;
+      //console.log("groupBylocationValue", groupBylocationValue);
+      //console.log("groupBylocationKey", groupBylocationKey);
 
-        dataPaginatedCreatedEnd.push(element);
+      for (let m = 0; m < groupBylocationKey.length; m++) {
+        const groupLocationKey: any = groupBylocationKey[m];
+        const groupLocationValue: any = groupBylocation[groupLocationKey];
+        //groupBylocationValue[0][m];
+
+        for (let n = 0; n < groupLocationValue.length; n++) {
+          const group = groupLocationValue[n];
+          elementModified[group.elementKey] = group.value;
+        }
+
+        //elementP.Localizacion = group.key;
+        elementModified.Localizacion = groupLocationKey;
+
+        console.log("groupLocationKey", groupLocationKey);
+
+        dataPaginatedCreatedEnd.push(elementModified);
+        locations.push(groupLocationKey);
+
       }
+      console.log("_____________________");
+
+      console.log("locations", locations);
+
 
     }
 
