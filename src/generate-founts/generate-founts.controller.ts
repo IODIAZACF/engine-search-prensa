@@ -28,6 +28,7 @@ import { join } from 'path';
 import { DownloadServiceService } from '../services/download-service/download-service.service'
 import express, { Request, Response } from "express";
 import * as htmlparser2 from "htmlparser2";
+import { HelperService } from '../services/helper/helper.service';
 
 @Controller('generate-founts')
 export class GenerateFountsController {
@@ -39,6 +40,7 @@ export class GenerateFountsController {
     private readonly httpService: HttpService,
     private readonly convertToExcelService: ConvertToExcelService,
     private readonly downloadService: DownloadServiceService,
+    private readonly helperService: HelperService,
 
   ) { }
 
@@ -3959,20 +3961,34 @@ export class GenerateFountsController {
       let element = dataPaginatedCreated[index];
       let elementKeyArray = Object.keys(element);
       let elementValueArray = Object.values(element);
-      let indexLimit = elementKeyArray.indexOf("matrizPrincipalLigado");
+      let indexLimit = elementKeyArray.indexOf("matrizPrincipalLigado") + 1;
 
-      let elementFormaed: any = { wordlocation: [], Localizacion: [] };
+      let elementFormaed: any = {};
 
       for (let j = 0; j < elementKeyArray.length; j++) {
 
 
         const elementKey = elementKeyArray[j];
         let elementValue: any = elementValueArray[j];
+        let indexCurrent = dataPaginatedCreated.map(function (e) { return e[elementKey]; }).indexOf(elementFormaed[elementKey]);
+
+        //no mover o no saldra los demas valores del elemento del objeo general
+        elementFormaed[elementKey] = elementValue;
 
 
-        if (elementValue.localization) {
-          //elementFormaed.Localizacion = [];
-          //elementFormaed.wordlocation = [];
+        if (indexCurrent > indexLimit) {
+
+          if (!elementFormaed?.Localizacion)
+            elementFormaed.Localizacion = [];
+          if (!elementFormaed?.wordlocation)
+            elementFormaed.wordlocation = [];
+
+          if (!elementValue?.localization) {
+            //elementValue.localization
+            elementFormaed.Localizacion.push('INDEFINIDO');
+            elementFormaed.wordlocation.push({ elementKey: elementKey, value: 0, key: 'INDEFINIDO' });
+            continue;
+          }
 
           elementValue.localization = this.orderOject(elementValue.localization);
           //{location: 1}, {location: 1}, {location: 1}
@@ -3988,8 +4004,6 @@ export class GenerateFountsController {
             elementFormaed.Localizacion.push(localizationKey);
             elementFormaed.wordlocation.push({ elementKey: elementKey, value: localizationValue, key: localizationKey });
           }
-        } else {
-          elementFormaed[elementKey] = elementValue;
         }
 
       }
@@ -3999,23 +4013,30 @@ export class GenerateFountsController {
     }
 
     //imprimir aqui
+    console.log("dataPaginatedCreatedLocations", dataPaginatedCreatedLocations);
 
-    /* for (let index = 0; index < dataPaginatedCreatedLocations.length; index++) {
+    for (let index = 0; index < dataPaginatedCreatedLocations.length; index++) {
       let element = dataPaginatedCreatedLocations[index];
 
-      for (let m = 0; m < element.wordlocation.length; m++) {
-        const wordlocation = element.wordlocation[m];
-        element[wordlocation.elementKey] = wordlocation.value;
-        element.Localizacion = wordlocation.key;
+      let groupBylocation = this.helperService.groupBy(element.wordlocation, 'key');
+
+      let groupBylocationValue: any = Object.values(groupBylocation);
+      let groupBylocationKey: any = Object.keys(groupBylocation);
+
+      for (let m = 0; m < groupBylocationValue.length; m++) {
+        const groupLocationValue: any = groupBylocationValue[m];
+        const groupLocationKey: any = groupBylocationKey[m];
+        console.log("groupLocationValue", groupLocationValue);
+        console.log("groupLocationKey", groupLocationKey);
+        element[groupLocationValue.elementKey] = groupLocationValue.value;
+        element.Localizacion = groupLocationKey;
 
         dataPaginatedCreatedEnd.push(element);
       }
 
-    } */
+    }
 
-    console.log("dataPaginatedCreatedEnd", dataPaginatedCreatedEnd);
-
-    return dataPaginatedCreatedLocations;
+    return dataPaginatedCreatedEnd;
 
   }
 }
