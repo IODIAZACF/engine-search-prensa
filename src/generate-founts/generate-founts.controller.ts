@@ -315,6 +315,8 @@ export class GenerateFountsController {
       diccionarios_ligado
     );
 
+    dataPaginatedCreated = this.showLocations(dataPaginatedCreated);
+
     if (!dataPaginatedCreated?.length || dataPaginatedCreated.length == 0) {
       return "Tal vez se acabaron los creditos";
     } /* 
@@ -469,7 +471,7 @@ export class GenerateFountsController {
 
     return locations; */
 
-    let dataPaginated = [
+    let dataPaginated:any = [
       {
         "Categoría": "Ctaegoria",
         "Subcategorias": "Fenomeno del niño",
@@ -3711,6 +3713,7 @@ export class GenerateFountsController {
       }
     ];
 
+    dataPaginated = dummy.dataPaginated;
     let diccionarios_principal = dummy.diccionarios_principal;
     let diccionarios_ligado = dummy.diccionarios_ligado;
 
@@ -3820,7 +3823,7 @@ export class GenerateFountsController {
       rowIndex++;
     });
 
-    /* wb.write('ExcelFile.xlsx', function (err, stats) {
+    wb.write('ExcelFile.xlsx', function (err, stats) {
       if (err) {
         console.error(err);
       } else {
@@ -3837,9 +3840,9 @@ export class GenerateFountsController {
       'Content-Disposition': 'attachment; filename="Matriz de consistencia Prensa Fenomeno del Niño.xlsx"',
     });
 
-    return new StreamableFile(buffer); */
+    return new StreamableFile(buffer);
 
-    return { dataPaginatedCreated, diccionarios_principal, diccionarios_ligado };
+    //return { dataPaginatedCreated, diccionarios_principal, diccionarios_ligado };
   }
 
   @Get('/templates/diccionario_de_datos.csv')
@@ -3944,18 +3947,6 @@ export class GenerateFountsController {
     let dataPaginatedCreatedLocations: any = [];
     let dataPaginatedCreatedEnd: any = [];
 
-    /* 
-
-    if (headingColumnIndex == 12) {
-      ws.cell(1, headingColumnIndex++)
-        .string("")
-    }
-
-    ws.cell(2, 12)
-    .string("Localizaciones"); 
-    
-    */
-
     for (let index = 0; index < dataPaginatedCreated.length; index++) {
       let element = dataPaginatedCreated[index];
       let elementKeyArray = Object.keys(element);
@@ -3966,22 +3957,22 @@ export class GenerateFountsController {
 
       for (let j = 0; j < elementKeyArray.length; j++) {
 
-
         const elementKey = elementKeyArray[j];
         let elementValue: any = elementValueArray[j];
         let indexCurrent = elementKeyArray.map(function (e) { return e; }).indexOf(elementKey);
 
         //no mover o no saldra los demas valores del elemento del objeo general
         elementFormaed[elementKey] = elementValue;
-        console.log("indexCurrent", indexCurrent);
-        console.log("indexLimit", indexLimit);
 
-        if (indexCurrent > indexLimit) {
+        if (indexCurrent == indexLimit) {
 
           if (!elementFormaed?.Localizacion)
             elementFormaed.Localizacion = [];
           if (!elementFormaed?.wordlocation)
             elementFormaed.wordlocation = [];
+        }
+
+        if (indexCurrent > indexLimit) {
 
           if (!elementValue?.localization) {
             //elementValue.localization
@@ -4013,59 +4004,37 @@ export class GenerateFountsController {
     }
 
     //imprimir aqui
-    //console.log("dataPaginatedCreatedLocations", dataPaginatedCreatedLocations);
 
     for (let p = 0; p < dataPaginatedCreatedLocations.length; p++) {
       let elementP = dataPaginatedCreatedLocations[p];
-      //delete elementP.Lo
-      let elementModified:any = elementP;
-
-      /* for (let q = 0; q < elementP.wordlocation.length; q++) {
-        const wl = elementP.wordlocation[q];
-
-        elementP[wl.elementKey] = wl.value;
-        dataPaginatedCreatedEnd.push(elementP);
-      } */
-
-
-
-
-      let locations = [];
+      let elementModified: any = {};
 
       let groupBylocation = this.helperService.groupBy(elementP.wordlocation, 'key');
-
-
-      //console.log("groupBylocation", groupBylocation);
+      console.log("groupBylocation", groupBylocation);
 
       let groupBylocationValue: any = Object.values(groupBylocation);
       let groupBylocationKey: any = Object.keys(groupBylocation);
 
-      //console.log("groupBylocationValue", groupBylocationValue);
-      //console.log("groupBylocationKey", groupBylocationKey);
+      delete elementP.wordlocation
 
       for (let m = 0; m < groupBylocationKey.length; m++) {
+        elementModified = { ...elementP };
+
         const groupLocationKey: any = groupBylocationKey[m];
-        const groupLocationValue: any = groupBylocation[groupLocationKey];
-        //groupBylocationValue[0][m];
+        //const groupLocationValue: any = groupBylocation[groupLocationKey];
+        const groupLocationValue: any = groupBylocationValue[m];
 
         for (let n = 0; n < groupLocationValue.length; n++) {
           const group = groupLocationValue[n];
-          elementModified[group.elementKey] = group.value;
+          console.log("group", group);
+          elementModified[group.elementKey] = group.value ? group.value : 0;
+          elementModified.Localizacion = group.key;
         }
-
-        //elementP.Localizacion = group.key;
-        elementModified.Localizacion = groupLocationKey;
-
-        console.log("groupLocationKey", groupLocationKey);
+        //elementModified.Localizacion = groupLocationKey;
 
         dataPaginatedCreatedEnd.push(elementModified);
-        locations.push(groupLocationKey);
 
       }
-      console.log("_____________________");
-
-      console.log("locations", locations);
-
 
     }
 
