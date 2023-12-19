@@ -459,19 +459,7 @@ export class GenerateFountsController {
     @UploadedFile() file: Express.Multer.File,
   ) /* : Promise<any> */ {
 
-    let htmlString = ` `;
-
-    //let outerHTML = await this.getTextFromHtml(htmlString);
-
-    //return outerHTML;
-
-    /* let locations: any = await this.getContentWeb(url_provider_locationscolombia, {}, null);
-
-    console.log("locations", locations.data.length);
-
-    return locations; */
-
-    let dataPaginated:any = [
+    let dataPaginated: any = [
       {
         "Categoría": "Ctaegoria",
         "Subcategorias": "Fenomeno del niño",
@@ -3732,28 +3720,72 @@ export class GenerateFountsController {
     const wb = new xl.Workbook();
     const ws = wb.addWorksheet('Matriz');
 
-    const headingColumnNames: any = Object.keys(dataPaginatedCreated[0])
+    const headingColumnNames: any = Object.keys(dataPaginatedCreated[0]);
 
     let headingColumnIndex = 1;
+
+    const bgStyleHeader1 = wb.createStyle({
+      fill: {
+        type: 'pattern',
+        patternType: 'solid',
+        bgColor: '#002060',
+        fgColor: '#FFFFFF',
+      },
+      border: { 
+        left: {
+            style: "medium", 
+            //§18.18.3 ST_BorderStyle (Border Line Styles) 
+            //['none', 'thin', 'medium', 'dashed', 'dotted', 'thick', 'double', 'hair', 
+            //'mediumDashed', 'dashDot', 'mediumDashDot', 'dashDotDot', 'mediumDashDotDot', 'slantDashDot']
+            color: "#000000" // HTML style hex value
+        },
+        right: {
+            style: "medium",
+            color: "#000000"
+        },
+        top: {
+            style: "medium",
+            color: "#000000"
+        },
+        bottom: {
+            style: "medium",
+            color: "#000000"
+        }
+    },
+    });
+
+    const bgStyleHeader2 = wb.createStyle({
+      fill: {
+        type: 'pattern',
+        patternType: 'solid',
+        bgColor: '#375623',
+        fgColor: '#FFFFFF',
+      }
+    });
+
+    ws.cell(1, headingColumnIndex)
+      .style(bgStyleHeader1);
+    ws.cell(1, headingColumnIndex)
+      .string("Matriz Fuentes Secundarias");
+
+    //falta revisar para que pueda fijar las header
+    /* 
+    ws.column(2).freeze(4); // Freezes the first two columns and scrolls the right view to column D
+    ws.row(4).freeze(); // Freezes the top four rows 
+    */
+
     headingColumnNames.forEach(heading => {
 
-      //set header localization espacio blanco
-      /* if (headingColumnIndex == 12) {
-        ws.cell(1, headingColumnIndex++)
-          .string("")
-      } */
-
-      ws.cell(1, headingColumnIndex++)
+      ws.cell(2, headingColumnIndex++)
         .string(heading)
+      ws.cell(2, headingColumnIndex++)
+        .style(bgStyleHeader2);
+
 
     });
 
-    //set header localization
-    /* ws.cell(2, 12)
-      .string("Localizaciones");
- */
-    let rowIndex = 2;
-    let oldRowIndex = [];
+    let rowIndex = 3;
+
     dataPaginatedCreated.forEach(record => {
       let columnIndex = 1;
 
@@ -3822,6 +3854,9 @@ export class GenerateFountsController {
 
       rowIndex++;
     });
+
+    //falta terminar ojo importante para set area de impresion
+    //ws.setPrintArea(startRow, startCol, endRow, endCol)
 
     wb.write('ExcelFile.xlsx', function (err, stats) {
       if (err) {
