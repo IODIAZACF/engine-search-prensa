@@ -5,9 +5,10 @@ import { GenerateFountsModule } from './generate-founts/generate-founts.module';
 import { ContentExtractService } from './services/content-extract/content-extract.service';
 import { ConvertToExcelService } from './services/convert-to-excel/convert-to-excel.service';
 import { DownloadServiceService } from './services/download-service/download-service.service';
+import { GenerateFountsLiteModule } from './generate-founts-lite/generate-founts-lite.module';
 
 @Module({
-  imports: [GenerateFountsModule],
+  imports: [GenerateFountsModule, GenerateFountsLiteModule],
   controllers: [AppController],
   providers: [AppService, ContentExtractService, ConvertToExcelService, DownloadServiceService]
 })
