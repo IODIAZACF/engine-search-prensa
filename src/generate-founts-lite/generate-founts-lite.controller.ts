@@ -53,6 +53,10 @@ export class GenerateFountsLiteController {
         @Res({ passthrough: true }) res: Response
     ): Promise<StreamableFile | string> {
 
+        console.log("createGenerateFountDto", createGenerateFountDto, createGenerateFountDto['scraping']);
+
+        return
+
         function groupChildren(obj) {
             for (const prop in obj) { // consider filtering for own properties (vs from prototype: for(prop of Object.keys(obj)) {
                 if (typeof obj[prop] === 'object') {
