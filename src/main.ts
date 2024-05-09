@@ -9,6 +9,6 @@ async function bootstrap() {
       //logger: false,
     }
   );
-  await app.listen(3000);
+  await app.listen(3001);
 }
 bootstrap();

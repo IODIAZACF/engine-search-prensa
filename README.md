@@ -143,3 +143,8 @@ systemctl restart apache2
 
 
 LOCALIZACION DE ALGUNAS COOSAS
+
+## como ver que puerto esta usando el 80 
+
+netstat -tulpn | grep :80
+
