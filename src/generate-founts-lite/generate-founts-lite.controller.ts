@@ -55,7 +55,7 @@ export class GenerateFountsLiteController {
 
         console.log("createGenerateFountDto", createGenerateFountDto, createGenerateFountDto['scraping']);
 
-        return
+        return;
 
         function groupChildren(obj) {
             for (const prop in obj) { // consider filtering for own properties (vs from prototype: for(prop of Object.keys(obj)) {
