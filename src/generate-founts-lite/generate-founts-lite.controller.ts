@@ -53,9 +53,8 @@ export class GenerateFountsLiteController {
         @Res({ passthrough: true }) res: Response
     ): Promise<StreamableFile | string> {
 
-        console.log("createGenerateFountDto", createGenerateFountDto, createGenerateFountDto['scraping']);
+        //console.log("createGenerateFountDto", createGenerateFountDto, createGenerateFountDto['scraping']);
 
-        return;
 
         function groupChildren(obj) {
             for (const prop in obj) { // consider filtering for own properties (vs from prototype: for(prop of Object.keys(obj)) {
@@ -283,7 +282,7 @@ export class GenerateFountsLiteController {
         //procesar los datos para que podamos mostrar mas contenido extrayendo todo el texto de la web
         // Web Scraping
         //deshabilito el scraping
-        if (createGenerateFountDto['scraping'] == true)
+        if (createGenerateFountDto['scraping'] == 'on')
             for (let index2 = 0; index2 < dataPaginated.length; index2++) {
 
 

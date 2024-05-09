@@ -116,7 +116,13 @@ contraseña: v24250144
 
 ## for deploy production
 
+matar el proceso de node
+
+pkill -f node
+
 npm run build
+
+ nohup node  dist/main.js
 
 node dist/main.js &
 
@@ -127,4 +133,13 @@ http://ach.dyndns.info:7777/
 cd /etc/apache2/sites-available
 
 sudo nano 000-default.conf
+sudo nano /etc/apache2/sites-available/000-default.conf
 
+
+# se edito Timeout a 6000 en ves httpd.conf se edito v
+nano /etc/apache2/apache2.conf
+
+systemctl restart apache2
+
+
+LOCALIZACION DE ALGUNAS COOSAS
