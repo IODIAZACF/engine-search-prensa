@@ -112,3 +112,19 @@ https://datos.gov.co/verify_email?unverified_email=iodiazbard@gmail.com
 correo: iodiazbard@gmail.com
 
 contraseña: v24250144
+
+
+## for deploy production
+
+npm run build
+
+node dist/main.js &
+
+http://ach.dyndns.info:7777/
+
+## and config 
+
+cd /etc/apache2/sites-available
+
+sudo nano 000-default.conf
+

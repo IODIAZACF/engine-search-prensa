@@ -279,7 +279,7 @@ export class GenerateFountsLiteController {
         //procesar los datos para que podamos mostrar mas contenido extrayendo todo el texto de la web
         // Web Scraping
         //deshabilito el scraping
-        if (false)
+        if (createGenerateFountDto['scraping'] == true)
             for (let index2 = 0; index2 < dataPaginated.length; index2++) {
 
 
