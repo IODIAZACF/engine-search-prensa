@@ -471,9 +471,11 @@ export class GenerateFountsLiteController {
 
         let buffer = await wb.writeToBuffer('ExcelFile.xlsx');
 
+        let timeDate = new Date().toLocaleString(); 
+
         res.set({
             'Content-Type': 'application/excel',
-            'Content-Disposition': 'attachment; filename="Matriz de Prensa.xlsx"',
+            'Content-Disposition': 'attachment; filename="Matriz de Prensa_'+timeDate+'.xlsx"',
         });
 
         return new StreamableFile(buffer);
