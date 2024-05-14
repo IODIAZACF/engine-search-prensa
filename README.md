@@ -67,6 +67,12 @@ https://console.cloud.google.com/apis/library/customsearch.googleapis.com?hl=ES&
 # duracion de la solictud de prensa mas de una hroa con diccionario de datos_
 
 
+## para comandos nest js
+
+$ 
+nest generate --help
+
+
 ## Metas
 
 # Do

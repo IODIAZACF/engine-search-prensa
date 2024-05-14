@@ -282,7 +282,7 @@ export class GenerateFountsLiteController {
         //procesar los datos para que podamos mostrar mas contenido extrayendo todo el texto de la web
         // Web Scraping
         //deshabilito el scraping
-        if (createGenerateFountDto['scraping'] == 'on')
+        /* if (createGenerateFountDto['scraping'] == 'on')
             for (let index2 = 0; index2 < dataPaginated.length; index2++) {
 
 
@@ -327,7 +327,7 @@ export class GenerateFountsLiteController {
 
                 }
 
-            }
+            } */
 
         //luego validar el content contenga el json y definir
         /* let dataPaginatedCreated: any = await this.generateFountsService.createElementsMath(
