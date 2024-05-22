@@ -355,11 +355,11 @@ export class GenerateFountsLiteController {
                 let columnArrayValues = Object.values(element2);
                 let columnArrayKeys = Object.keys(element2);
                 
-                row.searchs = element2;
+                //row.searchs = element2;
 
                 for (let zzz = 0; zzz < columnArrayKeys.length; zzz++) {
                     var keyItem = columnArrayKeys[zzz];
-                    var valueItem = element2[keyItem];
+                    var valueItem = columnArrayValues[zzz];
 
                     console.log("valueItem", valueItem)
                     

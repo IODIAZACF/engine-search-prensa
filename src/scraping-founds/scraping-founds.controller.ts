@@ -8,9 +8,9 @@ import {
     Delete,
     UseInterceptors,
     UploadedFile,
-    Logger, 
-    Injectable, 
-    StreamableFile, 
+    Logger,
+    Injectable,
+    StreamableFile,
     Res
 } from '@nestjs/common';
 import express, { Express, Request, Response } from "express";
@@ -49,7 +49,7 @@ export class ScrapingFoundsController {
         @UploadedFile() file: Express.Multer.File,
     ) /* : Promise<any> */ {
 
-        
+
         function groupChildren(obj) {
             for (const prop in obj) { // consider filtering for own properties (vs from prototype: for(prop of Object.keys(obj)) {
                 if (typeof obj[prop] === 'object') {
@@ -100,17 +100,19 @@ export class ScrapingFoundsController {
         }
 
         let dataPaginated = json;
-        let contentsAux = [];
+        let contentsAux = dataPaginated;
 
-        for (let index2 = 0; index2 < dataPaginated.length; index2++) {
+        const dataPaginatedContent = await Promise.all(
+            dataPaginated.map(async (page) => {
 
+                //for (let j = 0; j < page.searchs.length; j++) {
+                //console.log("pregress scraping", (contentsAux.length > 0 ? index2 / contentsAux.length : 1) * 100)
 
-            const page = dataPaginated[index2];
-
-            for (let j = 0; j < page.searchs.length; j++) {
-                console.log("pregress scraping", (dataPaginated.length > 0 ? index2 / dataPaginated.length : 1) * 100)
-
-                const element = page.searchs[j];
+                const element = {
+                    link: page['searchs.link'],
+                    snippet: page['searchs.snippet'],
+                };//.searchs[j];
+                console.log("element", element.link)
 
                 //validar si esta contenido ya fue cosultado
                 let indexContentsAux = contentsAux.findIndex(el => el.link == element.link);
@@ -118,7 +120,7 @@ export class ScrapingFoundsController {
                 if (indexContentsAux !== -1) {
                     let contentCurrent = contentsAux[indexContentsAux];
 
-                    dataPaginated[index2].searchs[j].content = contentCurrent.content;
+                    page['searchs.content'] = contentCurrent.content;
 
                 } else {
 
@@ -128,7 +130,7 @@ export class ScrapingFoundsController {
 
                     let content: string | any = "";
 
-                    if (typeof data == "string") {
+                    if (typeof data == "string" &&  data !== "undefined" ) {
                         content = await this.getTextFromHtml(data);
                         //mejorar el string quitando muchos espacio al princiapio y al final
                         content = content.trim();
@@ -139,18 +141,26 @@ export class ScrapingFoundsController {
                         content = "FALLO AL OBTENER CONTENIDO";
                     }
 
-                    dataPaginated[index2].searchs[j].content = content;
-                    contentsAux.push({ content, link: element.link })
+                    page['searchs.content'] = content;
+                    //contentsAux.push({ content, link: element.link })
 
                 }
+                //console.log("content", page['searchs.content'])
 
-            }
+                return page;
 
-        }
+            })
+        );
+
+        return { dataPaginatedContent };
 
         if (!dataPaginated?.length || dataPaginated.length == 0) {
             return "fallo el proceso de scraping";
         }
+
+        console.log("dataPaginated", dataPaginated)
+
+        return;
         //crear el axcel
         var xl = require('excel4node');
 
@@ -194,15 +204,15 @@ export class ScrapingFoundsController {
                         let columnArrayKeys = Object.keys(record[columnName]);
 
                         if (columnArrayValues.length === 0) {
-                                
+
                             var builder = new xml2js.Builder();
 
                             var lengthObject = JSON.stringify(record[columnName]);
 
                             var xml = builder.buildObject(groupChildren(record[columnName]));
-                            if(lengthObject.length <= 1000){
+                            if (lengthObject.length <= 1000) {
                                 ws.cell(rowIndex, columnIndex++)
-                                .addToXMLele(xml)//JSON.stringify(record[columnName])
+                                    .addToXMLele(xml)//JSON.stringify(record[columnName])
                             }
                             break;
                         }
@@ -216,7 +226,7 @@ export class ScrapingFoundsController {
 
                         /* for (let index = 0; index < columnArrayValues.length; index++) {
                             const element = columnArrayValues[index];
-
+        
                             ws.cell(rowIndex, columnIndex++)
                                 .string(JSON.stringify(record[columnName]))
                         } */
@@ -247,11 +257,11 @@ export class ScrapingFoundsController {
 
         let buffer = await wb.writeToBuffer('ExcelFile.xlsx');
 
-        let timeDate = new Date().toLocaleString(); 
+        let timeDate = new Date().toLocaleString();
 
         res.set({
             'Content-Type': 'application/excel',
-            'Content-Disposition': 'attachment; filename="Matriz de Prensa Scrapined_'+timeDate+'.xlsx"',
+            'Content-Disposition': 'attachment; filename="Matriz de Prensa Scrapined_' + timeDate + '.xlsx"',
         });
 
         return new StreamableFile(buffer);
